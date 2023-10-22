@@ -30,7 +30,12 @@ export default [
       commonjs(),
       terser(),
     ],
-    external: ["react", "react-dom", "styled-components"],
+    external: [
+      "react",
+      "react-dom",
+      "react-error-boundary",
+      "styled-components",
+    ],
   },
   {
     input: "dist/cjs/types/index.d.ts", // collect all *.d.ts and export to root

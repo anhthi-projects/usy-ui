@@ -20,7 +20,8 @@
     "plugin:jsx-a11y/recommended",
     "prettier",
     "plugin:prettier/recommended",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    "plugin:storybook/recommended"
   ],
   "env": {
     "node": true,
