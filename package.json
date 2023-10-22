@@ -14,7 +14,7 @@
     "lint": "eslint src --ext .ts,.tsx,.js --fix",
     "format": "prettier src/**/*.{ts,tsx,js,json} --write",
     "build": "rollup -c --bundleConfigAsCjs",
-    "test": "jest --coverage"
+    "test": "jest --coverage --runInBand"
   },
   "repository": {
     "type": "git",
