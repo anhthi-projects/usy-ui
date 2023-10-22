@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+
 import { StyledButton } from "./Button.styled";
 
 interface ButtonProps {
