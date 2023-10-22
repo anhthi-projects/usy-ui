@@ -66,7 +66,7 @@ export enum Space {
 }
 
 /*
- * Space
+ * zIndex
  */
 
 export enum zIndex {

@@ -46,7 +46,7 @@ Create the `tsconfig.json` and `rollup.config.js` with contents
 # 4. Setup Storybook
 
 ```
-  npx sb init
+  npx storybook@latest init
 ```
 
 # 5. Setup Eslint
