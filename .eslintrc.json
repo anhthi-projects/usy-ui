@@ -20,7 +20,8 @@
     "plugin:jsx-a11y/recommended",
     "prettier",
     "plugin:prettier/recommended",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    "plugin:storybook/recommended"
   ],
   "env": {
     "node": true,
@@ -53,7 +54,9 @@
           }
         ],
         "newlines-between": "always",
-        "pathGroupsExcludedImportTypes": ["react"],
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ],
         "alphabetize": {
           "order": "asc",
           "caseInsensitive": true
@@ -63,7 +66,11 @@
   },
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx", ".js"]
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx",
+        ".js"
+      ]
     },
     "import/resolver": {
       "typescript": {

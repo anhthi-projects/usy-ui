@@ -15,6 +15,8 @@
     "format": "prettier src/**/*.{ts,tsx,js,json} --write",
     "test": "jest --runInBand",
     "test:cov": "jest --coverage --runInBand",
+    "storybook": "storybook dev -p 6006 --debug-webpack",
+    "build-storybook": "storybook build",
     "build": "rollup -c --bundleConfigAsCjs"
   },
   "repository": {
@@ -32,10 +34,21 @@
   },
   "homepage": "https://github.com/anhthi-projects/usy-ui#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.23.2",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
+    "@storybook/addon-essentials": "^7.5.1",
+    "@storybook/addon-interactions": "^7.5.1",
+    "@storybook/addon-links": "^7.5.1",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.5.1",
+    "@storybook/react": "^7.5.1",
+    "@storybook/react-webpack5": "^7.5.1",
+    "@storybook/testing-library": "^0.2.2",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
@@ -54,11 +67,13 @@
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.15",
     "husky": "^8.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.0.2",
     "prettier": "^3.0.3",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.11",
@@ -66,6 +81,7 @@
     "rollup": "^4.1.4",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "storybook": "^7.5.1",
     "styled-components": "^6.1.0",
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2",
@@ -83,3 +99,4 @@
     ]
   }
 }
+

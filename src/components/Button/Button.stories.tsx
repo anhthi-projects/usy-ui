@@ -9,7 +9,6 @@ const meta: Meta<typeof Button> = {
 };
 
 export const Primary: Story = {
-  name: "I am the primary",
   render: () => <Button text="Button" />,
 };
 
