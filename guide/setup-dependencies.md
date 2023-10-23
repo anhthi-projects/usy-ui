@@ -23,7 +23,7 @@ Install Styled-components
 Install Rollup
 
 ```
-  npm i -D rollup rollup-plugin-dts rollup-plugin-peer-deps-external @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-terser @rollup/plugin-typescript
+  npm i -D rollup rollup-plugin-dts rollup-plugin-peer-deps-external @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-terser @rollup/plugin-typescript @rollup/plugin-alias
 ```
 
 - `@rollup/plugin-commonjs`: Bundling to CommonJS format
@@ -47,6 +47,7 @@ Create the `tsconfig.json` and `rollup.config.js` with contents
 
 ```
   npx storybook@latest init
+  npm i tsconfig-paths-webpack-plugin @babel/preset-typescript -D
 ```
 
 # 5. Setup Eslint

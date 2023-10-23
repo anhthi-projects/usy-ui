@@ -1,8 +1,9 @@
-import resolve from "@rollup/plugin-node-resolve";
+import alias from "@rollup/plugin-alias";
 import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
+import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
-import terser from "@rollup/plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
 const packageJson = require("./package.json");
@@ -24,7 +25,12 @@ export default [
       },
     ],
     plugins: [
-      typescript(),
+      alias({
+        entries: [{ find: /^src\/(.*)/, replacement: "/src/$1" }],
+      }),
+      typescript({
+        tsconfig: "./tsconfig.json",
+      }),
       peerDepsExternal(),
       resolve(),
       commonjs(),
