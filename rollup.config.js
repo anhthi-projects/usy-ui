@@ -1,3 +1,5 @@
+import path from "path";
+
 import alias from "@rollup/plugin-alias";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
@@ -26,7 +28,9 @@ export default [
     ],
     plugins: [
       alias({
-        entries: [{ find: /^src\/(.*)/, replacement: "/src/$1" }],
+        entries: [
+          { find: "@src", replacement: path.resolve(__dirname, "src") },
+        ],
       }),
       typescript({
         tsconfig: "./tsconfig.json",
