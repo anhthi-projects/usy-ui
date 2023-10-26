@@ -6,10 +6,19 @@ import Button from "./Button";
 
 const meta: Meta<typeof Button> = {
   component: Button,
+  argTypes: {
+    type: {
+      options: ["primary", "normal"],
+      control: { type: "radio" },
+    },
+    isLoading: {
+      control: "boolean",
+    },
+  },
 };
 
 export const Primary: Story = {
-  render: () => <Button text="Button" />,
+  render: (props) => <Button {...props} text="Click me" />,
 };
 
 export default meta;

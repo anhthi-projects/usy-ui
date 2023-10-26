@@ -1,20 +1,10 @@
 import { FC, ReactNode, memo } from "react";
 
-import { ReactSVG } from "react-svg";
-
-import circleLoading from "src/assets/icons/circle-loading.svg";
-
 import { StyledButton } from "./Button.styled";
 
-enum ButtonTypes {
-  Primary = "primary",
-  Inactive = "inactive",
-  Disabled = "disabled",
-}
-
-interface ButtonProps {
+export interface ButtonProps {
   text: string | ReactNode;
-  type?: ButtonTypes;
+  type: "primary" | "normal";
   className?: string;
   testId?: string;
   onClick?: () => void;
@@ -22,6 +12,7 @@ interface ButtonProps {
 }
 
 const Button: FC<ButtonProps> = ({
+  type,
   text,
   className,
   testId,
@@ -30,14 +21,19 @@ const Button: FC<ButtonProps> = ({
 }) => {
   const renderContent = () => {
     if (isLoading) {
-      return <ReactSVG src={circleLoading} />;
+      return "loading...";
     }
 
     return text;
   };
 
   return (
-    <StyledButton onClick={onClick} className={className} data-testid={testId}>
+    <StyledButton
+      type={type}
+      onClick={onClick}
+      className={className}
+      data-testid={testId}
+    >
       {renderContent()}
     </StyledButton>
   );

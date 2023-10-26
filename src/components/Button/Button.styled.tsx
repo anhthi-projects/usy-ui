@@ -1,10 +1,24 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-import { Space } from "src/styles";
+import { Color, Space } from "src/styles";
 
-export const StyledButton = styled.button`
+const primaryButton = css`
+  background-color: ${Color.Primary};
+  color: ${Color.White};
+`;
+
+const normalButton = css`
+  background-color: ${Color.Light1};
+  border: 1px solid ${Color.Light2};
+  color: ${Color.Light9};
+`;
+
+export const StyledButton = styled.button<{ type: string }>`
   border: none;
-  background-color: #c91f37;
   border-radius: 4px;
   padding: ${Space.px12} ${Space.px16};
+  cursor: pointer;
+
+  ${({ type }) => type === "primary" && primaryButton}
+  ${({ type }) => type === "normal" && normalButton}
 `;
