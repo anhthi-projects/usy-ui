@@ -2,13 +2,15 @@
   "name": "@anhthi-projects/usy-ui",
   "version": "1.0.3",
   "description": "",
-  "main": "index.js",
   "cjs": {
     "outputFile": "dist/cjs/index.js"
   },
   "esm": {
     "outputFile": "dist/esm/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepare": "husky install",
     "lint": "eslint src --ext .ts,.tsx,.js --fix",
