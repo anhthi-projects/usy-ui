@@ -11,6 +11,7 @@
   "files": [
     "dist"
   ],
+  "types": "dist/index.d.ts",
   "scripts": {
     "prepare": "husky install",
     "lint": "eslint src --ext .ts,.tsx,.js --fix",

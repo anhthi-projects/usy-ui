@@ -36,14 +36,21 @@ Update `package.json`
   password: auth token
 ```
 
-# 4. Publish the package
+# 4. Generate build workflow
+
+- Go to Github -> Action -> `Publish Node.js Package to GitHub Packages` to generate and commit the workflow
+- Make sure the `files` and `types` prop is available on the `package.json`
+
+```
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+```
+
+# 5. Publish the package
 
 ```
   npm publish
-```
-
-# 5. Update version
-
-```
   npm version patch|minor|major
 ```
