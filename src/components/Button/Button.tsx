@@ -34,17 +34,19 @@ const Button: FC<ButtonProps> = ({
   };
 
   return (
-    <StyledButton
-      type={type}
-      onClick={onClick}
-      className={className}
-      data-testid={testId}
-    >
-      {renderContent()}
+    <>
+      <StyledButton
+        type={type}
+        onClick={onClick}
+        className={className}
+        data-testid={testId}
+      >
+        {renderContent()}
+      </StyledButton>
       <ReactSVG src={circleLoading} />
       <ReactSVG src="../../assets/icons/circle-loading.svg" />
       <CircleLoading />
-    </StyledButton>
+    </>
   );
 };
 
