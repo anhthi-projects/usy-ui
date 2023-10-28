@@ -1,10 +1,16 @@
 import { FC, ReactNode, memo } from "react";
 
+import { ReactSVG } from "react-svg";
+
+import circleLoading, {
+  ReactComponent as CircleLoading,
+} from "../../assets/icons/circle-loading.svg";
+
 import { StyledButton } from "./Button.styled";
 
 export interface ButtonProps {
-  text: string | ReactNode;
-  type: "primary" | "normal";
+  children: ReactNode;
+  type?: "primary" | "normal";
   className?: string;
   testId?: string;
   onClick?: () => void;
@@ -12,8 +18,8 @@ export interface ButtonProps {
 }
 
 const Button: FC<ButtonProps> = ({
-  type,
-  text,
+  type = "normal",
+  children,
   className,
   testId,
   onClick,
@@ -24,7 +30,7 @@ const Button: FC<ButtonProps> = ({
       return "loading...";
     }
 
-    return text;
+    return children;
   };
 
   return (
@@ -35,6 +41,9 @@ const Button: FC<ButtonProps> = ({
       data-testid={testId}
     >
       {renderContent()}
+      <ReactSVG src={circleLoading} />
+      <ReactSVG src="../../assets/icons/circle-loading.svg" />
+      <CircleLoading />
     </StyledButton>
   );
 };

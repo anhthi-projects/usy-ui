@@ -1,6 +1,3 @@
-const path = require("path");
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
-
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -18,12 +15,17 @@ const config = {
     autodocs: "tag",
   },
   webpackFinal: async (config) => {
-    config.resolve.plugins = [
-      ...(config.resolve.plugins || []),
-      new TsconfigPathsPlugin({
-        configFile: path.resolve(__dirname, "../tsconfig.json"),
-      }),
-    ];
+    const fileLoaderRule = config.module.rules.find(
+      (rule) => rule.test && rule.test.test(".svg")
+    );
+    fileLoaderRule.exclude = /\.svg$/;
+
+    config.module.rules.push({
+      test: /\.svg$/,
+      enforce: "pre",
+      loader: require.resolve("@svgr/webpack"),
+    });
+
     return config;
   },
 };

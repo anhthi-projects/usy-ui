@@ -18,7 +18,11 @@ const meta: Meta<typeof Button> = {
 };
 
 export const Primary: Story = {
-  render: (props) => <Button {...props} text="Click me" />,
+  render: (props) => (
+    <Button {...props} isLoading>
+      Click me
+    </Button>
+  ),
 };
 
 export default meta;
