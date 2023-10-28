@@ -3,9 +3,7 @@ import { FC, ReactNode, memo } from "react";
 import SVG from "react-inlinesvg";
 import { ReactSVG } from "react-svg";
 
-import circleLoading, {
-  ReactComponent as CircleLoading,
-} from "../../assets/icons/circle-loading.svg";
+import circleLoading from "../../assets/icons/circle-loading.svg";
 
 import { StyledButton } from "./Button.styled";
 
@@ -49,7 +47,6 @@ const Button: FC<ButtonProps> = ({
         <SVG width={128} src="../../assets/icons/circle-loading.svg" />
         <ReactSVG width={128} src={circleLoading} />
         <ReactSVG width={128} src="../../assets/icons/circle-loading.svg" />
-        <CircleLoading />
       </div>
     </>
   );
