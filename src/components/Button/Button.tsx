@@ -9,6 +9,8 @@ import circleLoading, {
 
 import { StyledButton } from "./Button.styled";
 
+const CircleLoadingV2 = circleLoading;
+
 export interface ButtonProps {
   children: ReactNode;
   type?: "primary" | "normal";
@@ -50,6 +52,7 @@ const Button: FC<ButtonProps> = ({
         <ReactSVG width={128} src={circleLoading} />
         <ReactSVG width={128} src="../../assets/icons/circle-loading.svg" />
         <CircleLoading />
+        <CircleLoadingV2 />
       </div>
     </>
   );
