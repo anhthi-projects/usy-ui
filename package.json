@@ -16,7 +16,7 @@
     "test:cov": "jest --coverage --runInBand",
     "storybook": "storybook dev -p 6006 --debug-webpack",
     "build-storybook": "storybook build",
-    "build": "rollup -c --bundleConfigAsCjs"
+    "build": "rm -rf dist && rollup -c --bundleConfigAsCjs"
   },
   "repository": {
     "type": "git",
@@ -32,10 +32,6 @@
     "url": "https://github.com/anhthi-projects/usy-ui/issues"
   },
   "homepage": "https://github.com/anhthi-projects/usy-ui#readme",
-  "dependencies": {
-    "react-inlinesvg": "^4.1.0",
-    "react-svg": "^16.1.29"
-  },
   "devDependencies": {
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
@@ -85,6 +81,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.11",
+    "react-inlinesvg": "^4.1.0",
+    "react-svg": "^16.1.29",
     "rollup": "^4.1.4",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
