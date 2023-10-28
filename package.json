@@ -23,7 +23,7 @@
     "url": "git+https://github.com/anhthi-projects/usy-ui.git"
   },
   "publishConfig": {
-    "anhthi-projects:registry": "https://npm.pkg.github.com"
+    "@anhthi-projects:registry": "https://npm.pkg.github.com"
   },
   "keywords": [],
   "author": "",
