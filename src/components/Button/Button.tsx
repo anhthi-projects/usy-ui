@@ -1,11 +1,5 @@
 import { FC, ReactNode, memo } from "react";
 
-import { ReactSVG } from "react-svg";
-
-import circleLoading, {
-  ReactComponent as CircleLoading,
-} from "../../assets/icons/circle-loading.svg";
-
 import { StyledButton } from "./Button.styled";
 
 export interface ButtonProps {
@@ -34,20 +28,14 @@ const Button: FC<ButtonProps> = ({
   };
 
   return (
-    <>
-      <StyledButton
-        type={type}
-        onClick={onClick}
-        className={className}
-        data-testid={testId}
-      >
-        {renderContent()}
-      </StyledButton>
-      <div>
-        <ReactSVG width={128} src={circleLoading} />
-        <CircleLoading />
-      </div>
-    </>
+    <StyledButton
+      type={type}
+      onClick={onClick}
+      className={className}
+      data-testid={testId}
+    >
+      {renderContent()}
+    </StyledButton>
   );
 };
 

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { Color, Space } from "../../styles";
+import { Color, Space } from "@src/styles";
 
 const primaryButton = css`
   background-color: ${Color.Primary};
