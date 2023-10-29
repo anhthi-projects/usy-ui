@@ -4,7 +4,7 @@ interface SVGRProps {
   title?: string;
   titleId?: string;
 }
-const SvgCircleLoading = ({
+const SvgLoadingCircle = ({
   title,
   titleId,
   ...props
@@ -35,4 +35,4 @@ const SvgCircleLoading = ({
     </path>
   </svg>
 );
-export default SvgCircleLoading;
+export default SvgLoadingCircle;

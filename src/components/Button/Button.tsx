@@ -1,4 +1,4 @@
-import { FC, ReactNode, memo } from "react";
+import { FC, ReactNode } from "react";
 
 import {
   StyledButton,
@@ -6,16 +6,18 @@ import {
   StyledLoadingIcon,
 } from "./Button.styled";
 
+export type ButtonType = "primary" | "normal";
+
 export interface ButtonProps {
   children: ReactNode;
-  type?: "primary" | "normal";
+  type?: ButtonType;
   className?: string;
   testId?: string;
   onClick?: () => void;
   isLoading?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   type = "normal",
   children,
   className,
@@ -37,5 +39,3 @@ const Button: FC<ButtonProps> = ({
     </StyledButton>
   );
 };
-
-export default memo(Button);

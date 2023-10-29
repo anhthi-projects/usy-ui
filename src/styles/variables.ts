@@ -6,6 +6,7 @@ export enum Color {
   Primary = "#16a085",
   PrimaryDarker = "#13816B",
   White = "#ffffff",
+  Black = "#0000",
   Blue = "#0773e8",
   Red = "#c91f37",
 
@@ -30,7 +31,7 @@ export enum Color {
 
 export enum FontSize {
   Base = "16px",
-  Xs = "0.70rem",
+  Xs = "0.65rem",
   Sm = "0.85rem",
   Md = "1.0rem",
   Lg = "1.15rem",
