@@ -14,5 +14,16 @@
     "@babel/preset-react",
     "@babel/preset-typescript"
   ],
-  "plugins": []
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@src": "./src"
+        },
+        "extensions": [".ts", ".tsx", ".js"]
+      }
+    ]
+  ]
 }
+

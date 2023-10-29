@@ -13,8 +13,8 @@ const SvgRunningTimer = ({
     xmlns="http://www.w3.org/2000/svg"
     xmlSpace="preserve"
     viewBox="0 0 100 100"
-    width="1em"
-    height="1em"
+    width="30px"
+    height="30px"
     aria-labelledby={titleId}
     {...props}
   >

@@ -1,6 +1,10 @@
 import { FC, ReactNode, memo } from "react";
 
-import { StyledButton } from "./Button.styled";
+import {
+  StyledButton,
+  StyledButtonContent,
+  StyledLoadingIcon,
+} from "./Button.styled";
 
 export interface ButtonProps {
   children: ReactNode;
@@ -19,14 +23,6 @@ const Button: FC<ButtonProps> = ({
   onClick,
   isLoading,
 }) => {
-  const renderContent = () => {
-    if (isLoading) {
-      return "loading...";
-    }
-
-    return children;
-  };
-
   return (
     <StyledButton
       type={type}
@@ -34,7 +30,10 @@ const Button: FC<ButtonProps> = ({
       className={className}
       data-testid={testId}
     >
-      {renderContent()}
+      {isLoading && <StyledLoadingIcon />}
+      <StyledButtonContent isLoading={isLoading}>
+        {children}
+      </StyledButtonContent>
     </StyledButton>
   );
 };
