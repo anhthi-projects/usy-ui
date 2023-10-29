@@ -9,6 +9,7 @@ import typescript from "@rollup/plugin-typescript";
 import url from "@rollup/plugin-url";
 import svgr from "@svgr/rollup";
 import dts from "rollup-plugin-dts";
+import filesize from "rollup-plugin-filesize";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
 const packageJson = require("./package.json");
@@ -45,6 +46,7 @@ export default [
       svgr(),
       peerDepsExternal(),
       terser(),
+      filesize(),
     ],
     external: [
       "react",
