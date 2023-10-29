@@ -24,13 +24,13 @@ const SvgRunningTimer = ({
       cy={50}
       r={48}
       fill="none"
-      stroke="#fff"
+      stroke="currentColor"
       strokeMiterlimit={10}
       strokeWidth={4}
     />
     <path
       fill="none"
-      stroke="#fff"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeMiterlimit={10}
       strokeWidth={4}
@@ -47,7 +47,7 @@ const SvgRunningTimer = ({
     </path>
     <path
       fill="none"
-      stroke="#fff"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeMiterlimit={10}
       strokeWidth={4}

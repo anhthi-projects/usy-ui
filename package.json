@@ -15,11 +15,10 @@
     "test": "jest --runInBand",
     "test:cov": "jest --coverage --runInBand",
     "storybook": "storybook dev -p 6006 --debug-webpack",
-    "svgr": "svgr --icon --title-prop --typescript --replace-attr-values '#fff=currentColor' -d src/components/Icon src/assets/icons",
+    "svgr": "svgr --icon --title-prop --typescript --replace-attr-values #fff=currentColor --index-template .svgr-template.js --out-dir src/components/Icon src/assets/icons",
     "generate-icon": "rimraf src/components/Icon/* --glob && npm run svgr ",
     "build-storybook": "storybook build",
-    "build": "rimraf dist && rollup -c --bundleConfigAsCjs",
-    "publish": "npm run build && npm publish"
+    "build": "rimraf dist && rollup -c --bundleConfigAsCjs"
   },
   "repository": {
     "type": "git",

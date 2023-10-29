@@ -1,2 +1,2 @@
-export { default as CircleLoading } from "./CircleLoading";
-export { default as RunningTimer } from "./RunningTimer";
+export { default as CircleLoadingIcon } from "./CircleLoading";
+export { default as RunningTimerIcon } from "./RunningTimer";
