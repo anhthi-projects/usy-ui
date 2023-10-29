@@ -1,3 +1,8 @@
+[Refer]:
+
+- https://docs.github.com/en/packages/quickstart
+- https://dev.to/alexeagleson/how-to-create-and-publish-a-react-component-library-2oe
+
 # 1. Generate auth token in the Github
 
 - User -> Setting -> Developer settings -> Personal access tokens -> Tokens (classic) -> Generate new token

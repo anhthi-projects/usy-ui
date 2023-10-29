@@ -83,9 +83,11 @@
     "react-error-boundary": "^4.0.11",
     "react-svg": "^16.1.29",
     "rollup": "^4.1.4",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "storybook": "^7.5.1",
+    "styled-components": "^6.1.0",
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2",
     "whatwg-fetch": "^3.6.19"
@@ -100,8 +102,5 @@
       "prettier --write",
       "eslint --fix"
     ]
-  },
-  "dependencies": {
-    "styled-components": "^6.1.0"
   }
 }

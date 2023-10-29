@@ -8,6 +8,7 @@ import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import url from "@rollup/plugin-url";
 import svgr from "@svgr/rollup";
+import copy from "rollup-plugin-copy";
 import dts from "rollup-plugin-dts";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
@@ -37,6 +38,9 @@ export default [
       }),
       typescript({
         tsconfig: "./tsconfig.json",
+      }),
+      copy({
+        targets: [{ src: "src/assets", dest: "dist" }],
       }),
       peerDepsExternal(),
       resolve(),
