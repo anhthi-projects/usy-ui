@@ -3,12 +3,12 @@
  */
 
 export enum Color {
-  Primary = "#16a085",
-  PrimaryDarker = "#13816B",
   White = "#ffffff",
   Black = "#0000",
   Blue = "#0773e8",
   Red = "#c91f37",
+  Teal = "#16a085",
+  TealDark = "#13816B",
 
   Light1 = "#eff1f7",
   Light2 = "#e6e8f0",

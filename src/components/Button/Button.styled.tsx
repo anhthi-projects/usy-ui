@@ -3,9 +3,14 @@ import styled, { css } from "styled-components";
 import { LoadingCircleIcon } from "@src/components/Icon";
 import { Color, Space } from "@src/styles";
 
+import { usyThemeConfig } from "../ThemeConfig";
+
+const { primaryColor, primaryDarkColor, borderRadius } =
+  usyThemeConfig.getTheme();
+
 const primaryButton = css`
-  background-color: ${Color.Primary};
-  filter: drop-shadow(0px 4px 0px ${Color.PrimaryDarker});
+  background-color: ${primaryColor};
+  filter: drop-shadow(0px 4px 0px ${primaryDarkColor});
   color: ${Color.White};
 `;
 
@@ -18,7 +23,7 @@ const normalButton = css`
 
 export const StyledButton = styled.button<{ type: string }>`
   border: none;
-  border-radius: 4px;
+  border-radius: ${borderRadius};
   border: 1px solid transparent;
   padding: ${Space.px12} ${Space.px16};
   cursor: pointer;
