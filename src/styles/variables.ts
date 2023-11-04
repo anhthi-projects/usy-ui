@@ -31,13 +31,12 @@ export enum Color {
 
 export enum FontSize {
   Base = "16px",
-  Xs = "0.65rem",
-  Sm = "0.85rem",
-  Md = "1.0rem",
-  Lg = "1.15rem",
-  Xl = "1.3rem",
-  Xl1 = "1.6rem",
-  Xl2 = "2.0rem",
+  Xs = "0.85rem",
+  Sm = "1.00rem",
+  Md = "1.15rem",
+  Lg = "1.30rem",
+  Xl = "1.40rem",
+  ExXl = "1.60rem",
 }
 
 export enum FontWeight {

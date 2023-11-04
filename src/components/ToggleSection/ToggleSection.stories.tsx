@@ -9,17 +9,14 @@ import { ToggleSection } from "./ToggleSection";
 const meta: Meta<typeof ToggleSection> = {
   component: ToggleSection,
   decorators: [ThemeProviderDecorator],
-  argTypes: {
-    title: {
-      control: "text",
-      description: "Hello world",
-    },
-  },
+  argTypes: {},
 };
 
 export const Primary: Story = {
-  render: (props) => {
-    return <ToggleSection {...props}>Content is so long</ToggleSection>;
+  render: () => {
+    return (
+      <ToggleSection title="Hello world">Content is so long</ToggleSection>
+    );
   },
 };
 

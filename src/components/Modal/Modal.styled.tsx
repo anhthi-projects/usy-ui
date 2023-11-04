@@ -15,7 +15,6 @@ export const StyledModalHeader = styled.div`
   border-bottom: 1px solid ${Color.Light1};
   background-color: ${Color.White};
   filter: drop-shadow(0px 4px 0px ${Color.Light3});
-  box-sizing: border-box;
 
   svg {
     cursor: pointer;
@@ -37,7 +36,6 @@ export const StyledHeaderTitle = styled.h3`
 
 export const StyledModalContent = styled.div`
   padding: ${Space.px28} ${Space.px16};
-  box-sizing: border-box;
 `;
 
 /**
@@ -51,7 +49,6 @@ export const StyledModalFooter = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  box-sizing: border-box;
 
   button:not(:last-child) {
     margin: 0 ${Space.px16};
@@ -69,7 +66,6 @@ export const StyledOverlay = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.05);
-  box-sizing: border-box;
   overflow: hidden;
 `;
 
@@ -81,6 +77,5 @@ export const StyledModalContainer = styled.div`
   background-color: ${Color.White};
   filter: drop-shadow(0px 0px 6px ${Color.Light2});
   margin: ${Space.px16};
-  box-sizing: border-box;
   overflow: hidden;
 `;

@@ -1,5 +1,7 @@
 import { FC, ReactNode, useState } from "react";
 
+import { Typography } from "@src/components/Typography";
+
 import {
   StyledArrowHeadDownIcon,
   StyledToggleSectionContainer,
@@ -7,7 +9,7 @@ import {
   StyledToggleSectionHeader,
 } from "./ToggleSection.styled";
 
-interface ToggleSectionProps {
+export interface ToggleSectionProps {
   title: ReactNode;
   children: ReactNode;
   isExpandDefault?: boolean;
@@ -32,10 +34,21 @@ export const ToggleSection: FC<ToggleSectionProps> = ({
   };
 
   return (
-    <StyledToggleSectionContainer className={className} data-testid={testId}>
+    <StyledToggleSectionContainer
+      isExpand={isExpand}
+      className={className}
+      data-testid={testId}
+    >
       <StyledToggleSectionHeader>
-        {title}
-        <StyledArrowHeadDownIcon isExpand={isExpand} onClick={handleToggle} />
+        <Typography size="md" fontWeight={600} hasBottomSpace={false}>
+          {title}
+        </Typography>
+        <StyledArrowHeadDownIcon
+          width={20}
+          height={20}
+          isExpand={isExpand}
+          onClick={handleToggle}
+        />
       </StyledToggleSectionHeader>
       <StyledToggleSectionContent>{children}</StyledToggleSectionContent>
     </StyledToggleSectionContainer>

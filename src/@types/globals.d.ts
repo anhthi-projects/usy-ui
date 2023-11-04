@@ -1,5 +1,5 @@
 import "styled-components";
-import { UsyThemeProps } from "@src/components/ThemeProvider";
+import { UsyThemeProps } from "@src/components/UsyThemeProvider";
 
 declare module "styled-components" {
   export interface DefaultTheme extends UsyThemeProps {}
