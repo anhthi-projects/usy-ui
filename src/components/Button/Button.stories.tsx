@@ -2,10 +2,13 @@ import React from "react";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Button from "./Button";
+import { ThemeProviderDecorator } from "../../../.storybook/decorators";
+
+import { Button } from "./Button";
 
 const meta: Meta<typeof Button> = {
   component: Button,
+  decorators: [ThemeProviderDecorator],
   argTypes: {
     type: {
       options: ["primary", "normal"],

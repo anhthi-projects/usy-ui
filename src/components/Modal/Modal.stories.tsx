@@ -2,10 +2,13 @@ import React from "react";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { ThemeProviderDecorator } from "../../../.storybook/decorators";
+
 import Modal, { ModalFooter } from "./Modal";
 
 const meta: Meta<typeof Modal> = {
   component: Modal,
+  decorators: [ThemeProviderDecorator],
   argTypes: {},
 };
 

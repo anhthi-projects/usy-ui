@@ -4,7 +4,7 @@ interface SVGRProps {
   title?: string;
   titleId?: string;
 }
-const SvgClose = ({
+const SvgArrowHeadLeft = ({
   title,
   titleId,
   ...props
@@ -13,15 +13,18 @@ const SvgClose = ({
     xmlns="http://www.w3.org/2000/svg"
     width="30px"
     height="30px"
-    viewBox="0 0 48 48"
+    fill="currentColor"
+    viewBox="0 0 24 24"
     aria-labelledby={titleId}
     {...props}
   >
     {title ? <title id={titleId}>{title}</title> : null}
-    <path
-      fill="currentColor"
-      d="M38.982 6.97a2 2 0 0 0-1.396.616L24 21.172 10.414 7.586A2 2 0 0 0 8.98 6.98a2 2 0 0 0-1.393 3.434L21.172 24 7.586 37.586a2 2 0 1 0 2.828 2.828L24 26.828l13.586 13.586a2 2 0 1 0 2.828-2.828L26.828 24l13.586-13.586a2 2 0 0 0-1.432-3.443z"
-    />
+    <g data-name="Layer 2">
+      <path
+        d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z"
+        data-name="arrow-ios-back"
+      />
+    </g>
   </svg>
 );
-export default SvgClose;
+export default SvgArrowHeadLeft;
