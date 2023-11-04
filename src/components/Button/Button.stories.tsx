@@ -9,19 +9,25 @@ import { Button } from "./Button";
 const meta: Meta<typeof Button> = {
   component: Button,
   decorators: [ThemeProviderDecorator],
-  argTypes: {
-    type: {
-      options: ["primary", "normal"],
-      control: { type: "radio" },
-    },
-    isLoading: {
-      control: "boolean",
-    },
-  },
+  argTypes: {},
 };
 
-export const Primary: Story = {
-  render: (props) => <Button {...props}>Click me</Button>,
+export const Component: Story = {
+  render: () => (
+    <>
+      <Button type="primary">Primary</Button>
+      &nbsp; &nbsp; &nbsp;
+      <Button type="normal">Normal</Button>
+      &nbsp; &nbsp; &nbsp;
+      <Button type="normal" isDisabled>
+        Disabled
+      </Button>
+      &nbsp; &nbsp; &nbsp;
+      <Button type="normal" isLoading>
+        Loading
+      </Button>
+    </>
+  ),
 };
 
 export default meta;

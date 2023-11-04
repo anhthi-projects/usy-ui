@@ -12,7 +12,7 @@ const meta: Meta<typeof Typography> = {
   argTypes: {},
 };
 
-export const Primary: Story = {
+export const Component: Story = {
   render: () => (
     <>
       <Typography size="xs">

@@ -3,8 +3,12 @@ import styled, { css } from "styled-components";
 import { LoadingCircleIcon } from "@src/components/Icon";
 import { Color, Space } from "@src/styles";
 
-export const StyledButton = styled.button<{ type: string }>`
-  ${({ theme, type }) => css`
+import { ButtonProps } from "./Button";
+
+export const StyledButton = styled.button<
+  Pick<ButtonProps, "type" | "isDisabled">
+>`
+  ${({ theme, type, isDisabled }) => css`
     border: none;
     border-radius: ${theme.borderRadius};
     border: 1px solid transparent;
@@ -24,6 +28,12 @@ export const StyledButton = styled.button<{ type: string }>`
       border: 1px solid ${Color.Light2};
       filter: drop-shadow(0px 4px 0px ${Color.Light3});
       color: ${Color.Light9};
+    `}
+
+    ${isDisabled &&
+    css`
+      opacity: 0.7;
+      cursor: not-allowed;
     `}
   `}
 `;

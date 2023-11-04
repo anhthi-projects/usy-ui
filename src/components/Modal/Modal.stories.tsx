@@ -12,7 +12,7 @@ const meta: Meta<typeof Modal> = {
   argTypes: {},
 };
 
-export const Primary: Story = {
+export const Component: Story = {
   render: () => (
     <Modal
       isOpen

@@ -12,7 +12,7 @@ const meta: Meta<typeof ToggleSection> = {
   argTypes: {},
 };
 
-export const Primary: Story = {
+export const Component: Story = {
   render: () => {
     return (
       <ToggleSection title="Hello world">Content is so long</ToggleSection>

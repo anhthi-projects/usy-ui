@@ -11,6 +11,7 @@ export type ButtonType = "primary" | "normal";
 export interface ButtonProps {
   children: ReactNode;
   type?: ButtonType;
+  isDisabled?: boolean;
   className?: string;
   testId?: string;
   onClick?: () => void;
@@ -24,11 +25,19 @@ export const Button: FC<ButtonProps> = ({
   testId,
   onClick,
   isLoading,
+  isDisabled,
 }) => {
+  const handleClick = () => {
+    if (!isDisabled) {
+      onClick?.();
+    }
+  };
+
   return (
     <StyledButton
       type={type}
-      onClick={onClick}
+      isDisabled={isDisabled}
+      onClick={handleClick}
       className={className}
       data-testid={testId}
     >
