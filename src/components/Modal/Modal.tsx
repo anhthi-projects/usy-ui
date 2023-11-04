@@ -1,12 +1,16 @@
-import { FC, ReactNode, memo } from "react";
+import { FC, ReactNode } from "react";
 
 import { createPortal } from "react-dom";
 
-import { Button, ButtonType } from "@src/components/Button";
-import { CloseCircleIcon } from "@src/components/Icon";
+import {
+  Button,
+  ButtonType,
+  Typography,
+  CloseCircleIcon,
+} from "@src/components";
+import { zIndexLevel } from "@src/styles";
 
 import {
-  StyledHeaderTitle,
   StyledModalHeader,
   StyledModalContainer,
   StyledOverlay,
@@ -26,7 +30,7 @@ interface ModalHeaderProps {
 export const ModalHeader: FC<ModalHeaderProps> = ({ title, onClose }) => {
   return (
     <StyledModalHeader>
-      <StyledHeaderTitle>{title}</StyledHeaderTitle>
+      <Typography size="lg">{title}</Typography>
       <CloseCircleIcon width={20} height={20} onClick={onClose} />
     </StyledModalHeader>
   );
@@ -75,29 +79,37 @@ export const ModalFooter: FC<ModalFooterProps> = ({ buttons }) => {
  * Modal Container
  */
 
-type ModalProps = {
+export interface ModalProps extends ModalContentProps {
   isOpen: boolean;
+  minWidth?: string;
+  header: ReactNode;
   footer?: ReactNode;
   containerElement?: HTMLElement;
+  zIndex?: number;
   className?: string;
   testId?: string;
-} & ModalHeaderProps &
-  ModalContentProps;
+}
 
-const Modal: FC<ModalProps> = ({
+export const Modal: FC<ModalProps> = ({
   isOpen,
-  title,
+  minWidth = "400px",
+  header,
   children,
   footer,
   containerElement = document.body,
-  onClose,
+  zIndex = zIndexLevel.z50,
   className,
+  testId,
 }) => {
   const renderModal = () => {
     return (
-      <StyledOverlay>
-        <StyledModalContainer className={className}>
-          <ModalHeader title={title} onClose={onClose} />
+      <StyledOverlay zIndex={zIndex}>
+        <StyledModalContainer
+          minWidth={minWidth}
+          className={className}
+          data-testid={testId}
+        >
+          {header}
           <ModalContent>{children}</ModalContent>
           {footer}
         </StyledModalContainer>
@@ -107,5 +119,3 @@ const Modal: FC<ModalProps> = ({
 
   return isOpen && createPortal(renderModal(), containerElement);
 };
-
-export default memo(Modal);

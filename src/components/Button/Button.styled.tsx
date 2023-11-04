@@ -12,7 +12,7 @@ export const StyledButton = styled.button<
     border: none;
     border-radius: ${theme.borderRadius};
     border: 1px solid transparent;
-    padding: ${Space.px12} ${Space.px16};
+    padding: ${Space.px12} ${Space.px18};
     cursor: pointer;
 
     ${type === "primary" &&

@@ -4,10 +4,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ThemeProviderDecorator } from "../../../.storybook/decorators";
 
-import { Modal, ModalFooter, ModalHeader } from "./Modal";
+import { Drawer, DrawerHeader, DrawerFooter } from "./Drawer";
 
-const meta: Meta<typeof Modal> = {
-  component: Modal,
+const meta: Meta<typeof Drawer> = {
+  component: Drawer,
   decorators: [ThemeProviderDecorator],
   argTypes: {},
   parameters: {
@@ -17,11 +17,11 @@ const meta: Meta<typeof Modal> = {
 
 export const Component: Story = {
   render: () => (
-    <Modal
+    <Drawer
       isOpen
-      header={<ModalHeader title="Hello" onClose={() => alert("closed")} />}
+      header={<DrawerHeader title="Hello" onClose={() => alert("closed")} />}
       footer={
-        <ModalFooter
+        <DrawerFooter
           buttons={[
             {
               type: "primary",
@@ -37,10 +37,10 @@ export const Component: Story = {
         />
       }
     >
-      Something went wrong
-    </Modal>
+      Lorem Ipsum is simply dummy text of the printing and typesetting
+    </Drawer>
   ),
 };
 
 export default meta;
-type Story = StoryObj<typeof Modal>;
+type Story = StoryObj<typeof Drawer>;

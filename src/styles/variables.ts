@@ -58,7 +58,9 @@ export enum Space {
   px8 = "8px",
   px10 = "10px",
   px12 = "12px",
+  px14 = "14px",
   px16 = "16px",
+  px18 = "18px",
   px20 = "20px",
   px24 = "24px",
   px28 = "28px",
@@ -72,7 +74,7 @@ export enum Space {
  * zIndex
  */
 
-export enum zIndex {
+export enum zIndexLevel {
   z10 = 10,
   z20 = 20,
   z30 = 30,
