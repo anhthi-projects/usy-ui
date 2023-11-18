@@ -12,4 +12,8 @@ export const UsyGlobalStyles = createGlobalStyle`
     padding: 0;
     font-size: ${FontSize.Base};
   }
+
+  p, a, span, label, div, button, input, textarea, pre {
+    
+  }
 `;

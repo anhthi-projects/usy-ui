@@ -10,6 +10,9 @@ const meta: Meta<typeof Button> = {
   component: Button,
   decorators: [ThemeProviderDecorator],
   argTypes: {},
+  parameters: {
+    layout: "centered",
+  },
 };
 
 export const Component: Story = {

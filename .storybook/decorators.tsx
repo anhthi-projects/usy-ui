@@ -5,8 +5,8 @@ import { UsyGlobalStyles } from "../src/components/UsyGlobalStyles";
 export const ThemeProviderDecorator = (Story) => (
   <React.StrictMode>
     <UsyThemeProvider>
-      <UsyGlobalStyles />
       <Story />
+      <UsyGlobalStyles />
     </UsyThemeProvider>
   </React.StrictMode>
 );

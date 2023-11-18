@@ -3,7 +3,7 @@ import { FC, ReactNode } from "react";
 import { StyledTypography } from "./Typography.styled";
 
 export interface TypographyProps {
-  size: "xs" | "sm" | "md" | "lg" | "xl" | "exXl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "exXl";
   fontWeight?: number;
   hasBottomSpace?: boolean;
   children: ReactNode;
@@ -12,7 +12,7 @@ export interface TypographyProps {
 }
 
 export const Typography: FC<TypographyProps> = ({
-  size,
+  size = "sm",
   fontWeight = 400,
   hasBottomSpace = true,
   children,

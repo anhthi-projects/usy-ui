@@ -10,6 +10,9 @@ const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
   decorators: [ThemeProviderDecorator],
   argTypes: {},
+  parameters: {
+    layout: "centered",
+  },
 };
 
 export const Component: Story = {
