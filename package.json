@@ -1,6 +1,6 @@
 {
   "name": "@anhthi-projects/usy-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A React UI components library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
