@@ -2,8 +2,9 @@ import { FC, ReactNode } from "react";
 
 import clsx from "clsx";
 
-import "./Button.scss";
 import SvgLoadingCircle from "../Icon/LoadingCircle";
+
+import "./Button.scss";
 
 type ButtonType = "primary" | "outline" | "normal";
 type ButtonSize = "small" | "medium" | "large";
@@ -11,26 +12,27 @@ type ButtonSize = "small" | "medium" | "large";
 export interface ButtonProps {
   type?: ButtonType;
   size?: ButtonSize;
+  isLoading?: boolean;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   isDisabled?: boolean;
   className?: string;
   children: ReactNode;
-  testId?: string;
   onClick?: () => void;
-  isLoading?: boolean;
+  testId?: string;
 }
 
 export const Button: FC<ButtonProps> = ({
   type = "normal",
   size = "medium",
+  isLoading = false,
   leftIcon,
   rightIcon,
-  isLoading = false,
   isDisabled,
   className,
   children,
   onClick,
+  testId,
 }) => {
   const handleClick = () => {
     if (isDisabled || isLoading || typeof onClick !== "function") {
@@ -52,11 +54,26 @@ export const Button: FC<ButtonProps> = ({
         className
       )}
       onClick={handleClick}
+      data-testid={testId}
     >
-      {leftIcon && <span className="left-icon">{leftIcon}</span>}
-      {isLoading && <SvgLoadingCircle width="30px" height="30px" />}
+      {leftIcon && (
+        <span className="left-icon" data-testid={`${testId}-left-icon`}>
+          {leftIcon}
+        </span>
+      )}
+      {isLoading && (
+        <SvgLoadingCircle
+          width="30px"
+          height="30px"
+          data-testid={`${testId}-loading-icon`}
+        />
+      )}
       {children}
-      {rightIcon && <span className="right-icon">{rightIcon}</span>}
+      {rightIcon && (
+        <span className="right-icon" data-testid={`${testId}-right-icon`}>
+          {rightIcon}
+        </span>
+      )}
     </button>
   );
 };

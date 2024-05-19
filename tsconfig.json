@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "commonjs",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
