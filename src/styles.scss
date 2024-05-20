@@ -59,6 +59,41 @@
     font-size: 0;
   }
 }
+.usy-checkbox-container {
+  font-size: var(--usy-fontsize-md);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+
+  .input {
+    appearance: none;
+    width: var(--usy-spacing-20px);
+    height: var(--usy-spacing-20px);
+    position: relative;
+    background-color: var(--usy-color-white);
+    border: 2px solid var(--usy-color-light-7);
+    border-radius: 2px;
+    margin-right: var(--usy-spacing-8px);
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+
+    &.checked {
+      background-color: var(--usy-color-primary);
+      border: 2px solid var(--usy-color-primary);
+
+      &::before {
+        content: "✓";
+        font-size: var(--usy-fontsize-sm);
+        color: var(--usy-color-white);
+        position: absolute;
+        right: 3px;
+        top: -1px;
+      }
+    }
+  }
+}
 html {
   font-size: 16px;
 }

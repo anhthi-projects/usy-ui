@@ -18,7 +18,7 @@ const meta: Meta<typeof Button> = {
 
 export const Types: Story = {
   render: () => (
-    <div style={{ display: "flex", gap: "10px" }}>
+    <>
       <Button type="primary">Primary</Button>
       <Button type="outline">Outline</Button>
       <Button type="normal">Normal</Button>
@@ -40,13 +40,13 @@ export const Types: Story = {
       >
         Right Icon
       </Button>
-    </div>
+    </>
   ),
 };
 
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+    <>
       <Button type="normal" size="large">
         large
       </Button>
@@ -58,7 +58,7 @@ export const Sizes: Story = {
       <Button type="normal" size="small">
         small
       </Button>
-    </div>
+    </>
   ),
 };
 
