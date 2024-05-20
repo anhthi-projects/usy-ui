@@ -1,43 +1,50 @@
 .usy-button-container {
-  height: var(--usy-element-height);
   border: 1px solid transparent;
   border-radius: var(--usy-element-border-radius);
   display: flex;
   align-items: center;
   cursor: pointer;
 
-  &.small {
+  /*
+   * Sizes 
+   */
+
+  &.size-small {
     height: var(--usy-button-height-xs);
     padding: 0 var(--usy-spacing-10px);
+    font-size: var(--usy-fontsize-xs);
+  }
+
+  &.size-medium {
+    height: var(--usy-button-height-md);
+    padding: 0 var(--usy-spacing-12px);
     font-size: var(--usy-fontsize-sm);
   }
 
-  &.medium {
-    height: var(--usy-button-height-md);
-    padding: 0 var(--usy-spacing-12px);
+  &.size-large {
+    height: var(--usy-button-height-lg);
+    padding: 0 var(--usy-spacing-16px);
     font-size: var(--usy-fontsize-md);
   }
 
-  &.large {
-    height: var(--usy-button-height-lg);
-    padding: 0 var(--usy-spacing-16px);
-    font-size: var(--usy-fontsize-lg);
-  }
+  /*
+   * Types 
+   */
 
-  &.primary {
+  &.type-primary {
     background-color: var(--usy-color-primary);
     filter: drop-shadow(0px 4px 0px var(--usy-color-primary-dark));
     color: var(--usy-color-white);
   }
 
-  &.outline {
+  &.type-outline {
     background-color: var(--usy-color-white);
     border: 1px solid var(--usy-color-primary);
     filter: drop-shadow(0px 4px 0px var(--usy-color-primary));
     color: var(--usy-color-dark-7);
   }
 
-  &.normal {
+  &.type-normal {
     background-color: var(--usy-color-white);
     border: 1px solid var(--usy-color-light-3);
     filter: drop-shadow(0px 4px 0px var(--usy-color-light-3));
@@ -88,10 +95,59 @@
         font-size: var(--usy-fontsize-sm);
         color: var(--usy-color-white);
         position: absolute;
-        right: 3px;
-        top: -1px;
+        right: 2px;
+        top: -3px;
       }
     }
+  }
+}
+.usy-typography-container {
+  /*
+    Font sizes
+  */
+
+  &.size-extraSmall {
+    font-size: var(--usy-fontsize-xs);
+  }
+
+  &.size-small {
+    font-size: var(--usy-fontsize-sm);
+  }
+
+  &.size-medium {
+    font-size: var(--usy-fontsize-md);
+  }
+
+  &.size-large {
+    font-size: var(--usy-fontsize-lg);
+  }
+
+  &.size-extraLarge {
+    font-size: var(--usy-fontsize-xl);
+  }
+
+  /*
+    Font weight
+  */
+
+  &.weight-light {
+    font-weight: var(--usy-fontweight-light);
+  }
+
+  &.weight-medium {
+    font-weight: var(--usy-fontweight-medium);
+  }
+
+  &.weight-semibold {
+    font-weight: var(--usy-fontweight-semibold);
+  }
+
+  &.weight-bold {
+    font-weight: var(--usy-fontweight-bold);
+  }
+
+  &.no-margin {
+    margin: 0;
   }
 }
 html {
@@ -106,26 +162,26 @@ html {
   --usy-element-height: 40px;
   --usy-element-border-radius: 4px;
   --usy-button-height-xs: 26px;
-  --usy-button-height-md: 34px;
-  --usy-button-height-lg: 40px;
+  --usy-button-height-md: 30px;
+  --usy-button-height-lg: 36px;
 
   /*
    * Font Sizes
    */
 
-  --usy-fontsize-xs: 0.5rem;
-  --usy-fontsize-sm: 0.75rem;
-  --usy-fontsize-md: 0.9rem;
-  --usy-fontsize-lg: 1.05rem;
-  --usy-fontsize-xl: 1.2rem;
+  --usy-fontsize-xs: 0.8rem;
+  --usy-fontsize-sm: 0.9rem;
+  --usy-fontsize-md: 1rem;
+  --usy-fontsize-lg: 1.15rem;
+  --usy-fontsize-xl: 1.35rem;
 
   /*
    * Font Weights
    */
 
-  --usy-fontweight-light: 300;
-  --usy-fontweight-regular: 400;
-  --usy-fontweight-medium: 500;
+  --usy-fontweight-light: 200;
+  --usy-fontweight-medium: 300;
+  --usy-fontweight-semibold: 500;
   --usy-fontweight-bold: 700;
 
   /*

@@ -1,0 +1,49 @@
+.usy-typography-container {
+  /*
+    Font sizes
+  */
+
+  &.size-extraSmall {
+    font-size: var(--usy-fontsize-xs);
+  }
+
+  &.size-small {
+    font-size: var(--usy-fontsize-sm);
+  }
+
+  &.size-medium {
+    font-size: var(--usy-fontsize-md);
+  }
+
+  &.size-large {
+    font-size: var(--usy-fontsize-lg);
+  }
+
+  &.size-extraLarge {
+    font-size: var(--usy-fontsize-xl);
+  }
+
+  /*
+    Font weight
+  */
+
+  &.weight-light {
+    font-weight: var(--usy-fontweight-light);
+  }
+
+  &.weight-medium {
+    font-weight: var(--usy-fontweight-medium);
+  }
+
+  &.weight-semibold {
+    font-weight: var(--usy-fontweight-semibold);
+  }
+
+  &.weight-bold {
+    font-weight: var(--usy-fontweight-bold);
+  }
+
+  &.no-margin {
+    margin: 0;
+  }
+}

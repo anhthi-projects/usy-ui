@@ -11,6 +11,7 @@ import svgr from "@svgr/rollup";
 import dts from "rollup-plugin-dts";
 import filesize from "rollup-plugin-filesize";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import { bundleStats } from "rollup-plugin-bundle-stats";
 
 const packageJson = require("./package.json");
 
@@ -49,6 +50,7 @@ export default [
       peerDepsExternal(),
       terser(),
       filesize(),
+      bundleStats(),
     ],
     external: ["react"],
   },

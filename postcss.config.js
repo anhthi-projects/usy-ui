@@ -1,8 +1,12 @@
 /** @type {import('postcss-load-config').Config} */
 const config = {
   plugins: [
-    require("autoprefixer"),
     require("postcss-nested"),
+    require("postcss-combine-duplicated-selectors")({
+      removeDuplicatedProperties: true,
+      removeDuplicatedValues: true,
+    }),
+    require("autoprefixer"),
     require("cssnano")({
       preset: "default",
     }),

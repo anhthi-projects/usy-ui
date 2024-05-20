@@ -40,13 +40,16 @@ export const Button: FC<ButtonProps> = ({
     onClick();
   };
 
+  const sizeClassName = `size-${size}`;
+  const typeClassName = `type-${type}`;
+
   return (
     <button
       className={clsx(
         "usy-button-container",
         {
-          [size]: true,
-          [type]: true,
+          [sizeClassName]: Boolean(size),
+          [typeClassName]: Boolean(type),
           disabled: isDisabled,
         },
         className

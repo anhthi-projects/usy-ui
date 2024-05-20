@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@types/react-dom':
+        specifier: '*'
+        version: 18.3.0
+      react-dom:
+        specifier: ^16.8 || ^17.0 || ^18.0
+        version: 18.3.1(react@18.3.1)
     devDependencies:
       '@babel/core':
         specifier: ^7.24.5
@@ -173,6 +180,9 @@ importers:
       postcss-cli:
         specifier: ^11.0.0
         version: 11.0.0(jiti@1.21.0)(postcss@8.4.38)
+      postcss-combine-duplicated-selectors:
+        specifier: ^10.0.3
+        version: 10.0.3(postcss@8.4.38)
       postcss-nested:
         specifier: ^6.0.1
         version: 6.0.1(postcss@8.4.38)
@@ -191,6 +201,9 @@ importers:
       rollup:
         specifier: ^4.17.2
         version: 4.17.2
+      rollup-plugin-bundle-stats:
+        specifier: ^4.12.2
+        version: 4.12.2(core-js@3.37.1)(rollup@4.17.2)
       rollup-plugin-dts:
         specifier: ^6.1.1
         version: 6.1.1(rollup@4.17.2)(typescript@5.4.5)
@@ -905,6 +918,30 @@ packages:
 
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
+
+  '@bundle-stats/cli-utils@4.12.2':
+    resolution: {integrity: sha512-13RWo7LgGaLa9Q1b6zpxVooQ3P7FtzerbItwCQu8jmk2p4ZuLkuzsz1y4eg0F3uEJslqEEMB3G7xyiQ2tVUy1Q==}
+    engines: {node: '>= 14.0'}
+
+  '@bundle-stats/html-templates@4.12.2':
+    resolution: {integrity: sha512-Yffh+WkzbqbfZXDNjv+t0DQxx8bFmp+DzQMURqtjYh2VuNU0baJhmSov+h7x6+opum7pQx4rXH2er5J8qbCgPg==}
+
+  '@bundle-stats/plugin-webpack-filter@4.12.2':
+    resolution: {integrity: sha512-nO1HHn9A/p4u+/rbBup9fOgzWGogwVKTNtfQdoClYWRaUxMXuYW6xCFvOHct8lk3B2icY6QpX+IOygPdHauMpA==}
+    engines: {node: '>= 14.0'}
+    peerDependencies:
+      core-js: ^3.0.0
+
+  '@bundle-stats/plugin-webpack-validate@4.12.2':
+    resolution: {integrity: sha512-U/+prPfDt5/fN1xVXt6GvZKNza8WJaT2EjbyynzWbTcj9erwc8c24UpyIUqlHlhpjY8d5qz4bqIY+5Hsa7AcCA==}
+    engines: {node: '>= 14.0'}
+
+  '@bundle-stats/utils@4.12.2':
+    resolution: {integrity: sha512-ADlHla+BoAvcdu+5W7OGu62mMjQhtYoaBIhBGGF7ZTay9L3eaaVqB2nD4ANnlFCNfsfPHoYK5TJU0JcktDj39g==}
+    engines: {node: '>= 14.0'}
+    peerDependencies:
+      core-js: ^3.0.0
+      lodash: ^4.0.0
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -3316,6 +3353,9 @@ packages:
 
   core-js-pure@3.37.1:
     resolution: {integrity: sha512-J/r5JTHSmzTxbiYYrzXg9w1VpqrYt+gexenBE9pugeyhwPZTAEJddyiReJWsLO6uNQ8xJZFbod6XC7KKwatCiA==}
+
+  core-js@3.37.1:
+    resolution: {integrity: sha512-Xn6qmxrQZyB0FFY8E3bgRXei3lWDJHhvI+u0q9TKIYM49G8pAr0FgnnrFRAmsbptZL1yxRADVXn+x5AGsbBfyw==}
 
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -5751,6 +5791,12 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
 
+  postcss-combine-duplicated-selectors@10.0.3:
+    resolution: {integrity: sha512-IP0BmwFloCskv7DV7xqvzDXqMHpwdczJa6ZvIW8abgHdcIHs9mCJX2ltFhu3EwA51ozp13DByng30+Ke+eIExA==}
+    engines: {node: ^10.0.0 || ^12.0.0 || >=14.0.0}
+    peerDependencies:
+      postcss: ^8.1.0
+
   postcss-convert-values@7.0.0:
     resolution: {integrity: sha512-bMuzDgXBbFbByPgj+/r6va8zNuIDUaIIbvAFgdO1t3zdgJZ77BZvu6dfWyd6gHEJnYzmeVr9ayUsAQL3/qLJ0w==}
     engines: {node: ^18.12.0 || ^20.9.0 || >=22.0}
@@ -6334,6 +6380,12 @@ packages:
     engines: {node: '>=14.18'}
     hasBin: true
 
+  rollup-plugin-bundle-stats@4.12.2:
+    resolution: {integrity: sha512-IJ2ZvP7mUAE+rFINDs12XkU/ParKx6+CxlLcr/iJpl/0g9F/Ku5c1sCaewmC0y46LqC2FvffTiUjqJ91wupPyw==}
+    engines: {node: '>= 16.0'}
+    peerDependencies:
+      rollup: ^3.0.0 || ^4.0.0
+
   rollup-plugin-dts@6.1.1:
     resolution: {integrity: sha512-aSHRcJ6KG2IHIioYlvAOcEq6U99sVtqDDKVhnwt70rW6tsz3tv5OSjEiWcgzfsHdLyGXZ/3b/7b/+Za3Y6r1XA==}
     engines: {node: '>=16'}
@@ -6349,6 +6401,12 @@ packages:
     resolution: {integrity: sha512-AWdukIM1+k5JDdAqV/Cxd+nejvno2FVLVeZ74NKggm3Q5s9cbbcOgUPGdbxPi4BXu7xGaZ8HG12F+thImYu/0g==}
     peerDependencies:
       rollup: '*'
+
+  rollup-plugin-webpack-stats@0.2.4:
+    resolution: {integrity: sha512-bWGNGWpCFXB662mdIN2OHCrxXFBIgG+wS4UEksmORlT670F2ucLFYrrOVFTU6wjifGwPPRWwJMx5Z03rbDisWw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      rollup: ^3.0.0 || ^4.0.0
 
   rollup@4.17.2:
     resolution: {integrity: sha512-/9ClTJPByC0U4zNLowV1tMBe8yMEAxewtR3cUNX5BoEpGH3dQEWpJLr6CLp0fPdYRF/fzVOgvDb1zXuakwF5kQ==}
@@ -6435,6 +6493,9 @@ packages:
 
   serialize-javascript@6.0.2:
     resolution: {integrity: sha512-Saa1xPByTTq2gdeFZYLLo+RFE35NHZkAbqZeWNd3BpzppeVisAqpDjcp8dyf6uIvEqJRd46jemmyA4iFIeVk8g==}
+
+  serialize-query-params@2.0.2:
+    resolution: {integrity: sha512-1chMo1dST4pFA9RDXAtF0Rbjaut4is7bzFbI1Z26IuMub68pNCILku85aYmeFhvnY//BXUPUhoRMjYcsT93J/Q==}
 
   serve-static@1.15.0:
     resolution: {integrity: sha512-XGuRDNjXUijsUL0vl6nSD7cwURuzEgglbOaFuZM9g3kwDXOWVTck0jLzjPzGD+TazWbboZYu52/9/XPdUgne9g==}
@@ -6596,6 +6657,12 @@ packages:
     resolution: {integrity: sha512-xWD1C4vD/4KMffCrBBrUpsLUO/9uNpm8BVW8+Vcb30gkQDfficZ0oziWkmLexpT53VSioa24iazGXMwBqllYjQ==}
     hasBin: true
 
+  stream-chain@2.2.5:
+    resolution: {integrity: sha512-1TJmBx6aSWqZ4tx7aTpBDXK0/e2hhcNSTV8+CbFJtDjbb+I1mZ8lHit0Grw9GRT+6JbIrrDd8esncgBi8aBXGA==}
+
+  stream-json@1.8.0:
+    resolution: {integrity: sha512-HZfXngYHUAr1exT4fxlbc1IOce1RYxp2ldeaf97LYCOPSoOqY/1Psp7iGvpb+6JIOgkra9zDYnPX01hGAHzEPw==}
+
   stream-shift@1.0.3:
     resolution: {integrity: sha512-76ORR0DO1o1hlKwTbi/DM3EXWGf3ZJYO8cXX5RJwnul2DEg2oyoZyjLNoQM8WsvZiFKCRfC1O0J7iCvie3RZmQ==}
 
@@ -6693,6 +6760,10 @@ packages:
     engines: {node: ^18.12.0 || ^20.9.0 || >=22.0}
     peerDependencies:
       postcss: ^8.4.31
+
+  superstruct@1.0.4:
+    resolution: {integrity: sha512-7JpaAoX2NGyoFlI9NBh66BQXGONc+uE+MRS5i2iOBKuS4e+ccgMDjATgZldkah+33DakBxDHiss9kvUcGAO8UQ==}
+    engines: {node: '>=14.0.0'}
 
   supports-color@5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
@@ -8142,6 +8213,37 @@ snapshots:
   '@base2/pretty-print-object@1.0.1': {}
 
   '@bcoe/v8-coverage@0.2.3': {}
+
+  '@bundle-stats/cli-utils@4.12.2(core-js@3.37.1)':
+    dependencies:
+      '@bundle-stats/html-templates': 4.12.2
+      '@bundle-stats/plugin-webpack-filter': 4.12.2(core-js@3.37.1)
+      '@bundle-stats/utils': 4.12.2(core-js@3.37.1)(lodash@4.17.21)
+      find-cache-dir: 3.3.2
+      lodash: 4.17.21
+      stream-chain: 2.2.5
+      stream-json: 1.8.0
+    transitivePeerDependencies:
+      - core-js
+
+  '@bundle-stats/html-templates@4.12.2': {}
+
+  '@bundle-stats/plugin-webpack-filter@4.12.2(core-js@3.37.1)':
+    dependencies:
+      core-js: 3.37.1
+
+  '@bundle-stats/plugin-webpack-validate@4.12.2':
+    dependencies:
+      lodash: 4.17.21
+      superstruct: 1.0.4
+
+  '@bundle-stats/utils@4.12.2(core-js@3.37.1)(lodash@4.17.21)':
+    dependencies:
+      '@bundle-stats/plugin-webpack-filter': 4.12.2(core-js@3.37.1)
+      '@bundle-stats/plugin-webpack-validate': 4.12.2
+      core-js: 3.37.1
+      lodash: 4.17.21
+      serialize-query-params: 2.0.2
 
   '@colors/colors@1.5.0':
     optional: true
@@ -11277,6 +11379,8 @@ snapshots:
 
   core-js-pure@3.37.1: {}
 
+  core-js@3.37.1: {}
+
   core-util-is@1.0.3: {}
 
   cosmiconfig-typescript-loader@5.0.0(@types/node@20.12.12)(cosmiconfig@9.0.0(typescript@5.4.5))(typescript@5.4.5):
@@ -14243,6 +14347,11 @@ snapshots:
       postcss: 8.4.38
       postcss-value-parser: 4.2.0
 
+  postcss-combine-duplicated-selectors@10.0.3(postcss@8.4.38):
+    dependencies:
+      postcss: 8.4.38
+      postcss-selector-parser: 6.0.16
+
   postcss-convert-values@7.0.0(postcss@8.4.38):
     dependencies:
       browserslist: 4.23.0
@@ -14838,6 +14947,14 @@ snapshots:
     dependencies:
       glob: 10.3.15
 
+  rollup-plugin-bundle-stats@4.12.2(core-js@3.37.1)(rollup@4.17.2):
+    dependencies:
+      '@bundle-stats/cli-utils': 4.12.2(core-js@3.37.1)
+      rollup: 4.17.2
+      rollup-plugin-webpack-stats: 0.2.4(rollup@4.17.2)
+    transitivePeerDependencies:
+      - core-js
+
   rollup-plugin-dts@6.1.1(rollup@4.17.2)(typescript@5.4.5):
     dependencies:
       magic-string: 0.30.10
@@ -14861,6 +14978,10 @@ snapshots:
       - supports-color
 
   rollup-plugin-peer-deps-external@2.2.4(rollup@4.17.2):
+    dependencies:
+      rollup: 4.17.2
+
+  rollup-plugin-webpack-stats@0.2.4(rollup@4.17.2):
     dependencies:
       rollup: 4.17.2
 
@@ -14970,6 +15091,8 @@ snapshots:
   serialize-javascript@6.0.2:
     dependencies:
       randombytes: 2.1.0
+
+  serialize-query-params@2.0.2: {}
 
   serve-static@1.15.0:
     dependencies:
@@ -15140,6 +15263,12 @@ snapshots:
       - supports-color
       - utf-8-validate
 
+  stream-chain@2.2.5: {}
+
+  stream-json@1.8.0:
+    dependencies:
+      stream-chain: 2.2.5
+
   stream-shift@1.0.3: {}
 
   string-argv@0.3.2: {}
@@ -15248,6 +15377,8 @@ snapshots:
       browserslist: 4.23.0
       postcss: 8.4.38
       postcss-selector-parser: 6.0.16
+
+  superstruct@1.0.4: {}
 
   supports-color@5.5.0:
     dependencies:

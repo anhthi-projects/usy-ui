@@ -1,43 +1,50 @@
 .usy-button-container {
-  height: var(--usy-element-height);
   border: 1px solid transparent;
   border-radius: var(--usy-element-border-radius);
   display: flex;
   align-items: center;
   cursor: pointer;
 
-  &.small {
+  /*
+   * Sizes 
+   */
+
+  &.size-small {
     height: var(--usy-button-height-xs);
     padding: 0 var(--usy-spacing-10px);
+    font-size: var(--usy-fontsize-xs);
+  }
+
+  &.size-medium {
+    height: var(--usy-button-height-md);
+    padding: 0 var(--usy-spacing-12px);
     font-size: var(--usy-fontsize-sm);
   }
 
-  &.medium {
-    height: var(--usy-button-height-md);
-    padding: 0 var(--usy-spacing-12px);
+  &.size-large {
+    height: var(--usy-button-height-lg);
+    padding: 0 var(--usy-spacing-16px);
     font-size: var(--usy-fontsize-md);
   }
 
-  &.large {
-    height: var(--usy-button-height-lg);
-    padding: 0 var(--usy-spacing-16px);
-    font-size: var(--usy-fontsize-lg);
-  }
+  /*
+   * Types 
+   */
 
-  &.primary {
+  &.type-primary {
     background-color: var(--usy-color-primary);
     filter: drop-shadow(0px 4px 0px var(--usy-color-primary-dark));
     color: var(--usy-color-white);
   }
 
-  &.outline {
+  &.type-outline {
     background-color: var(--usy-color-white);
     border: 1px solid var(--usy-color-primary);
     filter: drop-shadow(0px 4px 0px var(--usy-color-primary));
     color: var(--usy-color-dark-7);
   }
 
-  &.normal {
+  &.type-normal {
     background-color: var(--usy-color-white);
     border: 1px solid var(--usy-color-light-3);
     filter: drop-shadow(0px 4px 0px var(--usy-color-light-3));
