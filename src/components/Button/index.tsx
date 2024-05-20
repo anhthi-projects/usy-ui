@@ -4,8 +4,6 @@ import clsx from "clsx";
 
 import SvgLoadingCircle from "../Icon/LoadingCircle";
 
-import "./Button.scss";
-
 type ButtonType = "primary" | "outline" | "normal";
 type ButtonSize = "small" | "medium" | "large";
 

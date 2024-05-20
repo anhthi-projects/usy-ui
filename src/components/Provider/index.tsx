@@ -2,8 +2,6 @@ import { FC, ReactNode, useEffect } from "react";
 
 import { toCssVariable } from "@src/utils/format";
 
-import "@src/styles/index.scss";
-
 type ThemeProps =
   | "colorPrimary"
   | "colorPrimaryLight"

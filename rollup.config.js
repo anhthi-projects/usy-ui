@@ -8,11 +8,9 @@ import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import url from "@rollup/plugin-url";
 import svgr from "@svgr/rollup";
-import autoprefixer from "autoprefixer";
 import dts from "rollup-plugin-dts";
 import filesize from "rollup-plugin-filesize";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import postcss from "rollup-plugin-postcss";
 
 const packageJson = require("./package.json");
 
@@ -36,14 +34,6 @@ export default [
       typescript({
         tsconfig: "./tsconfig.json",
       }),
-      postcss({
-        modules: false,
-        minimize: true,
-        extract: "styles.css",
-        namedExports: (name) => `usy-${name}`,
-        plugins: [autoprefixer()],
-        extensions: [".scss"],
-      }),
       alias({
         entries: [
           { find: "@src", replacement: path.resolve(__dirname, "src") },
@@ -60,7 +50,7 @@ export default [
       terser(),
       filesize(),
     ],
-    external: ["react", "react-dom", "react-error-boundary"],
+    external: ["react"],
   },
   {
     input: "dist/cjs/types/index.d.ts", // collect all *.d.ts and export to root
