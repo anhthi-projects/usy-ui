@@ -11,7 +11,7 @@ type ThemeProps =
 
 interface ProviderProps {
   children: ReactNode;
-  theme?: Record<ThemeProps, string>;
+  theme?: Partial<Record<ThemeProps, string>>;
 }
 
 export const Provider: FC<ProviderProps> = ({ children, theme }) => {

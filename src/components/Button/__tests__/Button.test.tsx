@@ -44,6 +44,10 @@ describe("Button component", () => {
   });
 
   describe("action", () => {
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+
     const onClick = jest.fn();
     it("should trigger onClick prop when clicking", async () => {
       render(
@@ -54,6 +58,17 @@ describe("Button component", () => {
 
       await userEvent.click(screen.getByTestId("click-button"));
       expect(onClick).toHaveBeenCalled();
+    });
+
+    it("should not trigger onClick prop when button is disabled or loading", async () => {
+      render(
+        <Button testId="click-button" onClick={onClick} isDisabled>
+          Click
+        </Button>
+      );
+
+      await userEvent.click(screen.getByTestId("click-button"));
+      expect(onClick).not.toHaveBeenCalled();
     });
   });
 });

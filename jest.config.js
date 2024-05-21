@@ -1,12 +1,15 @@
-const { transform } = require("typescript");
-
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
   testMatch: ["<rootDir>/src/**/__tests__/**/*.test.{ts,tsx}"],
   setupFilesAfterEnv: ["<rootDir>/jest/jest.setup.js"],
   moduleDirectories: ["node_modules", "src"],
-  collectCoverageFrom: ["src/**/*.{ts,tsx}", "!**/src/{index,App}.tsx"],
+  collectCoverageFrom: [
+    "src/**/*.{ts,tsx}",
+    "!src/**/index.ts",
+    "!**/src/components/Icon/*",
+    "!src/**/*.stories.{ts,tsx}",
+  ],
   transform: {
     "\\.[jt]sx?$": "babel-jest",
   },

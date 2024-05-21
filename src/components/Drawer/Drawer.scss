@@ -1,0 +1,30 @@
+.usy-drawer-overlay {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+
+  &.pos-left {
+    justify-content: flex-start;
+  }
+
+  &.pos-right {
+    justify-content: flex-end;
+  }
+}
+
+.usy-drawer-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--usy-color-white);
+  filter: drop-shadow(0px 0px 6px var(--usy-color-light-2));
+  border-left: 1px solid var(--usy-color-light-1);
+  border-right: 1px solid var(--usy-color-light-1);
+  position: relative;
+  overflow: hidden;
+}

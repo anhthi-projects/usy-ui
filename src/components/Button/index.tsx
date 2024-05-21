@@ -4,8 +4,8 @@ import clsx from "clsx";
 
 import SvgLoadingCircle from "../Icon/LoadingCircle";
 
-type ButtonType = "primary" | "outline" | "normal";
-type ButtonSize = "small" | "medium" | "large";
+export type ButtonType = "primary" | "outline" | "normal";
+export type ButtonSize = "small" | "medium" | "large";
 
 export interface ButtonProps {
   type?: ButtonType;
@@ -24,13 +24,13 @@ export const Button: FC<ButtonProps> = ({
   type = "normal",
   size = "medium",
   isLoading = false,
+  isDisabled = false,
   leftIcon,
   rightIcon,
-  isDisabled,
   className,
   children,
   onClick,
-  testId,
+  testId = "",
 }) => {
   const handleClick = () => {
     if (isDisabled || isLoading || typeof onClick !== "function") {

@@ -2,6 +2,10 @@ html {
   font-size: 16px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   /*
    * Elements
@@ -9,6 +13,12 @@ html {
 
   --usy-element-height: 40px;
   --usy-element-border-radius: 4px;
+
+  --usy-layout-horizontal-padding: 18px;
+
+  --usy-drawer-header-height: 66px;
+  --usy-drawer-footer-height: 66px;
+
   --usy-button-height-xs: 26px;
   --usy-button-height-md: 30px;
   --usy-button-height-lg: 36px;
@@ -45,7 +55,8 @@ html {
   --usy-spacing-16px: 16px;
   --usy-spacing-20px: 20px;
   --usy-spacing-24px: 24px;
-  --usy-spacing-30px: 30px;
+  --usy-spacing-28px: 28px;
+  --usy-spacing-32px: 32px;
 
   /*
    * Colors

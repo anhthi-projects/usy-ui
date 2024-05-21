@@ -19,7 +19,7 @@ export const Typography: FC<TypographyProps> = ({
   size,
   children,
   className,
-  testId,
+  testId = "",
 }) => {
   const sizeClassName = `size-${size}`;
   const weightClassName = `weight-${weight}`;

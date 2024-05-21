@@ -52,7 +52,7 @@ export default [
       filesize(),
       bundleStats(),
     ],
-    external: ["react"],
+    external: ["react", "react-dom"],
   },
   {
     input: "dist/cjs/types/index.d.ts", // collect all *.d.ts and export to root

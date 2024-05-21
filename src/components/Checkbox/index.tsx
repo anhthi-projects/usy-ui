@@ -12,10 +12,10 @@ interface CheckboxProps {
 
 export const Checkbox: FC<CheckboxProps> = ({
   label,
-  isChecked,
+  isChecked = false,
   onChange,
   className,
-  testId,
+  testId = "",
 }) => {
   const [checked, setChecked] = useState(isChecked);
 

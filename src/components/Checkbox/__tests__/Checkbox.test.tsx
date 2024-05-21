@@ -26,7 +26,7 @@ describe("Checkbox component", () => {
         "agree-check-input"
       ) as HTMLInputElement;
 
-      act(async () => {
+      await act(async () => {
         await userEvent.click(agreeCheckbox);
         expect(agreeCheckbox.checked).toBeTruthy();
       });
