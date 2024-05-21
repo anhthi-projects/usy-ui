@@ -204,6 +204,8 @@ html {
   --usy-drawer-header-height: 66px;
   --usy-drawer-footer-height: 66px;
 
+  --usy-modal-header-height: 40px;
+
   --usy-toggle-section-header-height: 44px;
 
   --usy-button-height-xs: 26px;
@@ -276,6 +278,43 @@ html {
   --usy-color-dark-7: #1f1f1f;
   --usy-color-dark-8: #141414;
   --usy-color-dark-9: #0a0a0a;
+}
+.usy-modal-overlay {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.usy-modal-container {
+  width: 100%;
+  min-height: 200px;
+  border-radius: var(--usy-spacing-8px);
+  border: 1px solid var(--usy-color-light-1);
+  background-color: var(--usy-color-white);
+  filter: drop-shadow(0px 0px 6px var(--usy-color-light-2));
+  padding: var(--usy-spacing-24px);
+  position: relative;
+
+  .header-title {
+    margin-top: calc(var(--usy-spacing-6px) * -1);
+    margin-bottom: var(--usy-spacing-16px);
+    font-size: var(--usy-fontsize-lg);
+  }
+
+  .close-icon {
+    position: absolute;
+    top: var(--usy-spacing-16px);
+    right: var(--usy-spacing-12px);
+
+    path {
+      fill: var(--usy-color-light-7);
+    }
+  }
 }
 .usy-toggle-section-container {
   width: 100%;

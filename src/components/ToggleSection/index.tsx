@@ -10,7 +10,7 @@ export interface ToggleSectionProps {
   maxWidth?: string;
   maxContentHeight?: string;
   children: ReactNode;
-  onClick?: (isExpand: boolean) => void;
+  onToggle?: (isExpand: boolean) => void;
   className?: string;
   testId?: string;
 }
@@ -21,7 +21,7 @@ export const ToggleSection: FC<ToggleSectionProps> = ({
   maxWidth,
   maxContentHeight = "unset",
   children,
-  onClick,
+  onToggle,
   className,
   testId,
 }) => {
@@ -29,7 +29,7 @@ export const ToggleSection: FC<ToggleSectionProps> = ({
 
   const handleToggle = () => {
     setIsExpand(!isExpand);
-    onClick?.(!isExpand);
+    onToggle?.(!isExpand);
   };
 
   return (
