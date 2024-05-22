@@ -11,8 +11,8 @@ export interface ButtonProps {
   type?: ButtonType;
   size?: ButtonSize;
   isLoading?: boolean;
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
   isDisabled?: boolean;
   className?: string;
   children: ReactNode;
@@ -25,8 +25,8 @@ export const Button: FC<ButtonProps> = ({
   size = "medium",
   isLoading = false,
   isDisabled = false,
-  leftIcon,
-  rightIcon,
+  iconLeft,
+  iconRight,
   className,
   children,
   onClick,
@@ -57,22 +57,23 @@ export const Button: FC<ButtonProps> = ({
       onClick={handleClick}
       data-testid={testId}
     >
-      {leftIcon && (
-        <span className="left-icon" data-testid={`${testId}-left-icon`}>
-          {leftIcon}
+      {iconLeft && (
+        <span className="left-icon" data-testid={`${testId}-icon-left`}>
+          {iconLeft}
         </span>
       )}
       {isLoading && (
         <SvgLoadingCircle
           width="30px"
           height="30px"
+          className="loading-icon"
           data-testid={`${testId}-loading-icon`}
         />
       )}
       {children}
-      {rightIcon && (
-        <span className="right-icon" data-testid={`${testId}-right-icon`}>
-          {rightIcon}
+      {iconRight && (
+        <span className="right-icon" data-testid={`${testId}-icon-right`}>
+          {iconRight}
         </span>
       )}
     </button>

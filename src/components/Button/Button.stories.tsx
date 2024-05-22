@@ -30,13 +30,13 @@ export const Types: Story = {
       </Button>
       <Button
         type="normal"
-        leftIcon={<RunningTimerIcon width="18px" height="18px" />}
+        iconLeft={<RunningTimerIcon width="18px" height="18px" />}
       >
         Left Icon
       </Button>
       <Button
         type="normal"
-        rightIcon={<RunningTimerIcon width="18px" height="18px" />}
+        iconRight={<RunningTimerIcon width="18px" height="18px" />}
       >
         Right Icon
       </Button>

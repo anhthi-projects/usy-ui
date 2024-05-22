@@ -26,20 +26,20 @@ describe("Button component", () => {
 
     it("should render left icon", () => {
       render(
-        <Button testId="click-button" leftIcon={<RunningTimerIcon />}>
+        <Button testId="click-button" iconLeft={<RunningTimerIcon />}>
           Click
         </Button>
       );
-      expect(screen.getByTestId("click-button-left-icon")).toBeInTheDocument();
+      expect(screen.getByTestId("click-button-icon-left")).toBeInTheDocument();
     });
 
     it("should render right icon", () => {
       render(
-        <Button testId="click-button" rightIcon={<RunningTimerIcon />}>
+        <Button testId="click-button" iconRight={<RunningTimerIcon />}>
           Click
         </Button>
       );
-      expect(screen.getByTestId("click-button-right-icon")).toBeInTheDocument();
+      expect(screen.getByTestId("click-button-icon-right")).toBeInTheDocument();
     });
   });
 
