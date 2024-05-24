@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect } from "react";
 
 import clsx from "clsx";
 import { createPortal } from "react-dom";
@@ -28,6 +28,24 @@ export const Modal: FC<ModalProps> = ({
   className,
   testId,
 }) => {
+  const enableScroll = () => {
+    document.body.style.overflow = "auto";
+  };
+
+  const disableScroll = () => {
+    document.body.style.overflow = "hidden";
+  };
+
+  useEffect(() => {
+    return () => {
+      enableScroll();
+    };
+  }, []);
+
+  useEffect(() => {
+    isOpen ? disableScroll() : enableScroll();
+  }, [isOpen]);
+
   const renderModal = () => {
     const renderCloseIcon = () => {
       if (typeof onClose !== "function") {

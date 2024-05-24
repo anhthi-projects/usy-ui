@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect } from "react";
 
 import clsx from "clsx";
 import { createPortal } from "react-dom";
@@ -32,6 +32,24 @@ export const Drawer: FC<DrawerProps> = ({
   className,
   testId = "",
 }) => {
+  const enableScroll = () => {
+    document.body.style.overflow = "auto";
+  };
+
+  const disableScroll = () => {
+    document.body.style.overflow = "hidden";
+  };
+
+  useEffect(() => {
+    return () => {
+      enableScroll();
+    };
+  }, []);
+
+  useEffect(() => {
+    isOpen ? disableScroll() : enableScroll();
+  }, [isOpen]);
+
   const renderDrawer = () => {
     return (
       <div

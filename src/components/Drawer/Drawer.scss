@@ -3,8 +3,10 @@
   height: 100vh;
   display: flex;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.05);
-  position: relative;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
   overflow: hidden;
 
   &.pos-left {
@@ -22,9 +24,8 @@
   display: flex;
   flex-direction: column;
   background-color: var(--usy-color-white);
-  filter: drop-shadow(0px 0px 6px var(--usy-color-light-2));
-  border-left: 1px solid var(--usy-color-light-1);
-  border-right: 1px solid var(--usy-color-light-1);
+  border-left: 1px solid var(--usy-color-light-4);
+  border-right: 1px solid var(--usy-color-light-4);
   position: relative;
   overflow: hidden;
 }
