@@ -134,3 +134,6 @@ dist
 
 # Bundle file
 bundle-stats.html
+
+# Temp scss
+src/styles.scss
