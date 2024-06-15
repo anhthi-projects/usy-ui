@@ -7,9 +7,9 @@ const config = {
       removeDuplicatedValues: true,
     }),
     require("autoprefixer"),
-    // require("cssnano")({
-    //   preset: "default",
-    // }),
+    require("cssnano")({
+      preset: "default",
+    }),
   ],
 };
 

@@ -8,10 +8,10 @@ import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import url from "@rollup/plugin-url";
 import svgr from "@svgr/rollup";
+import { bundleStats } from "rollup-plugin-bundle-stats";
 import dts from "rollup-plugin-dts";
 import filesize from "rollup-plugin-filesize";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import { bundleStats } from "rollup-plugin-bundle-stats";
 
 const packageJson = require("./package.json");
 
@@ -48,7 +48,11 @@ export default [
       image(),
       svgr(),
       peerDepsExternal(),
-      terser(),
+      terser({
+        format: {
+          preamble: `"use client"`,
+        },
+      }),
       filesize(),
       bundleStats(),
     ],
