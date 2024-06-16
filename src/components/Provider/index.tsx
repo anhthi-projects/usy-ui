@@ -14,7 +14,7 @@ interface ProviderProps {
   theme?: Partial<Record<ThemeProps, string>>;
 }
 
-export const Provider: FC<ProviderProps> = ({ children, theme }) => {
+export const UsyProvider: FC<ProviderProps> = ({ children, theme }) => {
   useEffect(() => {
     if (!theme) {
       return;

@@ -2,15 +2,15 @@ import React from "react";
 
 import { render, screen } from "@testing-library/react";
 
-import { Provider } from "../index";
+import { UsyProvider } from "../index";
 
 describe("Provider component", () => {
   describe("render", () => {
     it("should render component", () => {
       render(
-        <Provider>
+        <UsyProvider>
           <span data-testid="provider-content">Some contents</span>
-        </Provider>
+        </UsyProvider>
       );
 
       expect(screen.getByTestId("provider-content")).toBeInTheDocument();
@@ -18,7 +18,7 @@ describe("Provider component", () => {
 
     it("should set css variable at document element", () => {
       render(
-        <Provider
+        <UsyProvider
           theme={{
             colorPrimary: "red",
             colorPrimaryLight: "blue",
@@ -26,7 +26,7 @@ describe("Provider component", () => {
           }}
         >
           <span data-testid="provider-content">Some contents</span>
-        </Provider>
+        </UsyProvider>
       );
 
       const styles = window.getComputedStyle(document.documentElement);
