@@ -2,7 +2,7 @@ import { FC, ReactNode, useState } from "react";
 
 import clsx from "clsx";
 
-import { ArrowHeadDownIcon } from "../Icon";
+import { CaretDownIcon } from "../Icon";
 
 export interface ToggleSectionProps {
   title: ReactNode;
@@ -51,7 +51,7 @@ export const ToggleSection: FC<ToggleSectionProps> = ({
         <label className="title" data-testid={`${testId}-header-title`}>
           {title}
         </label>
-        <ArrowHeadDownIcon
+        <CaretDownIcon
           onClick={handleToggle}
           className={clsx("arrow-icon", {
             "is-expanded": isExpand,

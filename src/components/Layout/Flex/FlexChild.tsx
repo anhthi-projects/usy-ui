@@ -5,6 +5,7 @@ interface FlexChildProps {
   flexGrow?: number;
   flexShrink?: number;
   children: ReactNode;
+  className?: string;
 }
 
 export const FlexChild: FC<FlexChildProps> = ({
@@ -12,6 +13,11 @@ export const FlexChild: FC<FlexChildProps> = ({
   flexGrow,
   flexShrink,
   children,
+  className,
 }) => {
-  return <Tag style={{ flexGrow, flexShrink }}>{children}</Tag>;
+  return (
+    <Tag style={{ flexGrow, flexShrink }} className={className}>
+      {children}
+    </Tag>
+  );
 };

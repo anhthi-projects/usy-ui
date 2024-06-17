@@ -4,7 +4,7 @@ interface SVGRProps {
   title?: string;
   titleId?: string;
 }
-const SvgArrowHeadRight = ({
+const SvgCaretRight = ({
   title,
   titleId,
   ...props
@@ -27,4 +27,4 @@ const SvgArrowHeadRight = ({
     </g>
   </svg>
 );
-export default SvgArrowHeadRight;
+export default SvgCaretRight;

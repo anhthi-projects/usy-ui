@@ -1,5 +1,5 @@
 export const usyFontSizes = {
-  xs: "0.8rem",
+  xs: "0.7rem",
   sm: "0.9rem",
   md: "1rem",
   lg: "1.15rem",
@@ -14,17 +14,17 @@ export const usyFontWeights = {
 };
 
 export const usySpacing = {
-  "2px": "2px",
-  "4px": "4px",
-  "6px": "6px",
-  "8px": "8px",
-  "10px": "10px",
-  "12px": "12px",
-  "16px": "2px",
-  "20px": "20px",
-  "24px": "24px",
-  "28px": "28px",
-  "32px": "32px",
+  px2: "2px",
+  px4: "4px",
+  p6x: "6px",
+  px8: "8px",
+  px10: "10px",
+  px12: "12px",
+  px16: "16px",
+  px20: "20px",
+  px24: "24px",
+  px28: "28px",
+  px32: "32px",
 };
 
 export const usyColors = {

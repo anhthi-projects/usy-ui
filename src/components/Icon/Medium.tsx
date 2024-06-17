@@ -4,7 +4,7 @@ interface SVGRProps {
   title?: string;
   titleId?: string;
 }
-const SvgArrowHeadUp = ({
+const SvgMedium = ({
   title,
   titleId,
   ...props
@@ -13,18 +13,12 @@ const SvgArrowHeadUp = ({
     xmlns="http://www.w3.org/2000/svg"
     width="20px"
     height="20px"
-    fill="currentColor"
     viewBox="0 0 24 24"
     aria-labelledby={titleId}
     {...props}
   >
     {title ? <title id={titleId}>{title}</title> : null}
-    <g data-name="Layer 2">
-      <path
-        d="M18 15a1 1 0 0 1-.64-.23L12 10.29l-5.37 4.32a1 1 0 0 1-1.41-.15 1 1 0 0 1 .15-1.41l6-4.83a1 1 0 0 1 1.27 0l6 5a1 1 0 0 1 .13 1.41A1 1 0 0 1 18 15"
-        data-name="arrow-ios-upward"
-      />
-    </g>
+    <path d="M7 6a7 7 0 1 0 0 14A7 7 0 1 0 7 6m11 .5a3 6.5 0 1 0 0 13 3 6.5 0 1 0 0-13M23 8a1 5 0 1 0 0 10 1 5 0 1 0 0-10" />
   </svg>
 );
-export default SvgArrowHeadUp;
+export default SvgMedium;

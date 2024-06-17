@@ -5,8 +5,15 @@ import clsx from "clsx";
 interface TypographyProps {
   tag?: "small" | "p" | "label" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   size?: "extraSmall" | "small" | "medium" | "large" | "extraLarge";
-  weight?: "light" | "medium" | "semibold" | "bold";
-  isNoMargin?: boolean;
+  weight?:
+    | "thin"
+    | "light"
+    | "semilight"
+    | "normal"
+    | "semibold"
+    | "bold"
+    | "heavy";
+  noMargin?: boolean;
   children: ReactNode;
   className?: string;
   testId?: string;
@@ -15,7 +22,7 @@ interface TypographyProps {
 export const Typography: FC<TypographyProps> = ({
   tag: Tag = "p",
   weight = "medium",
-  isNoMargin = false,
+  noMargin = false,
   size,
   children,
   className,
@@ -31,7 +38,7 @@ export const Typography: FC<TypographyProps> = ({
         {
           [sizeClassName]: Boolean(size),
           [weightClassName]: Boolean(weight),
-          "no-margin": isNoMargin,
+          "no-margin": noMargin,
         },
         className
       )}

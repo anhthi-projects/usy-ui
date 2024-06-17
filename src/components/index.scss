@@ -50,6 +50,10 @@ ul {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 /*
  * Variables
  */
@@ -80,7 +84,7 @@ ul {
   * @export as variables
   */
 
-  --usy-fontsize-xs: 0.8rem;
+  --usy-fontsize-xs: 0.7rem;
   --usy-fontsize-sm: 0.9rem;
   --usy-fontsize-md: 1rem;
   --usy-fontsize-lg: 1.15rem;
@@ -91,10 +95,13 @@ ul {
   * @export as variables
   */
 
+  --usy-fontweight-thin: 100;
   --usy-fontweight-light: 200;
-  --usy-fontweight-medium: 300;
+  --usy-fontweight-semilight: 300;
+  --usy-fontweight-normal: 400;
   --usy-fontweight-semibold: 500;
-  --usy-fontweight-bold: 700;
+  --usy-fontweight-bold: 600;
+  --usy-fontweight-heavy: 700;
 
   /*
   * Spacing

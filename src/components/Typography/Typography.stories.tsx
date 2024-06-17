@@ -41,19 +41,24 @@ export const Sizes: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Typography size="extraSmall">
-        extraSmall: The h1 tag of the printing and typesetting industry
+        extraSmall:
+        <br /> The h1 tag of the printing and typesetting industry
       </Typography>
       <Typography size="small">
-        small: The h1 tag of the printing and typesetting industry
+        small:
+        <br /> The h1 tag of the printing and typesetting industry
       </Typography>
       <Typography size="medium">
-        medium: The h1 tag of the printing and typesetting industry
+        medium:
+        <br /> The h1 tag of the printing and typesetting industry
       </Typography>
       <Typography size="large">
-        large: The h1 tag of the printing and typesetting industry
+        large:
+        <br /> The h1 tag of the printing and typesetting industry
       </Typography>
       <Typography size="extraLarge">
-        extraLarge: The h1 tag of the printing and typesetting industry
+        extraLarge:
+        <br /> The h1 tag of the printing and typesetting industry
       </Typography>
     </div>
   ),
@@ -62,10 +67,13 @@ export const Sizes: Story = {
 export const Weights: Story = {
   render: () => (
     <>
-      <Typography weight="light">light</Typography>
-      <Typography weight="medium">medium</Typography>
-      <Typography weight="semibold">semibold</Typography>
-      <Typography weight="bold">bold</Typography>
+      <Typography weight="thin">100: thin</Typography>
+      <Typography weight="light">200: light</Typography>
+      <Typography weight="semilight">300: semilight</Typography>
+      <Typography weight="normal">400: normal</Typography>
+      <Typography weight="semibold">500: semibold</Typography>
+      <Typography weight="bold">600: bold</Typography>
+      <Typography weight="heavy">700: heavy</Typography>
     </>
   ),
 };
