@@ -16,7 +16,7 @@ export const usyFontWeights = {
 export const usySpacing = {
   px2: "2px",
   px4: "4px",
-  p6x: "6px",
+  px6: "6px",
   px8: "8px",
   px10: "10px",
   px12: "12px",
@@ -28,6 +28,10 @@ export const usySpacing = {
 };
 
 export const usyColors = {
+  primary: "#16a085",
+  primaryLight: "#1ccdaa",
+  primaryDark: "#107360",
+
   white: "#ffffff",
   black: "#000000",
 

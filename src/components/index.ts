@@ -1,4 +1,5 @@
 export * from "./Icon";
+export { Badge } from "./Badge";
 export { Button } from "./Button";
 export { Checkbox } from "./Checkbox";
 export { Drawer, DrawerHeader, DrawerContent, DrawerFooter } from "./Drawer";

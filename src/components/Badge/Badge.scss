@@ -1,6 +1,8 @@
 .usy-badge-container {
-  display: block;
-  mix-blend-mode: difference;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   /*
    * Size
@@ -8,19 +10,19 @@
 
   &.size-small {
     padding: var(--usy-spacing-2px) var(--usy-spacing-6px);
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     border-radius: 3px;
   }
 
   &.size-medium {
     padding: 3px var(--usy-spacing-6px);
-    font-size: 1rem;
+    font-size: 0.8rem;
     border-radius: 3px;
   }
 
   &.size-large {
     padding: var(--usy-spacing-6px) var(--usy-spacing-8px);
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     border-radius: 4px;
   }
 }
