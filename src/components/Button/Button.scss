@@ -2,6 +2,7 @@
   border: 1px solid transparent;
   border-radius: var(--usy-element-border-radius);
   display: flex;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
 
@@ -54,6 +55,10 @@
   &.disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+
+  &.block {
+    width: 100%;
   }
 
   /*

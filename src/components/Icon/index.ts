@@ -11,6 +11,8 @@ export { default as CaretUpIcon } from "./CaretUp";
 export { default as CloseCircleIcon } from "./CloseCircle";
 export { default as CloseIcon } from "./Close";
 export { default as EmailIcon } from "./Email";
+export { default as EyeClosedIcon } from "./EyeClosed";
+export { default as EyeIcon } from "./Eye";
 export { default as Guy3DGlassIcon } from "./Guy3DGlass";
 export { default as GuyHackerCallingIcon } from "./GuyHackerCalling";
 export { default as GuyHackerIcon } from "./GuyHacker";

@@ -1,10 +1,18 @@
-import { ChangeEvent, FC, FocusEvent, ReactNode } from "react";
+import { ChangeEvent, FC, FocusEvent, ReactNode, useState } from "react";
 
 import clsx from "clsx";
 
 import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+import { getCurrentTime } from "@src/utils/helpers";
 
-interface InputProps extends ExtraCompProps {
+import {
+  InputDescription,
+  InputIconLeft,
+  InputIconRight,
+  InputTitle,
+} from "./Input.components";
+
+export interface InputProps extends ExtraCompProps {
   name?: string;
   value?: string;
   title?: string;
@@ -15,12 +23,14 @@ interface InputProps extends ExtraCompProps {
   placeholder?: string;
   description?: ReactNode;
   hasError?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
+  onChange?: (value: string, e?: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (value: string, e?: FocusEvent<HTMLInputElement>) => void;
+  formatOnChange?: (value: string) => string;
+  formatOnBlur?: (value: string) => string;
 }
 
 export const Input: FC<InputProps> = ({
-  name,
+  name = getCurrentTime(),
   value = "",
   title,
   type = "text",
@@ -32,47 +42,39 @@ export const Input: FC<InputProps> = ({
   hasError = false,
   onChange,
   onBlur,
+  formatOnChange = (value) => value,
+  formatOnBlur = (value) => value,
   className,
   testId,
 }) => {
-  const renderTitle = () =>
-    title && (
-      <label className="title" htmlFor={name} data-testid={`${testId}-title`}>
-        {title}
-      </label>
-    );
+  const [innerValue, setInnerValue] = useState(value);
 
-  const renderDescription = () =>
-    description && (
-      <small className="description" data-testid={`${testId}-description`}>
-        {description}
-      </small>
-    );
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const formattedValue = formatOnChange(e.target.value);
+    setInnerValue(formattedValue);
+    onChange?.(formattedValue, e);
+  };
 
-  const renderIconLeft = () =>
-    iconLeft && (
-      <span className="icon-left" data-testid={`${testId}-icon-left`}>
-        {iconLeft}
-      </span>
-    );
+  const handleOnBlur = (e: FocusEvent<HTMLInputElement>) => {
+    const formattedValue = formatOnBlur(e.target.value);
+    setInnerValue(formattedValue);
+    onBlur?.(formattedValue, e);
+  };
 
-  const renderIconRight = () =>
-    iconRight && (
-      <span className="icon-right" data-testid={`${testId}-icon-right`}>
-        {iconRight}
-      </span>
-    );
+  /**
+   * Render
+   */
 
   const renderInput = () => {
     return (
       <input
         id={name}
         name={name}
-        value={value}
+        value={innerValue}
         type={type}
         placeholder={placeholder}
-        onChange={onChange}
-        onBlur={onBlur}
+        onChange={handleOnChange}
+        onBlur={handleOnBlur}
         className="input"
         data-testid={`${testId}-input`}
       />
@@ -81,7 +83,7 @@ export const Input: FC<InputProps> = ({
 
   return (
     <div className={clsx("usy-input-container", className)}>
-      {renderTitle()}
+      <InputTitle name={name} title={title} testId={testId} />
       <div
         className={clsx("input-container", {
           "has-error": hasError,
@@ -89,11 +91,11 @@ export const Input: FC<InputProps> = ({
         style={{ maxWidth }}
         data-testid={testId}
       >
-        {renderIconLeft()}
+        <InputIconLeft iconLeft={iconLeft} testId={testId} />
         {renderInput()}
-        {renderIconRight()}
+        <InputIconRight iconRight={iconRight} testId={testId} />
       </div>
-      {renderDescription()}
+      <InputDescription description={description} testId={testId} />
     </div>
   );
 };

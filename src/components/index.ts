@@ -5,6 +5,7 @@ export { Checkbox } from "./Checkbox";
 export { Drawer, DrawerHeader, DrawerContent, DrawerFooter } from "./Drawer";
 export { ImageGallery } from "./ImageGallery";
 export { Input } from "./Input";
+export { Password } from "./Input/Password";
 export { Flex, FlexChild } from "./Layout/Flex";
 export { Modal } from "./Modal";
 export { UsyProvider } from "./Provider";

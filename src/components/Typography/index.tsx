@@ -32,25 +32,30 @@ type TypographyWeight =
   | "bold"
   | "heavy";
 
+type TypographyAlign = "left" | "center" | "right" | "justify";
+
 interface TypographyProps extends ExtraCompProps {
   tag?: TypographyTag;
   size?: TypographySize;
   weight?: TypographyWeight;
+  align?: TypographyAlign;
   noMargin?: boolean;
   children: ReactNode;
 }
 
 export const Typography: FC<TypographyProps> = ({
   tag: Tag = "p",
+  size = "medium",
   weight = "medium",
+  align = "left",
   noMargin = false,
-  size,
   children,
   className,
   testId = "",
 }) => {
   const sizeClassName = `size-${size}`;
   const weightClassName = `weight-${weight}`;
+  const alignClassName = `align-${align}`;
 
   return (
     <Tag
@@ -59,6 +64,7 @@ export const Typography: FC<TypographyProps> = ({
         {
           [sizeClassName]: Boolean(size),
           [weightClassName]: Boolean(weight),
+          [alignClassName]: Boolean(align),
           "no-margin": noMargin,
         },
         className

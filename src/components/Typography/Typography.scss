@@ -60,6 +60,26 @@
     font-weight: var(--usy-fontweight-heavy);
   }
 
+  /*
+    Align
+  */
+
+  &.align-left {
+    text-align: left;
+  }
+
+  &.align-center {
+    text-align: center;
+  }
+
+  &.align-right {
+    text-align: right;
+  }
+
+  &.align-justify {
+    text-align: justify;
+  }
+
   &.no-margin {
     margin: 0;
   }
