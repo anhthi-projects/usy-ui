@@ -3,11 +3,13 @@ import { FC, ReactNode, useEffect } from "react";
 import clsx from "clsx";
 import { createPortal } from "react-dom";
 
+import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+
 export { DrawerHeader } from "./Header";
 export { DrawerContent } from "./Content";
 export { DrawerFooter } from "./Footer";
 
-interface DrawerProps {
+interface DrawerProps extends ExtraCompProps {
   isOpen?: boolean;
   side?: "left" | "right";
   maxWidth?: string;
@@ -16,8 +18,6 @@ interface DrawerProps {
   footer?: ReactNode;
   containerElement?: HTMLElement;
   zIndex?: number;
-  className?: string;
-  testId?: string;
 }
 
 export const Drawer: FC<DrawerProps> = ({

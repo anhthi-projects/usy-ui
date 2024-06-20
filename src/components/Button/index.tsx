@@ -2,22 +2,23 @@ import { FC, ReactNode } from "react";
 
 import clsx from "clsx";
 
+import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+
 import SvgLoadingCircle from "../Icon/LoadingCircle";
 
+export type ButtonDisplay = "normal" | "block";
 export type ButtonType = "primary" | "outline" | "normal";
 export type ButtonSize = "small" | "medium" | "large";
 
-export interface ButtonProps {
+export interface ButtonProps extends ExtraCompProps {
   type?: ButtonType;
   size?: ButtonSize;
   isLoading?: boolean;
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
   isDisabled?: boolean;
-  className?: string;
   children: ReactNode;
   onClick?: () => void;
-  testId?: string;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -27,9 +28,9 @@ export const Button: FC<ButtonProps> = ({
   isDisabled = false,
   iconLeft,
   iconRight,
-  className,
   children,
   onClick,
+  className,
   testId = "",
 }) => {
   const handleClick = () => {

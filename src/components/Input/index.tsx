@@ -2,7 +2,9 @@ import { ChangeEvent, FC, FocusEvent, ReactNode } from "react";
 
 import clsx from "clsx";
 
-interface InputProps {
+import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+
+interface InputProps extends ExtraCompProps {
   name?: string;
   value?: string;
   title?: string;
@@ -15,8 +17,6 @@ interface InputProps {
   hasError?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
-  className?: string;
-  testId?: string;
 }
 
 export const Input: FC<InputProps> = ({

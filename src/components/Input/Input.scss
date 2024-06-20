@@ -17,6 +17,7 @@
     height: var(--usy-element-height);
     border: 2px solid var(--usy-color-light-4);
     border-radius: var(--usy-element-border-radius);
+    background-color: var(--usy-color-white);
     padding: 0 var(--usy-spacing-10px);
     display: flex;
     align-items: center;
@@ -45,6 +46,7 @@
       flex-grow: 1;
       height: calc(var(--usy-element-height) - 4px);
       font-size: var(--usy-fontsize-sm);
+      background-color: transparent;
       border: none;
       outline: none;
     }

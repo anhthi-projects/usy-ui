@@ -3,7 +3,7 @@
     Font sizes
   */
 
-  &.size-extraSmall {
+  &.size-extra-small {
     font-size: var(--usy-fontsize-xs);
     line-height: calc(var(--usy-fontsize-xs) * 1.35);
   }
@@ -23,7 +23,7 @@
     line-height: calc(var(--usy-fontsize-lg) * 1.35);
   }
 
-  &.size-extraLarge {
+  &.size-extra-large {
     font-size: var(--usy-fontsize-xl);
     line-height: calc(var(--usy-fontsize-xl) * 1.35);
   }

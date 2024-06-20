@@ -4,12 +4,11 @@ import clsx from "clsx";
 
 import { CloseIcon } from "@src/components/Icon";
 import { Typography } from "@src/components/Typography";
+import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
-interface DrawerHeaderProps {
+interface DrawerHeaderProps extends ExtraCompProps {
   title: ReactNode;
   onClose?: () => void;
-  className?: string;
-  testId?: string;
 }
 
 export const DrawerHeader: FC<DrawerHeaderProps> = ({

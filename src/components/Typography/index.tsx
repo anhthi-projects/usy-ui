@@ -2,21 +2,42 @@ import { FC, ReactNode } from "react";
 
 import clsx from "clsx";
 
-interface TypographyProps {
-  tag?: "small" | "p" | "label" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  size?: "extraSmall" | "small" | "medium" | "large" | "extraLarge";
-  weight?:
-    | "thin"
-    | "light"
-    | "semilight"
-    | "normal"
-    | "semibold"
-    | "bold"
-    | "heavy";
+import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+
+type TypographyTag =
+  | "small"
+  | "span"
+  | "label"
+  | "p"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6";
+
+type TypographySize =
+  | "extra-small"
+  | "small"
+  | "medium"
+  | "large"
+  | "extra-large";
+
+type TypographyWeight =
+  | "thin"
+  | "light"
+  | "semilight"
+  | "normal"
+  | "semibold"
+  | "bold"
+  | "heavy";
+
+interface TypographyProps extends ExtraCompProps {
+  tag?: TypographyTag;
+  size?: TypographySize;
+  weight?: TypographyWeight;
   noMargin?: boolean;
   children: ReactNode;
-  className?: string;
-  testId?: string;
 }
 
 export const Typography: FC<TypographyProps> = ({

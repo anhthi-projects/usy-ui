@@ -3,9 +3,11 @@ import { FC, ReactNode, useEffect } from "react";
 import clsx from "clsx";
 import { createPortal } from "react-dom";
 
+import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+
 import { CloseIcon } from "../Icon";
 
-interface ModalProps {
+interface ModalProps extends ExtraCompProps {
   isOpen: boolean;
   title?: ReactNode;
   maxWidth?: string;
@@ -13,8 +15,6 @@ interface ModalProps {
   children: ReactNode;
   onClose?: () => void;
   zIndex?: number;
-  className?: string;
-  testId?: string;
 }
 
 export const Modal: FC<ModalProps> = ({

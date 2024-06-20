@@ -2,17 +2,17 @@ import { FC, ReactNode, useState } from "react";
 
 import clsx from "clsx";
 
+import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+
 import { CaretDownIcon } from "../Icon";
 
-export interface ToggleSectionProps {
+export interface ToggleSectionProps extends ExtraCompProps {
   title: ReactNode;
   isExpand?: boolean;
   maxWidth?: string;
   maxContentHeight?: string;
   children: ReactNode;
   onToggle?: (isExpand: boolean) => void;
-  className?: string;
-  testId?: string;
 }
 
 export const ToggleSection: FC<ToggleSectionProps> = ({

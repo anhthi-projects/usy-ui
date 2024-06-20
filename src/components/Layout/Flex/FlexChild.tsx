@@ -1,11 +1,12 @@
 import { FC, ReactNode } from "react";
 
-interface FlexChildProps {
+import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+
+interface FlexChildProps extends ExtraCompProps {
   as?: "div" | "span";
   flexGrow?: number;
   flexShrink?: number;
   children: ReactNode;
-  className?: string;
 }
 
 export const FlexChild: FC<FlexChildProps> = ({
@@ -14,9 +15,14 @@ export const FlexChild: FC<FlexChildProps> = ({
   flexShrink,
   children,
   className,
+  testId,
 }) => {
   return (
-    <Tag style={{ flexGrow, flexShrink }} className={className}>
+    <Tag
+      style={{ flexGrow, flexShrink }}
+      className={className}
+      data-testid={testId}
+    >
       {children}
     </Tag>
   );

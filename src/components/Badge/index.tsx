@@ -2,66 +2,32 @@ import { CSSProperties, FC, ReactNode, useMemo } from "react";
 
 import clsx from "clsx";
 
-import { usyColors } from "@src/styles";
-import { getRandomColor } from "@src/utils/helpers";
+import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
-type BadgeType = "filled" | "outline" | "normal";
-type BadgeSize = "small" | "medium" | "large";
-type BadgeColor =
+import { getColor, getTypeCss } from "./Badge.utils";
+
+export type BadgeType = "filled" | "outline" | "normal";
+export type BadgeSize = "small" | "medium" | "large";
+export type BadgeColor =
   | "primary"
   | "primary-light"
   | "primary-dark"
   | "random"
   | CSSProperties["color"];
 
-interface BadgeProps {
+interface BadgeProps extends ExtraCompProps {
   type?: BadgeType;
   size?: BadgeSize;
   color?: BadgeColor;
   children: ReactNode;
-  testId?: string;
 }
-
-const getColor = (color: BadgeColor) => {
-  return color === "random" ? getRandomColor() : `var(--usy-color-${color})`;
-};
-
-const getTypeCss = (
-  colorInHex: CSSProperties["color"],
-  type?: BadgeType
-): CSSProperties => {
-  switch (type) {
-    case "filled": {
-      return {
-        backgroundColor: colorInHex,
-        border: `2px solid ${colorInHex}`,
-        color: usyColors.white,
-      };
-    }
-
-    case "outline": {
-      return {
-        backgroundColor: "transparent",
-        border: `2px solid ${colorInHex}`,
-        color: colorInHex,
-      };
-    }
-
-    default: {
-      return {
-        backgroundColor: usyColors.light3,
-        border: `2px solid ${usyColors.light3}`,
-        color: usyColors.black,
-      };
-    }
-  }
-};
 
 export const Badge: FC<BadgeProps> = ({
   type = "outline",
   size = "medium",
   color = "primary",
   children,
+  className,
   testId,
 }) => {
   const colorInHex = useMemo(() => getColor(color), [color]);
@@ -69,9 +35,13 @@ export const Badge: FC<BadgeProps> = ({
 
   return (
     <div
-      className={clsx("usy-badge-container", {
-        [`size-${size}`]: Boolean(size),
-      })}
+      className={clsx(
+        "usy-badge-container",
+        {
+          [`size-${size}`]: Boolean(size),
+        },
+        className
+      )}
       style={{ ...typeCss }}
       data-testid={testId}
     >

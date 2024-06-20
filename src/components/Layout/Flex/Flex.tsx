@@ -1,8 +1,9 @@
 import { FC, ReactNode } from "react";
 
 import { MeasureUnit } from "@src/components/types";
+import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
-interface FlexProps {
+interface FlexProps extends ExtraCompProps {
   width?: string;
   height?: string;
   padding?: string;
@@ -15,7 +16,6 @@ interface FlexProps {
   wrap?: "nowrap" | "wrap" | "wrap-reverse";
   gap?: MeasureUnit;
   children: ReactNode;
-  className?: string;
 }
 
 export const Flex: FC<FlexProps> = ({
@@ -32,6 +32,7 @@ export const Flex: FC<FlexProps> = ({
   gap,
   children,
   className,
+  testId,
 }) => {
   return (
     <Tag
@@ -48,6 +49,7 @@ export const Flex: FC<FlexProps> = ({
         gap,
       }}
       className={className}
+      data-testid={testId}
     >
       {children}
     </Tag>
