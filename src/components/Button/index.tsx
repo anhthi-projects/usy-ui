@@ -6,11 +6,13 @@ import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
 import SvgLoadingCircle from "../Icon/LoadingCircle";
 
-export type ButtonType = "primary" | "outline" | "normal";
+export type ButtonType = "button" | "submit";
+export type ButtonVariant = "primary" | "outline" | "normal";
 export type ButtonSize = "small" | "medium" | "large";
 
 export interface ButtonProps extends ExtraCompProps {
   type?: ButtonType;
+  variant?: ButtonVariant;
   size?: ButtonSize;
   isLoading?: boolean;
   iconLeft?: ReactNode;
@@ -24,7 +26,8 @@ export interface ButtonProps extends ExtraCompProps {
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
     {
-      type = "normal",
+      type = "button",
+      variant = "normal",
       size = "medium",
       isLoading = false,
       isDisabled = false,
@@ -36,7 +39,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       testId = "",
     },
-    ref
+    innerRef
   ) {
     const handleClick = () => {
       if (isDisabled || isLoading || typeof onClick !== "function") {
@@ -47,16 +50,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const sizeClassName = `size-${size}`;
-    const typeClassName = `type-${type}`;
+    const variantClassName = `variant-${variant}`;
 
     return (
       <button
-        ref={ref}
+        ref={innerRef}
+        type={type}
         className={clsx(
           "usy-button-container",
           {
             [sizeClassName]: Boolean(size),
-            [typeClassName]: Boolean(type),
+            [variantClassName]: Boolean(variant),
             disabled: isDisabled,
             block: isBlock,
           },

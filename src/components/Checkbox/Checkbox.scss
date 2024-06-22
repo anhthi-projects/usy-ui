@@ -9,7 +9,9 @@
     appearance: none;
     width: var(--usy-spacing-20px);
     height: var(--usy-spacing-20px);
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--usy-color-white);
     border: 2px solid var(--usy-color-light-7);
     border-radius: 2px;
@@ -26,9 +28,6 @@
         content: "✓";
         font-size: var(--usy-fontsize-sm);
         color: var(--usy-color-white);
-        position: absolute;
-        right: 2px;
-        top: -3px;
       }
     }
   }

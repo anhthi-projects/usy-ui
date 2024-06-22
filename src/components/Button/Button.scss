@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  user-select: none;
 
   /*
    * Sizes 
@@ -29,23 +30,23 @@
   }
 
   /*
-   * Types 
+   * Variant 
    */
 
-  &.type-primary {
+  &.variant-primary {
     background-color: var(--usy-color-primary);
     filter: drop-shadow(0px 4px 0px var(--usy-color-primary-dark));
     color: var(--usy-color-white);
   }
 
-  &.type-outline {
+  &.variant-outline {
     background-color: var(--usy-color-white);
     border: 1px solid var(--usy-color-primary);
     filter: drop-shadow(0px 4px 0px var(--usy-color-primary));
     color: var(--usy-color-dark-7);
   }
 
-  &.type-normal {
+  &.variant-normal {
     background-color: var(--usy-color-white);
     border: 1px solid var(--usy-color-light-3);
     filter: drop-shadow(0px 4px 0px var(--usy-color-light-3));

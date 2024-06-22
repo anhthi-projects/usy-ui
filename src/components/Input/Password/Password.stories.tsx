@@ -18,12 +18,7 @@ const meta: Meta<typeof Password> = {
 export const Types: Story = {
   render: () => (
     <>
-      <Password
-        title="Password"
-        placeholder="Enter your password"
-        className=""
-        testId=""
-      />
+      <Password title="Password" placeholder="Enter your password" />
     </>
   ),
 };

@@ -3,8 +3,13 @@
   flex-direction: column;
 
   .title {
-    margin: 0 0 var(--usy-spacing-2px) var(--usy-spacing-4px);
+    margin: 0 0 var(--usy-spacing-4px) var(--usy-spacing-2px);
     font-size: var(--usy-fontsize-sm);
+
+    .asterisk {
+      color: var(--usy-color-red);
+      margin-right: var(--usy-spacing-4px);
+    }
   }
 
   .description {

@@ -18,11 +18,12 @@ const meta: Meta<typeof Input> = {
 
 export const Types: Story = {
   render: () => (
-    <>
+    <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
       <Input
         title="Email"
         placeholder="Enter your email"
         iconLeft={<EmailIcon width="18px" height="18px" />}
+        hasAsterisk
       />
       <Input
         placeholder="Enter your email"
@@ -33,7 +34,7 @@ export const Types: Story = {
         description="This field cannot be empty"
         hasError
       />
-    </>
+    </div>
   ),
 };
 
