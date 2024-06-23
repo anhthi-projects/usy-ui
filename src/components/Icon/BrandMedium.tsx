@@ -4,7 +4,7 @@ interface SVGRProps {
   title?: string;
   titleId?: string;
 }
-const SvgMedium = ({
+const SvgBrandMedium = ({
   title,
   titleId,
   ...props
@@ -21,4 +21,4 @@ const SvgMedium = ({
     <path d="M7 6a7 7 0 1 0 0 14A7 7 0 1 0 7 6m11 .5a3 6.5 0 1 0 0 13 3 6.5 0 1 0 0-13M23 8a1 5 0 1 0 0 10 1 5 0 1 0 0-10" />
   </svg>
 );
-export default SvgMedium;
+export default SvgBrandMedium;

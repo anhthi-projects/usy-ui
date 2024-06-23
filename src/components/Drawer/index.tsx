@@ -9,7 +9,7 @@ export { DrawerHeader } from "./Header";
 export { DrawerContent } from "./Content";
 export { DrawerFooter } from "./Footer";
 
-interface DrawerProps extends ExtraCompProps {
+interface DrawerProps {
   isOpen?: boolean;
   side?: "left" | "right";
   maxWidth?: string;
@@ -20,7 +20,7 @@ interface DrawerProps extends ExtraCompProps {
   zIndex?: number;
 }
 
-export const Drawer: FC<DrawerProps> = ({
+export const Drawer: FC<DrawerProps & ExtraCompProps> = ({
   isOpen,
   side = "right",
   maxWidth = "480px",

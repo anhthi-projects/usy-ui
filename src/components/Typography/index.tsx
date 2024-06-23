@@ -34,7 +34,7 @@ type TypographyWeight =
 
 type TypographyAlign = "left" | "center" | "right" | "justify";
 
-interface TypographyProps extends ExtraCompProps {
+interface TypographyProps {
   tag?: TypographyTag;
   size?: TypographySize;
   weight?: TypographyWeight;
@@ -43,7 +43,7 @@ interface TypographyProps extends ExtraCompProps {
   children: ReactNode;
 }
 
-export const Typography: FC<TypographyProps> = ({
+export const Typography: FC<TypographyProps & ExtraCompProps> = ({
   tag: Tag = "p",
   size = "medium",
   weight = "medium",

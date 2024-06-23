@@ -4,7 +4,7 @@ interface SVGRProps {
   title?: string;
   titleId?: string;
 }
-const SvgInfoCircle = ({
+const SvgInfoCircleOutline = ({
   title,
   titleId,
   ...props
@@ -14,21 +14,20 @@ const SvgInfoCircle = ({
     width="20px"
     height="20px"
     fill="none"
+    aria-hidden="true"
+    className="info-circle-outline_svg__w-6 info-circle-outline_svg__h-6 info-circle-outline_svg__text-gray-800 info-circle-outline_svg__dark:text-white"
     viewBox="0 0 24 24"
     aria-labelledby={titleId}
     {...props}
   >
     {title ? <title id={titleId}>{title}</title> : null}
     <path
-      fill="#1C274C"
-      d="M12 17.75a.75.75 0 0 0 .75-.75v-6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75M12 7a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
-    />
-    <path
-      fill="#1C274C"
-      fillRule="evenodd"
-      d="M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12 17.937 22.75 12 22.75 1.25 17.937 1.25 12M12 2.75a9.25 9.25 0 1 0 0 18.5 9.25 9.25 0 0 0 0-18.5"
-      clipRule="evenodd"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0"
     />
   </svg>
 );
-export default SvgInfoCircle;
+export default SvgInfoCircleOutline;

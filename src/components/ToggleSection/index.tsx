@@ -6,7 +6,7 @@ import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
 import { CaretDownIcon } from "../Icon";
 
-export interface ToggleSectionProps extends ExtraCompProps {
+export interface ToggleSectionProps {
   title: ReactNode;
   isExpand?: boolean;
   maxWidth?: string;
@@ -15,7 +15,7 @@ export interface ToggleSectionProps extends ExtraCompProps {
   onToggle?: (isExpand: boolean) => void;
 }
 
-export const ToggleSection: FC<ToggleSectionProps> = ({
+export const ToggleSection: FC<ToggleSectionProps & ExtraCompProps> = ({
   title,
   isExpand: isDefExpand = false,
   maxWidth,

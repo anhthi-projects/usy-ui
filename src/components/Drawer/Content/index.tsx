@@ -4,11 +4,11 @@ import clsx from "clsx";
 
 import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
-interface DrawerContentProps extends ExtraCompProps {
+interface DrawerContentProps {
   children: ReactNode;
 }
 
-export const DrawerContent: FC<DrawerContentProps> = ({
+export const DrawerContent: FC<DrawerContentProps & ExtraCompProps> = ({
   children,
   className,
   testId,

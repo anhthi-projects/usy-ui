@@ -4,7 +4,7 @@ interface SVGRProps {
   title?: string;
   titleId?: string;
 }
-const SvgEyeClosed = ({
+const SvgWarningCircleFilled = ({
   title,
   titleId,
   ...props
@@ -13,21 +13,19 @@ const SvgEyeClosed = ({
     xmlns="http://www.w3.org/2000/svg"
     width="20px"
     height="20px"
-    fill="none"
+    fill="currentColor"
     aria-hidden="true"
-    className="eye-closed_svg__w-6 eye-closed_svg__h-6 eye-closed_svg__text-gray-800 eye-closed_svg__dark:text-white"
+    className="warning-circle-filled_svg__w-6 warning-circle-filled_svg__h-6 warning-circle-filled_svg__text-gray-800 warning-circle-filled_svg__dark:text-white"
     viewBox="0 0 24 24"
     aria-labelledby={titleId}
     {...props}
   >
     {title ? <title id={titleId}>{title}</title> : null}
     <path
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M3.933 13.909A4.36 4.36 0 0 1 3 12c0-1 4-6 9-6m7.6 3.8A5.07 5.07 0 0 1 21 12c0 1-3 6-9 6q-.471 0-.918-.04M5 19 19 5m-4 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0"
+      fillRule="evenodd"
+      d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12m11-4a1 1 0 1 0-2 0v5a1 1 0 1 0 2 0zm-1 7a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2z"
+      clipRule="evenodd"
     />
   </svg>
 );
-export default SvgEyeClosed;
+export default SvgWarningCircleFilled;

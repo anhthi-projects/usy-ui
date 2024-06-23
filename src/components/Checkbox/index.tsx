@@ -4,13 +4,13 @@ import clsx from "clsx";
 
 import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
-interface CheckboxProps extends ExtraCompProps {
+interface CheckboxProps {
   label: ReactNode;
   isChecked?: boolean;
   onChange?: (checked: boolean) => void;
 }
 
-export const Checkbox: FC<CheckboxProps> = ({
+export const Checkbox: FC<CheckboxProps & ExtraCompProps> = ({
   label,
   isChecked = false,
   onChange,

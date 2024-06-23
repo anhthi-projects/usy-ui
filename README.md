@@ -15,4 +15,4 @@
 
 ## Resources
 
-- https://icons8.com/
+- https://flowbite.com/icons/

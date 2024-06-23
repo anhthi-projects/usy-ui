@@ -3,7 +3,7 @@ import { FC, ReactNode } from "react";
 import { MeasureUnit } from "@src/components/types";
 import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
-interface FlexProps extends ExtraCompProps {
+interface FlexProps {
   width?: string;
   height?: string;
   padding?: string;
@@ -18,7 +18,7 @@ interface FlexProps extends ExtraCompProps {
   children: ReactNode;
 }
 
-export const Flex: FC<FlexProps> = ({
+export const Flex: FC<FlexProps & ExtraCompProps> = ({
   width,
   height,
   padding,

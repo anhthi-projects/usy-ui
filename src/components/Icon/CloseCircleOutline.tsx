@@ -4,7 +4,7 @@ interface SVGRProps {
   title?: string;
   titleId?: string;
 }
-const SvgEyeClosed = ({
+const SvgCloseCircleOutline = ({
   title,
   titleId,
   ...props
@@ -15,7 +15,7 @@ const SvgEyeClosed = ({
     height="20px"
     fill="none"
     aria-hidden="true"
-    className="eye-closed_svg__w-6 eye-closed_svg__h-6 eye-closed_svg__text-gray-800 eye-closed_svg__dark:text-white"
+    className="close-circle-outline_svg__w-6 close-circle-outline_svg__h-6 close-circle-outline_svg__text-gray-800 close-circle-outline_svg__dark:text-white"
     viewBox="0 0 24 24"
     aria-labelledby={titleId}
     {...props}
@@ -26,8 +26,8 @@ const SvgEyeClosed = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={2}
-      d="M3.933 13.909A4.36 4.36 0 0 1 3 12c0-1 4-6 9-6m7.6 3.8A5.07 5.07 0 0 1 21 12c0 1-3 6-9 6q-.471 0-.918-.04M5 19 19 5m-4 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0"
+      d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0"
     />
   </svg>
 );
-export default SvgEyeClosed;
+export default SvgCloseCircleOutline;

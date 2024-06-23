@@ -10,11 +10,11 @@ type Image = {
   alt?: string;
 };
 
-interface ImageGalleryProps extends ExtraCompProps {
+interface ImageGalleryProps {
   images: Image[];
 }
 
-export const ImageGallery: FC<ImageGalleryProps> = ({
+export const ImageGallery: FC<ImageGalleryProps & ExtraCompProps> = ({
   images,
   className,
   testId,

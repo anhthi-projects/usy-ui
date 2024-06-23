@@ -12,7 +12,7 @@ import {
   InputTitle,
 } from "./Input.components";
 
-export interface InputProps extends ExtraCompProps {
+export interface InputProps {
   name?: string;
   value?: string;
   title?: string;
@@ -30,7 +30,7 @@ export interface InputProps extends ExtraCompProps {
   formatOnBlur?: (value: string) => string;
 }
 
-export const Input: FC<InputProps> = ({
+export const Input: FC<InputProps & ExtraCompProps> = ({
   name = getCurrentTime(),
   value = "",
   title,

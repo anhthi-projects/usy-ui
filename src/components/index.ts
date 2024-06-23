@@ -9,5 +9,6 @@ export { Password } from "./Input/Password";
 export { Flex, FlexChild } from "./Layout/Flex";
 export { Modal } from "./Modal";
 export { UsyProvider } from "./Provider";
+export { Toast, toastIns } from "./Toast";
 export { ToggleSection } from "./ToggleSection";
 export { Typography } from "./Typography";
