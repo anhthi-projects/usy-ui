@@ -18,19 +18,13 @@ const packageJson = require("./package.json");
 /** @type {import('rollup').RollupOptions} */
 export default [
   {
-    input: "src/index.ts",
-    output: [
-      {
-        file: packageJson.main,
-        format: "cjs",
-        sourcemap: true,
-      },
-      {
-        file: packageJson.module,
-        format: "esm",
-        sourcemap: true,
-      },
-    ],
+    input: "index.ts",
+    output: {
+      dir: packageJson.module,
+      format: "esm",
+      sourcemap: true,
+      preserveModules: true,
+    },
     plugins: [
       typescript({
         tsconfig: "./tsconfig.json",
@@ -59,7 +53,7 @@ export default [
     external: ["react", "react-dom"],
   },
   {
-    input: "dist/cjs/types/index.d.ts", // collect all *.d.ts and export to root
+    input: "dist/types/index.d.ts", // collect all *.d.ts and export to root
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts.default()],
     external: [/\.(sass|scss|css)$/],
