@@ -8,7 +8,7 @@ export { Input } from "./Input";
 export { Password } from "./Input/Password";
 export { Flex, FlexChild } from "./Layout/Flex";
 export { Modal } from "./Modal";
-export { UsyProvider } from "./Provider";
+export { setUsyTheme } from "./Theme";
 export { Toast, toastIns } from "./Toast";
 export { ToggleSection } from "./ToggleSection";
 export { Typography } from "./Typography";

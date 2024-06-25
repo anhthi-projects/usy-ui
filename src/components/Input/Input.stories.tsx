@@ -3,7 +3,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ThemeProviderDecorator } from "../../../.storybook/decorators";
-import { EmailIcon, InfoCircleIcon } from "../Icon";
+import { EmailIcon, InfoCircleOutlineIcon } from "../Icon";
 
 import { Input } from "./index";
 
@@ -27,7 +27,7 @@ export const Types: Story = {
       />
       <Input
         placeholder="Enter your email"
-        iconRight={<InfoCircleIcon width="18px" height="18px" />}
+        iconRight={<InfoCircleOutlineIcon width="18px" height="18px" />}
       />
       <Input
         placeholder="Enter your email"

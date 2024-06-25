@@ -3,6 +3,7 @@ import { FC, ReactNode, useEffect } from "react";
 import clsx from "clsx";
 import { createPortal } from "react-dom";
 
+import { useMounted } from "@src/hooks/useMounted";
 import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
 export { DrawerHeader } from "./Header";
@@ -27,11 +28,13 @@ export const Drawer: FC<DrawerProps & ExtraCompProps> = ({
   header,
   children,
   footer,
-  containerElement = document.body,
+  containerElement,
   zIndex = 900,
   className,
   testId = "",
 }) => {
+  const { isMounted } = useMounted();
+
   const enableScroll = () => {
     document.body.style.overflow = "auto";
   };
@@ -70,5 +73,7 @@ export const Drawer: FC<DrawerProps & ExtraCompProps> = ({
     );
   };
 
-  return isOpen && createPortal(renderDrawer(), containerElement);
+  return isMounted
+    ? createPortal(renderDrawer(), containerElement || document.body)
+    : null;
 };

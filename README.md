@@ -7,7 +7,13 @@
 
 ## Todo
 
-- Be more generic
+- Be more generic on components
+- Be compatible in NextJS
+  . Toast, Drawer, Modal will not prevent SEO
+  . Change theme in SSR
+
+- Add ref to all components
+- Fix Storybook viewport
 - Check all UI cases in Storybook
 - Optimize components (useMemo, memo)
 - 100% Unit Tests

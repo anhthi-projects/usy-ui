@@ -12,7 +12,7 @@ import {
   InputTitle,
 } from "./Input.components";
 
-export interface InputProps {
+export type InputProps = {
   name?: string;
   value?: string;
   title?: string;
@@ -28,9 +28,9 @@ export interface InputProps {
   onBlur?: (e: FocusEvent<HTMLInputElement>, value: string) => void;
   formatOnChange?: (value: string) => string;
   formatOnBlur?: (value: string) => string;
-}
+} & ExtraCompProps;
 
-export const Input: FC<InputProps & ExtraCompProps> = ({
+export const Input: FC<InputProps> = ({
   name = getCurrentTime(),
   value = "",
   title,

@@ -1,5 +1,3 @@
-import { FC, ReactNode, useEffect, useState } from "react";
-
 import { usyColors } from "@src/styles";
 import { camelCase, toCssVariable } from "@src/utils/format";
 
@@ -13,11 +11,6 @@ type ThemeProps = Partial<
     string
   >
 >;
-
-interface ProviderProps {
-  children: ReactNode;
-  theme?: ThemeProps;
-}
 
 const setThemeToCssVariables = (theme: ThemeProps) => {
   const root = document.documentElement;
@@ -44,18 +37,7 @@ const setThemeToUsyConstants = (theme: ThemeProps) => {
   });
 };
 
-export const UsyProvider: FC<ProviderProps> = ({ children, theme }) => {
-  const [isThemeSet, setIsThemeSet] = useState(false);
-
-  useEffect(() => {
-    setIsThemeSet(true);
-    if (!theme || Object.keys(theme || {}).length === 0) {
-      return;
-    }
-
-    setThemeToCssVariables(theme);
-    setThemeToUsyConstants(theme);
-  }, [theme]);
-
-  return isThemeSet && <>{children}</>;
+export const setUsyTheme = (theme: ThemeProps) => {
+  setThemeToCssVariables(theme);
+  setThemeToUsyConstants(theme);
 };

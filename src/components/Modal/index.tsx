@@ -3,6 +3,7 @@ import { FC, ReactNode, useEffect } from "react";
 import clsx from "clsx";
 import { createPortal } from "react-dom";
 
+import { useMounted } from "@src/hooks/useMounted";
 import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
 import { CloseIcon } from "../Icon";
@@ -21,13 +22,15 @@ export const Modal: FC<ModalProps & ExtraCompProps> = ({
   isOpen,
   title,
   maxWidth = "500px",
-  containerElement = document.body,
+  containerElement,
   children,
   onClose,
   zIndex,
   className,
   testId,
 }) => {
+  const { isMounted } = useMounted();
+
   const enableScroll = () => {
     document.body.style.overflow = "auto";
   };
@@ -88,5 +91,7 @@ export const Modal: FC<ModalProps & ExtraCompProps> = ({
     );
   };
 
-  return isOpen && createPortal(renderModal(), containerElement);
+  return isMounted && isOpen
+    ? createPortal(renderModal(), containerElement || document.body)
+    : null;
 };

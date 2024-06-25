@@ -1,8 +1,11 @@
-import { FunctionComponent, ReactNode, createRef, useEffect } from "react";
+import { FC, FunctionComponent, ReactNode, createRef, useEffect } from "react";
 
 import clsx from "clsx";
+import { createPortal } from "react-dom";
 import { renderToStaticMarkup } from "react-dom/server";
 
+import { useMounted } from "@src/hooks/useMounted";
+import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 import { getCurrentTime } from "@src/utils/helpers";
 
 import {
@@ -29,11 +32,20 @@ interface ToastInstance {
   error: (params: ToastParams) => void;
 }
 
+interface ToastProps {
+  containerElement?: HTMLElement;
+}
+
 export let toastIns: ToastInstance;
 
-export const Toast = () => {
+export const Toast: FC<ToastProps & ExtraCompProps> = ({
+  containerElement,
+  className,
+  testId,
+}) => {
   const toastList: Record<string, number | undefined> = {};
   const toastQueueRef = createRef<HTMLDivElement>();
+  const { isMounted } = useMounted();
 
   useEffect(() => {
     if (!toastIns) {
@@ -58,6 +70,7 @@ export const Toast = () => {
 
     toastContainer.id = toastId;
     toastContainer.className = `toast-container ${type}`;
+    testId && toastContainer.setAttribute("data-testid", testId);
     toastContainer.innerHTML = renderToStaticMarkup(
       <>
         <StatusIcon className="status-icon" />
@@ -81,8 +94,12 @@ export const Toast = () => {
     )[0] as HTMLElement;
 
     closeIcon.onclick = closeToast;
-    toastList[toastId] = setTimeout(closeToast, 500000);
+    toastList[toastId] = setTimeout(closeToast, 5000);
   };
+
+  /**
+   * Notify functions
+   */
 
   const success = ({ title, content }: ToastParams) => {
     createToast({
@@ -120,10 +137,16 @@ export const Toast = () => {
     });
   };
 
-  return (
-    <div
-      ref={toastQueueRef}
-      className={clsx("usy-toast-container position-top-right")}
-    />
-  );
+  const renderToast = () => {
+    return (
+      <div
+        ref={toastQueueRef}
+        className={clsx("usy-toast-container position-top-right", className)}
+      />
+    );
+  };
+
+  return isMounted
+    ? createPortal(renderToast(), containerElement || document.body)
+    : null;
 };
