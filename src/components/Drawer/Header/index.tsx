@@ -6,12 +6,12 @@ import { CloseIcon } from "@src/components/Icon";
 import { Typography } from "@src/components/Typography";
 import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
-interface DrawerHeaderProps {
+type DrawerHeaderProps = {
   title: ReactNode;
   onClose?: () => void;
-}
+} & ExtraCompProps;
 
-export const DrawerHeader: FC<DrawerHeaderProps & ExtraCompProps> = ({
+export const DrawerHeader: FC<DrawerHeaderProps> = ({
   title,
   onClose,
   className,

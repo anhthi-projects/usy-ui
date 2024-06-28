@@ -10,7 +10,7 @@ export { DrawerHeader } from "./Header";
 export { DrawerContent } from "./Content";
 export { DrawerFooter } from "./Footer";
 
-interface DrawerProps {
+type DrawerProps = {
   isOpen?: boolean;
   side?: "left" | "right";
   maxWidth?: string;
@@ -19,9 +19,9 @@ interface DrawerProps {
   footer?: ReactNode;
   containerElement?: HTMLElement;
   zIndex?: number;
-}
+} & ExtraCompProps;
 
-export const Drawer: FC<DrawerProps & ExtraCompProps> = ({
+export const Drawer: FC<DrawerProps> = ({
   isOpen,
   side = "right",
   maxWidth = "480px",

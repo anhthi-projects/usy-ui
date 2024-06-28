@@ -2,14 +2,14 @@ import { FC, ReactNode } from "react";
 
 import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
-interface FlexChildProps {
+type FlexChildProps = {
   as?: "div" | "span";
   flexGrow?: number;
   flexShrink?: number;
   children: ReactNode;
-}
+} & ExtraCompProps;
 
-export const FlexChild: FC<FlexChildProps & ExtraCompProps> = ({
+export const FlexChild: FC<FlexChildProps> = ({
   as: Tag = "div",
   flexGrow,
   flexShrink,

@@ -11,13 +11,12 @@ interface DrawerButtonProps {
   onClick: () => void;
   testId?: string;
 }
-
-interface DrawerFooterProps {
+type DrawerFooterProps = {
   alignContent?: "left" | "center" | "right";
   buttons: DrawerButtonProps[];
-}
+} & ExtraCompProps;
 
-export const DrawerFooter: FC<DrawerFooterProps & ExtraCompProps> = ({
+export const DrawerFooter: FC<DrawerFooterProps> = ({
   alignContent = "right",
   buttons,
   className,

@@ -32,13 +32,13 @@ interface ToastInstance {
   error: (params: ToastParams) => void;
 }
 
-interface ToastProps {
+type ToastProps = {
   containerElement?: HTMLElement;
-}
+} & ExtraCompProps;
 
 export let toastIns: ToastInstance;
 
-export const Toast: FC<ToastProps & ExtraCompProps> = ({
+export const Toast: FC<ToastProps> = ({
   containerElement,
   className,
   testId,

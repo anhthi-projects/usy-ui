@@ -15,12 +15,12 @@ export type BadgeColor =
   | "random"
   | CSSProperties["color"];
 
-interface BadgeProps extends ExtraCompProps {
+type BadgeProps = {
   type?: BadgeType;
   size?: BadgeSize;
   color?: BadgeColor;
   children: ReactNode;
-}
+} & ExtraCompProps;
 
 export const Badge: FC<BadgeProps> = ({
   type = "outline",

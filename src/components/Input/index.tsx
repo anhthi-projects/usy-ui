@@ -1,4 +1,10 @@
-import { ChangeEvent, FC, FocusEvent, ReactNode, useState } from "react";
+import {
+  ChangeEvent,
+  FocusEvent,
+  ReactNode,
+  forwardRef,
+  useState,
+} from "react";
 
 import clsx from "clsx";
 
@@ -30,25 +36,28 @@ export type InputProps = {
   formatOnBlur?: (value: string) => string;
 } & ExtraCompProps;
 
-export const Input: FC<InputProps> = ({
-  name = getCurrentTime(),
-  value = "",
-  title,
-  type = "text",
-  maxWidth = "unset",
-  iconLeft,
-  iconRight,
-  placeholder,
-  description,
-  hasAsterisk = false,
-  hasError = false,
-  onChange,
-  onBlur,
-  formatOnChange = (value) => value,
-  formatOnBlur = (value) => value,
-  className,
-  testId,
-}) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  {
+    name = getCurrentTime(),
+    value = "",
+    title,
+    type = "text",
+    maxWidth = "unset",
+    iconLeft,
+    iconRight,
+    placeholder,
+    description,
+    hasAsterisk = false,
+    hasError = false,
+    onChange,
+    onBlur,
+    formatOnChange = (value) => value,
+    formatOnBlur = (value) => value,
+    className,
+    testId,
+  },
+  ref
+) {
   const [innerValue, setInnerValue] = useState(value);
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -70,6 +79,7 @@ export const Input: FC<InputProps> = ({
   const renderInput = () => {
     return (
       <input
+        ref={ref}
         id={name}
         name={name}
         value={innerValue}
@@ -105,4 +115,4 @@ export const Input: FC<InputProps> = ({
       <InputDescription description={description} testId={testId} />
     </div>
   );
-};
+});

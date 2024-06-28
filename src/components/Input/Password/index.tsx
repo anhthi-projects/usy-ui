@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, FocusEvent, useState } from "react";
+import { ChangeEvent, FocusEvent, forwardRef, useState } from "react";
 
 import clsx from "clsx";
 
@@ -30,89 +30,95 @@ type PasswordProps = Pick<
 > &
   ExtraCompProps;
 
-export const Password: FC<PasswordProps> = ({
-  name = getCurrentTime(),
-  value = "",
-  title,
-  maxWidth = "unset",
-  iconLeft,
-  placeholder,
-  description,
-  hasAsterisk = false,
-  hasError = false,
-  onChange,
-  onBlur,
-  className,
-  testId,
-}) => {
-  const [hidePassword, setHidePassword] = useState(true);
-  const [innerValue, setInnerValue] = useState(value);
+export const Password = forwardRef<HTMLInputElement, PasswordProps>(
+  function Password(
+    {
+      name = getCurrentTime(),
+      value = "",
+      title,
+      maxWidth = "unset",
+      iconLeft,
+      placeholder,
+      description,
+      hasAsterisk = false,
+      hasError = false,
+      onChange,
+      onBlur,
+      className,
+      testId,
+    },
+    ref
+  ) {
+    const [hidePassword, setHidePassword] = useState(true);
+    const [innerValue, setInnerValue] = useState(value);
 
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInnerValue(e.target.value);
-    onChange?.(e, e.target.value);
-  };
+    const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+      setInnerValue(e.target.value);
+      onChange?.(e, e.target.value);
+    };
 
-  const handleOnBlur = (e: FocusEvent<HTMLInputElement>) => {
-    setInnerValue(e.target.value);
-    onBlur?.(e, e.target.value);
-  };
+    const handleOnBlur = (e: FocusEvent<HTMLInputElement>) => {
+      setInnerValue(e.target.value);
+      onBlur?.(e, e.target.value);
+    };
 
-  /**
-   * Render
-   */
+    /**
+     * Render
+     */
 
-  const renderInput = () => {
+    const renderInput = () => {
+      return (
+        <input
+          ref={ref}
+          id={name}
+          name={name}
+          type={hidePassword ? "password" : "text"}
+          value={innerValue}
+          placeholder={placeholder}
+          onChange={handleOnChange}
+          onBlur={handleOnBlur}
+          className="input"
+          data-testid={`${testId}-input`}
+        />
+      );
+    };
+
     return (
-      <input
-        type={hidePassword ? "password" : "text"}
-        id={name}
-        name={name}
-        value={innerValue}
-        placeholder={placeholder}
-        onChange={handleOnChange}
-        onBlur={handleOnBlur}
-        className="input"
-        data-testid={`${testId}-input`}
-      />
-    );
-  };
-
-  return (
-    <div className={clsx("usy-input-container", className)}>
-      <InputTitle
-        name={name}
-        hasAsterisk={hasAsterisk}
-        title={title}
-        testId={testId}
-      />
-      <div
-        className={clsx("input-container", {
-          "has-error": hasError,
-        })}
-        style={{ maxWidth }}
-        data-testid={testId}
-      >
-        <InputIconLeft iconLeft={iconLeft} testId={testId} />
-        {renderInput()}
-        <InputIconRight
-          iconRight={
-            hidePassword ? (
-              <EyeIcon
-                onClick={() => setHidePassword(false)}
-                style={{ cursor: "pointer" }}
-              />
-            ) : (
-              <EyeClosedIcon
-                onClick={() => setHidePassword(true)}
-                style={{ cursor: "pointer" }}
-              />
-            )
-          }
+      <div className={clsx("usy-input-container", className)}>
+        <InputTitle
+          name={name}
+          hasAsterisk={hasAsterisk}
+          title={title}
           testId={testId}
         />
+        <div
+          className={clsx("input-container", {
+            "has-error": hasError,
+          })}
+          style={{ maxWidth }}
+          data-testid={testId}
+        >
+          <InputIconLeft iconLeft={iconLeft} testId={testId} />
+          {renderInput()}
+          <InputIconRight
+            iconRight={
+              hidePassword ? (
+                <EyeIcon
+                  onClick={() => setHidePassword(false)}
+                  style={{ cursor: "pointer" }}
+                />
+              ) : (
+                <EyeClosedIcon
+                  onClick={() => setHidePassword(true)}
+                  style={{ cursor: "pointer" }}
+                />
+              )
+            }
+            testId={testId}
+          />
+        </div>
+        <InputDescription description={description} testId={testId} />
       </div>
-      <InputDescription description={description} testId={testId} />
-    </div>
-  );
-};
+    );
+  }
+);

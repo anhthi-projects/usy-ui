@@ -8,7 +8,7 @@ import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
 
 import { CloseIcon } from "../Icon";
 
-interface ModalProps {
+type ModalProps = {
   isOpen: boolean;
   title?: ReactNode;
   maxWidth?: string;
@@ -16,9 +16,9 @@ interface ModalProps {
   children: ReactNode;
   onClose?: () => void;
   zIndex?: number;
-}
+} & ExtraCompProps;
 
-export const Modal: FC<ModalProps & ExtraCompProps> = ({
+export const Modal: FC<ModalProps> = ({
   isOpen,
   title,
   maxWidth = "500px",

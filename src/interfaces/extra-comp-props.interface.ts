@@ -1,7 +1,7 @@
 import { Ref } from "react";
 
-export interface ExtraCompProps {
+export type ExtraCompProps = {
   ref?: Ref<HTMLElement>;
   className?: string;
   testId?: string;
-}
+};
