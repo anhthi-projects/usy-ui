@@ -48,7 +48,7 @@ export const Toast: FC<ToastProps> = ({
   const { isMounted } = useMounted();
 
   useEffect(() => {
-    if (!toastIns) {
+    if (!toastIns && isMounted) {
       toastIns = {
         success,
         info,
@@ -57,7 +57,7 @@ export const Toast: FC<ToastProps> = ({
       };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isMounted]);
 
   const createToast = ({
     type,
