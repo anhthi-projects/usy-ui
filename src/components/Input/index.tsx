@@ -8,7 +8,7 @@ import {
 
 import clsx from "clsx";
 
-import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+import { ExtraCompProps } from "@src/types/extra-comp-props.type";
 import { getCurrentTime } from "@src/utils/helpers";
 
 import {

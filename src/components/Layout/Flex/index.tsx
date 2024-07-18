@@ -1,35 +1,39 @@
 import { FC, ReactNode } from "react";
 
 import { MeasureUnit } from "@src/components/types";
-import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+import { ExtraCompProps } from "@src/types/extra-comp-props.type";
 
-type FlexProps = {
-  width?: string;
-  height?: string;
-  padding?: string;
-  margin?: string;
-  as?: "div" | "span";
+import { PureBoxProps } from "../Box";
+
+type PureFlexProps = {
   display?: "flex" | "inline-flex";
   direction?: "row" | "column" | "row-reverse" | "column-reverse";
   justifyContent?: "flex-start" | "center" | "flex-end" | "space-between";
   alignItems?: "flex-start" | "center" | "flex-end" | "baseline" | "stretch";
+  grow?: number;
+  shrink?: number;
   wrap?: "nowrap" | "wrap" | "wrap-reverse";
   gap?: MeasureUnit;
-  children: ReactNode;
-} & ExtraCompProps;
+};
+
+type FlexProps = { children: ReactNode } & PureFlexProps &
+  PureBoxProps &
+  ExtraCompProps;
 
 export const Flex: FC<FlexProps> = ({
   width,
   height,
-  padding,
-  margin,
   as: Tag = "div",
   display = "flex",
   direction,
   justifyContent,
   alignItems,
-  wrap = "wrap",
+  grow,
+  shrink,
+  wrap,
   gap,
+  paddingProps,
+  marginProps,
   children,
   className,
   testId,
@@ -39,14 +43,16 @@ export const Flex: FC<FlexProps> = ({
       style={{
         width,
         height,
-        padding,
-        margin,
         display,
         flexDirection: direction,
+        flexGrow: grow,
+        flexShrink: shrink,
         justifyContent,
         alignItems,
         flexWrap: wrap,
         gap,
+        ...paddingProps,
+        ...marginProps,
       }}
       className={className}
       data-testid={testId}

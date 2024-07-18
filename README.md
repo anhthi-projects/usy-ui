@@ -22,3 +22,4 @@
 ## Resources
 
 - https://flowbite.com/icons/
+- https://www.iconfinder.com/

@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { createPortal } from "react-dom";
 
 import { useMounted } from "@src/hooks/useMounted";
-import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+import { ExtraCompProps } from "@src/types/extra-comp-props.type";
 
 export { DrawerHeader } from "./Header";
 export { DrawerContent } from "./Content";

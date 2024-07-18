@@ -2,7 +2,7 @@ import { ReactNode, forwardRef, useState } from "react";
 
 import clsx from "clsx";
 
-import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+import { ExtraCompProps } from "@src/types/extra-comp-props.type";
 
 type CheckboxProps = {
   label: ReactNode;

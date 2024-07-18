@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import { renderToStaticMarkup } from "react-dom/server";
 
 import { useMounted } from "@src/hooks/useMounted";
-import { ExtraCompProps } from "@src/interfaces/extra-comp-props.interface";
+import { ExtraCompProps } from "@src/types/extra-comp-props.type";
 import { getCurrentTime } from "@src/utils/helpers";
 
 import {
