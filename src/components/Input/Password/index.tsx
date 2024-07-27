@@ -7,12 +7,10 @@ import { ExtraCompProps } from "@src/types/extra-comp-props.type";
 import { getCurrentTime } from "@src/utils/helpers";
 
 import { InputProps } from "..";
-import {
-  InputDescription,
-  InputIconLeft,
-  InputIconRight,
-  InputTitle,
-} from "../Input.components";
+import { InputDescription } from "../components/InputDescription";
+import { InputIconLeft } from "../components/InputIconLeft";
+import { InputIconRight } from "../components/InputIconRight";
+import { InputTitle } from "../components/InputTitle";
 
 type PasswordProps = Pick<
   InputProps,

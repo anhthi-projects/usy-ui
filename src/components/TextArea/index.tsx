@@ -2,11 +2,14 @@ import { ChangeEvent, FocusEvent, forwardRef, useMemo, useState } from "react";
 
 import clsx from "clsx";
 
+import { usyElements } from "@src/styles";
 import { ExtraCompProps } from "@src/types/extra-comp-props.type";
 import { getCurrentTime } from "@src/utils";
 
-import { InputProps } from "..";
-import { InputDescription, InputTitle } from "../Input.components";
+import { InputProps } from "../Input";
+import { InputDescription } from "../Input/components/InputDescription";
+import { InputTitle } from "../Input/components/InputTitle";
+import { MeasureUnit } from "../types";
 
 type TextAreaProps = Pick<
   InputProps,
@@ -19,6 +22,7 @@ type TextAreaProps = Pick<
   | "hasAsterisk"
   | "hasError"
 > & {
+  maxHeight: MeasureUnit;
   onChange?: (e: ChangeEvent<HTMLTextAreaElement>, value: string) => void;
   onBlur?: (e: FocusEvent<HTMLTextAreaElement>, value: string) => void;
 } & ExtraCompProps;
@@ -30,6 +34,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       value = "",
       title,
       maxWidth = "unset",
+      maxHeight = "200px",
       placeholder,
       description,
       hasAsterisk = false,
@@ -67,9 +72,14 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           id={nameMemo}
           name={nameMemo}
           value={innerValue}
+          data-testid={testId}
           placeholder={placeholder}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
+          className={clsx("textarea", {
+            "has-error": hasError,
+          })}
+          style={{ maxWidth, maxHeight, minHeight: usyElements.elementHeight }}
         />
       );
     };
@@ -82,15 +92,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           title={title}
           testId={testId}
         />
-        <div
-          className={clsx("input-textarea", {
-            "has-error": hasError,
-          })}
-          style={{ maxWidth }}
-          data-testid={testId}
-        >
-          {renderTextArea()}
-        </div>
+        {renderTextArea()}
         <InputDescription description={description} testId={testId} />
       </div>
     );

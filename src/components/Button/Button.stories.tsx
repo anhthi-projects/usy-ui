@@ -19,23 +19,23 @@ const meta: Meta<typeof Button> = {
 export const Types: Story = {
   render: () => (
     <>
-      <Button type="primary">Primary</Button>
-      <Button type="outline">Outline</Button>
-      <Button type="normal">Normal</Button>
-      <Button type="normal" isDisabled>
+      <Button variant="primary">Primary</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="normal">Normal</Button>
+      <Button variant="normal" isDisabled>
         Disabled
       </Button>
-      <Button type="normal" isLoading>
+      <Button variant="normal" isLoading>
         Loading
       </Button>
       <Button
-        type="normal"
+        variant="normal"
         iconLeft={<RunningTimerIcon width="18px" height="18px" />}
       >
         Left Icon
       </Button>
       <Button
-        type="normal"
+        variant="normal"
         iconRight={<RunningTimerIcon width="18px" height="18px" />}
       >
         Right Icon

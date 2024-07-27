@@ -5,6 +5,10 @@
 - Custom theme via UsyProvider
 - Export constants as variables (fit for Styled-components)
 
+## Issues
+
+- Not hint the components props
+
 ## Todo
 
 - Be more generic on components

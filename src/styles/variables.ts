@@ -1,3 +1,7 @@
+export enum usyElements {
+  elementHeight = "40px",
+}
+
 export enum usyFontSizes {
   xs = "0.7rem",
   sm = "0.9rem",

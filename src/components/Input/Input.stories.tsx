@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ThemeProviderDecorator } from "../../../.storybook/decorators";
 import { EmailIcon, InfoCircleOutlineIcon } from "../Icon";
+import { Flex } from "../Layout/Flex";
 
 import { Input } from "./index";
 
@@ -18,7 +19,7 @@ const meta: Meta<typeof Input> = {
 
 export const Types: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
+    <Flex direction="column" gap="30px">
       <Input
         title="Email"
         placeholder="Enter your email"
@@ -34,7 +35,7 @@ export const Types: Story = {
         description="This field cannot be empty"
         hasError
       />
-    </div>
+    </Flex>
   ),
 };
 
