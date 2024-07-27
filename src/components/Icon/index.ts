@@ -3,6 +3,7 @@ export { default as BadgeCheckedOutlineIcon } from "./BadgeCheckedOutline";
 export { default as BanCircleOutlineIcon } from "./BanCircleOutline";
 export { default as BookFilledIcon } from "./BookFilled";
 export { default as BookOutlineIcon } from "./BookOutline";
+export { default as BrandFacebookIcon } from "./BrandFacebook";
 export { default as BrandGithubIcon } from "./BrandGithub";
 export { default as BrandInstagramIcon } from "./BrandInstagram";
 export { default as BrandLinkedinIcon } from "./BrandLinkedin";

@@ -3,6 +3,7 @@ import {
   FocusEvent,
   ReactNode,
   forwardRef,
+  useMemo,
   useState,
 } from "react";
 
@@ -38,7 +39,7 @@ export type InputProps = {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   {
-    name = getCurrentTime(),
+    name,
     value = "",
     title,
     type = "text",
@@ -59,6 +60,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   ref
 ) {
   const [innerValue, setInnerValue] = useState(value);
+  const nameMemo = useMemo(() => {
+    return name || `input-${getCurrentTime()}`;
+  }, [name]);
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     const formattedValue = formatOnChange(e.target.value);
@@ -80,8 +84,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     return (
       <input
         ref={ref}
-        id={name}
-        name={name}
+        id={nameMemo}
+        name={nameMemo}
         value={innerValue}
         type={type}
         placeholder={placeholder}
@@ -96,7 +100,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   return (
     <div className={clsx("usy-input-container", className)}>
       <InputTitle
-        name={name}
+        name={nameMemo}
         hasAsterisk={hasAsterisk}
         title={title}
         testId={testId}

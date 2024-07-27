@@ -33,7 +33,7 @@ export const toCssVariable = (input: string, prefix: string = "usy") => {
  * ColorPrimary => colorPrimary
  */
 
-export const camelCase = (input: string) => {
+export const camelCase = (input: string): string => {
   return input
     .replace(/(?:^\w|[A-Z]|\b\w)/g, (word: string, index: number) => {
       return index == 0 ? word.toLowerCase() : word.toUpperCase();

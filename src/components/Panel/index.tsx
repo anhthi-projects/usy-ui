@@ -17,8 +17,8 @@ type PanelProps = {
 } & ExtraCompProps;
 
 export const Panel: FC<PanelProps> = ({
-  paddingProps = { padding: usySpacing.px20 },
-  marginProps = { padding: usySpacing.px20 },
+  paddingProps,
+  marginProps,
   borderRadius = usySpacing.px6,
   children,
   className,
@@ -27,7 +27,11 @@ export const Panel: FC<PanelProps> = ({
   return (
     <div
       className={clsx("usy-panel-container", className)}
-      style={{ ...paddingProps, ...marginProps, borderRadius }}
+      style={{
+        ...(paddingProps || { padding: usySpacing.px24 }),
+        ...(marginProps || { padding: usySpacing.px20 }),
+        borderRadius,
+      }}
       data-testid={testId}
     >
       {children}

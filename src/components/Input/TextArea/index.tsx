@@ -2,42 +2,34 @@ import { ChangeEvent, FocusEvent, forwardRef, useMemo, useState } from "react";
 
 import clsx from "clsx";
 
-import { EyeClosedIcon, EyeIcon } from "@src/components/Icon";
 import { ExtraCompProps } from "@src/types/extra-comp-props.type";
-import { getCurrentTime } from "@src/utils/helpers";
+import { getCurrentTime } from "@src/utils";
 
 import { InputProps } from "..";
-import {
-  InputDescription,
-  InputIconLeft,
-  InputIconRight,
-  InputTitle,
-} from "../Input.components";
+import { InputDescription, InputTitle } from "../Input.components";
 
-type PasswordProps = Pick<
+type TextAreaProps = Pick<
   InputProps,
   | "name"
   | "value"
   | "title"
   | "maxWidth"
-  | "iconLeft"
   | "placeholder"
   | "description"
   | "hasAsterisk"
   | "hasError"
-  | "onChange"
-  | "onBlur"
-> &
-  ExtraCompProps;
+> & {
+  onChange?: (e: ChangeEvent<HTMLTextAreaElement>, value: string) => void;
+  onBlur?: (e: FocusEvent<HTMLTextAreaElement>, value: string) => void;
+} & ExtraCompProps;
 
-export const Password = forwardRef<HTMLInputElement, PasswordProps>(
-  function Password(
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  function TextArea(
     {
       name,
       value = "",
       title,
       maxWidth = "unset",
-      iconLeft,
       placeholder,
       description,
       hasAsterisk = false,
@@ -49,19 +41,17 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
     },
     ref
   ) {
-    const [hidePassword, setHidePassword] = useState(true);
     const [innerValue, setInnerValue] = useState(value);
-
     const nameMemo = useMemo(() => {
-      return name || `password-${getCurrentTime()}`;
+      return name || `input-${getCurrentTime()}`;
     }, [name]);
 
-    const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleOnChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
       setInnerValue(e.target.value);
       onChange?.(e, e.target.value);
     };
 
-    const handleOnBlur = (e: FocusEvent<HTMLInputElement>) => {
+    const handleOnBlur = (e: FocusEvent<HTMLTextAreaElement>) => {
       setInnerValue(e.target.value);
       onBlur?.(e, e.target.value);
     };
@@ -70,25 +60,22 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
      * Render
      */
 
-    const renderInput = () => {
+    const renderTextArea = () => {
       return (
-        <input
+        <textarea
           ref={ref}
           id={nameMemo}
           name={nameMemo}
-          type={hidePassword ? "password" : "text"}
           value={innerValue}
           placeholder={placeholder}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
-          className="input"
-          data-testid={`${testId}-input`}
         />
       );
     };
 
     return (
-      <div className={clsx("usy-input-container", className)}>
+      <div className={clsx("usy-textarea-container", className)}>
         <InputTitle
           name={nameMemo}
           hasAsterisk={hasAsterisk}
@@ -96,30 +83,13 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
           testId={testId}
         />
         <div
-          className={clsx("input-container", {
+          className={clsx("input-textarea", {
             "has-error": hasError,
           })}
           style={{ maxWidth }}
           data-testid={testId}
         >
-          <InputIconLeft iconLeft={iconLeft} testId={testId} />
-          {renderInput()}
-          <InputIconRight
-            iconRight={
-              hidePassword ? (
-                <EyeIcon
-                  onClick={() => setHidePassword(false)}
-                  style={{ cursor: "pointer" }}
-                />
-              ) : (
-                <EyeClosedIcon
-                  onClick={() => setHidePassword(true)}
-                  style={{ cursor: "pointer" }}
-                />
-              )
-            }
-            testId={testId}
-          />
+          {renderTextArea()}
         </div>
         <InputDescription description={description} testId={testId} />
       </div>

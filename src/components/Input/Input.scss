@@ -20,21 +20,20 @@
 
   .input-container {
     height: var(--usy-element-height);
-    border: 2px solid var(--usy-color-light-4);
+    border: 1px solid var(--usy-color-light-4);
     border-radius: var(--usy-element-border-radius);
     background-color: var(--usy-color-white);
     padding: 0 var(--usy-spacing-10px);
     display: flex;
     align-items: center;
 
-    &:not(.has-error):hover,
     &:not(.has-error):has(.input:focus) {
-      border: 2px solid var(--usy-color-primary);
+      border: 1px solid var(--usy-color-primary);
     }
 
     &.has-error,
     &.has-error:hover {
-      border: 2px solid var(--usy-color-red-4);
+      border: 1px solid var(--usy-color-red-4);
     }
 
     .icon-left {
