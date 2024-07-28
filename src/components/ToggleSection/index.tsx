@@ -13,7 +13,7 @@ export type ToggleSectionProps = {
   maxContentHeight?: string;
   children: ReactNode;
   onToggle?: (isExpand: boolean) => void;
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const ToggleSection: FC<ToggleSectionProps> = ({
   title,

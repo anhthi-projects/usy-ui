@@ -17,7 +17,7 @@ import { InputIconLeft } from "./components/InputIconLeft";
 import { InputIconRight } from "./components/InputIconRight";
 import { InputTitle } from "./components/InputTitle";
 
-export type InputProps = {
+export type PureInputProps = {
   name?: string;
   value?: string;
   title?: string;
@@ -33,7 +33,10 @@ export type InputProps = {
   onBlur?: (e: FocusEvent<HTMLInputElement>, value: string) => void;
   formatOnChange?: (value: string) => string;
   formatOnBlur?: (value: string) => string;
-} & ExtraCompProps;
+};
+
+export type InputProps = PureInputProps &
+  Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   {

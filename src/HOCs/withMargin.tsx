@@ -12,6 +12,7 @@ export const withMargin = <CompProps,>(
 ) => {
   const compRef = createRef<HTMLElement>();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return function EnhancedComponent(props: any) {
     useEffect(() => {
       if (compRef.current) {

@@ -21,7 +21,7 @@ export type ButtonProps = {
   isBlock?: boolean;
   children: ReactNode;
   onClick?: () => void;
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(

@@ -3,16 +3,16 @@ import { ChangeEvent, FocusEvent, forwardRef, useMemo, useState } from "react";
 import clsx from "clsx";
 
 import { usyElements } from "@src/styles";
-import { ExtraCompProps } from "@src/types/extra-comp-props.type";
+import { type ExtraCompProps } from "@src/types/extra-comp-props.type";
 import { getCurrentTime } from "@src/utils";
 
-import { InputProps } from "../Input";
+import { PureInputProps } from "../Input";
 import { InputDescription } from "../Input/components/InputDescription";
 import { InputTitle } from "../Input/components/InputTitle";
 import { MeasureUnit } from "../types";
 
-type TextAreaProps = Pick<
-  InputProps,
+type PickedInputProps = Pick<
+  PureInputProps,
   | "name"
   | "value"
   | "title"
@@ -21,11 +21,17 @@ type TextAreaProps = Pick<
   | "description"
   | "hasAsterisk"
   | "hasError"
-> & {
-  maxHeight: MeasureUnit;
+>;
+
+type MoreTextAreaProps = {
+  maxHeight?: MeasureUnit;
   onChange?: (e: ChangeEvent<HTMLTextAreaElement>, value: string) => void;
   onBlur?: (e: FocusEvent<HTMLTextAreaElement>, value: string) => void;
-} & ExtraCompProps;
+};
+
+type TextAreaProps = PickedInputProps &
+  MoreTextAreaProps &
+  Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   function TextArea(

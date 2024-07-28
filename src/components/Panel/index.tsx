@@ -14,7 +14,7 @@ type PanelProps = {
   marginProps?: MarginProps;
   borderRadius: MeasureUnit;
   children: ReactNode;
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const Panel: FC<PanelProps> = ({
   paddingProps,

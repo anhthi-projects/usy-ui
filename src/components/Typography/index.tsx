@@ -41,7 +41,7 @@ type TypographyProps = {
   align?: TypographyAlign;
   noMargin?: boolean;
   children: ReactNode;
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const Typography: FC<TypographyProps> = ({
   tag: Tag = "p",

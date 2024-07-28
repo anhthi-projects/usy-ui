@@ -6,7 +6,7 @@ import { ExtraCompProps } from "@src/types/extra-comp-props.type";
 
 type DrawerContentProps = {
   children: ReactNode;
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const DrawerContent: FC<DrawerContentProps> = ({
   children,

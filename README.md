@@ -7,7 +7,8 @@
 
 ## Issues
 
-- Not hint the components props
+- Fix ExtraCompProps
+- Fix MeasureUnit
 
 ## Todo
 

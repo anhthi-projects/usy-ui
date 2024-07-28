@@ -20,7 +20,7 @@ type BadgeProps = {
   size?: BadgeSize;
   color?: BadgeColor;
   children: ReactNode;
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const Badge: FC<BadgeProps> = ({
   type = "outline",

@@ -16,7 +16,7 @@ type ModalProps = {
   children: ReactNode;
   onClose?: () => void;
   zIndex?: number;
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const Modal: FC<ModalProps> = ({
   isOpen,

@@ -12,7 +12,7 @@ type Image = {
 
 type ImageGalleryProps = {
   images: Image[];
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const ImageGallery: FC<ImageGalleryProps> = ({
   images,

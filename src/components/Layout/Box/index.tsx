@@ -13,7 +13,8 @@ export type PureBoxProps = {
   marginProps?: MarginProps;
 };
 
-type BoxProps = { children: ReactNode } & PureBoxProps & ExtraCompProps;
+type BoxProps = { children: ReactNode } & PureBoxProps &
+  Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const Box: FC<BoxProps> = ({
   width,

@@ -14,7 +14,7 @@ interface DrawerButtonProps {
 type DrawerFooterProps = {
   alignContent?: "left" | "center" | "right";
   buttons: DrawerButtonProps[];
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const DrawerFooter: FC<DrawerFooterProps> = ({
   alignContent = "right",

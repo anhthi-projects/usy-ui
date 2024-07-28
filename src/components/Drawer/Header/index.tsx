@@ -9,7 +9,7 @@ import { ExtraCompProps } from "@src/types/extra-comp-props.type";
 type DrawerHeaderProps = {
   title: ReactNode;
   onClose?: () => void;
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const DrawerHeader: FC<DrawerHeaderProps> = ({
   title,

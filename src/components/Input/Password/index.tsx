@@ -6,14 +6,14 @@ import { EyeClosedIcon, EyeIcon } from "@src/components/Icon";
 import { ExtraCompProps } from "@src/types/extra-comp-props.type";
 import { getCurrentTime } from "@src/utils/helpers";
 
-import { InputProps } from "..";
+import { PureInputProps } from "..";
 import { InputDescription } from "../components/InputDescription";
 import { InputIconLeft } from "../components/InputIconLeft";
 import { InputIconRight } from "../components/InputIconRight";
 import { InputTitle } from "../components/InputTitle";
 
 type PasswordProps = Pick<
-  InputProps,
+  PureInputProps,
   | "name"
   | "value"
   | "title"

@@ -34,7 +34,7 @@ interface ToastInstance {
 
 type ToastProps = {
   containerElement?: HTMLElement;
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export let toastIns: ToastInstance;
 

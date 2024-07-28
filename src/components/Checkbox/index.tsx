@@ -8,7 +8,7 @@ type CheckboxProps = {
   label: ReactNode;
   isChecked?: boolean;
   onChange?: (checked: boolean) => void;
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   function Checkbox(

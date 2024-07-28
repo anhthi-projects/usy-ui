@@ -19,7 +19,7 @@ type DrawerProps = {
   footer?: ReactNode;
   containerElement?: HTMLElement;
   zIndex?: number;
-} & ExtraCompProps;
+} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
 
 export const Drawer: FC<DrawerProps> = ({
   isOpen,
