@@ -1,9 +1,7 @@
-import { MeasureUnit } from "@src/components/types";
-
 export type PaddingProps = {
-  paddingTop: MeasureUnit;
-  paddingRight: MeasureUnit;
-  paddingBottom: MeasureUnit;
-  paddingLeft: MeasureUnit;
-  padding: `${MeasureUnit}`;
+  paddingTop: string;
+  paddingRight: string;
+  paddingBottom: string;
+  paddingLeft: string;
+  padding: string;
 };

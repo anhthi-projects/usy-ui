@@ -1,6 +1,5 @@
 import { FC, ReactNode } from "react";
 
-import { MeasureUnit } from "@src/components/types";
 import { ExtraCompProps } from "@src/types/extra-comp-props.type";
 
 import { PureBoxProps } from "../Box";
@@ -13,12 +12,12 @@ type PureFlexProps = {
   grow?: number;
   shrink?: number;
   wrap?: "nowrap" | "wrap" | "wrap-reverse";
-  gap?: MeasureUnit;
+  gap?: string;
 };
 
 type FlexProps = { children: ReactNode } & PureFlexProps &
   PureBoxProps &
-  ExtraCompProps;
+  Partial<Pick<ExtraCompProps, "className" | "testId">>;
 
 export const Flex: FC<FlexProps> = ({
   width,

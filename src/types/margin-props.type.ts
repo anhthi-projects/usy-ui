@@ -1,9 +1,7 @@
-import { MeasureUnit } from "@src/components/types";
-
 export type MarginProps = {
-  marginTop: MeasureUnit;
-  marginRight: MeasureUnit;
-  marginBottom: MeasureUnit;
-  marginLeft: MeasureUnit;
-  margin: `${MeasureUnit}`;
+  marginTop: string;
+  marginRight: string;
+  marginBottom: string;
+  marginLeft: string;
+  margin: string;
 };

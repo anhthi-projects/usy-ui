@@ -12,7 +12,7 @@ import { InputIconLeft } from "../components/InputIconLeft";
 import { InputIconRight } from "../components/InputIconRight";
 import { InputTitle } from "../components/InputTitle";
 
-type PasswordProps = Pick<
+type PickedInputProps = Pick<
   PureInputProps,
   | "name"
   | "value"
@@ -25,8 +25,10 @@ type PasswordProps = Pick<
   | "hasError"
   | "onChange"
   | "onBlur"
-> &
-  ExtraCompProps;
+>;
+
+type PasswordProps = PickedInputProps &
+  Partial<Pick<ExtraCompProps, "className" | "testId">>;
 
 export const Password = forwardRef<HTMLInputElement, PasswordProps>(
   function Password(

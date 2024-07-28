@@ -14,6 +14,7 @@ export type ButtonProps = {
   type?: ButtonType;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  width?: string;
   isLoading?: boolean;
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
@@ -29,6 +30,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       type = "button",
       variant = "normal",
       size = "medium",
+      width = "unset",
       isLoading = false,
       isDisabled = false,
       isBlock = false,
@@ -66,6 +68,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           },
           className
         )}
+        style={{ width }}
         onClick={handleClick}
         data-testid={testId}
       >

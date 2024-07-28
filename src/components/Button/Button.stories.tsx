@@ -47,15 +47,15 @@ export const Types: Story = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <Button type="normal" size="large">
+      <Button variant="normal" size="large">
         large
       </Button>
       &nbsp; &nbsp; &nbsp;
-      <Button type="normal" size="medium">
+      <Button variant="normal" size="medium">
         medium
       </Button>
       &nbsp; &nbsp; &nbsp;
-      <Button type="normal" size="small">
+      <Button variant="normal" size="small">
         small
       </Button>
     </>

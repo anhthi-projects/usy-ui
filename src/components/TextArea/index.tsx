@@ -9,7 +9,6 @@ import { getCurrentTime } from "@src/utils";
 import { PureInputProps } from "../Input";
 import { InputDescription } from "../Input/components/InputDescription";
 import { InputTitle } from "../Input/components/InputTitle";
-import { MeasureUnit } from "../types";
 
 type PickedInputProps = Pick<
   PureInputProps,
@@ -24,7 +23,8 @@ type PickedInputProps = Pick<
 >;
 
 type MoreTextAreaProps = {
-  maxHeight?: MeasureUnit;
+  maxHeight?: string;
+  minHeight?: string;
   onChange?: (e: ChangeEvent<HTMLTextAreaElement>, value: string) => void;
   onBlur?: (e: FocusEvent<HTMLTextAreaElement>, value: string) => void;
 };
@@ -41,6 +41,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       title,
       maxWidth = "unset",
       maxHeight = "200px",
+      minHeight = usyElements.elementHeight,
       placeholder,
       description,
       hasAsterisk = false,
@@ -85,7 +86,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           className={clsx("textarea", {
             "has-error": hasError,
           })}
-          style={{ maxWidth, maxHeight, minHeight: usyElements.elementHeight }}
+          style={{ maxWidth, maxHeight, minHeight }}
         />
       );
     };

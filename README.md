@@ -8,7 +8,6 @@
 ## Issues
 
 - Fix ExtraCompProps
-- Fix MeasureUnit
 
 ## Todo
 
