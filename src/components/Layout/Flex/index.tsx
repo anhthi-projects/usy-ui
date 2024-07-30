@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 
-import { ExtraCompProps } from "@src/types/extra-comp-props.type";
+import { ExtraCompProps } from "@src/types/extra-comp.props";
 
 import { PureBoxProps } from "../Box";
 

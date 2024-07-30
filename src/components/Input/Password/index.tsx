@@ -3,7 +3,7 @@ import { ChangeEvent, FocusEvent, forwardRef, useMemo, useState } from "react";
 import clsx from "clsx";
 
 import { EyeClosedIcon, EyeIcon } from "@src/components/Icon";
-import { ExtraCompProps } from "@src/types/extra-comp-props.type";
+import { ExtraCompProps } from "@src/types/extra-comp.props";
 import { getCurrentTime } from "@src/utils/helpers";
 
 import { PureInputProps } from "..";

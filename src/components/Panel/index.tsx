@@ -3,18 +3,23 @@ import { FC, ReactNode } from "react";
 import clsx from "clsx";
 
 import { usySpacing } from "@src/styles";
-import { ExtraCompProps } from "@src/types/extra-comp-props.type";
-import { MarginProps } from "@src/types/margin-props.type";
-import { PaddingProps } from "@src/types/padding-props.type";
+import { ExtraCompProps } from "@src/types/extra-comp.props";
+import { MarginProps } from "@src/types/margin.props";
+import { PaddingProps } from "@src/types/padding.props";
+
+import { Box } from "../Layout/Box";
+import { Typography } from "../Typography";
 
 type PanelProps = {
+  title?: ReactNode;
   paddingProps?: PaddingProps;
   marginProps?: MarginProps;
   borderRadius?: string;
   children: ReactNode;
-} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
+} & Partial<Pick<ExtraCompProps, "className" | "testId">>;
 
 export const Panel: FC<PanelProps> = ({
+  title,
   paddingProps,
   marginProps,
   borderRadius = usySpacing.px6,
@@ -32,6 +37,13 @@ export const Panel: FC<PanelProps> = ({
       }}
       data-testid={testId}
     >
+      {title && (
+        <Box marginProps={{ marginBottom: usySpacing.px40 }}>
+          <Typography size="extra-large" noMargin>
+            {title}
+          </Typography>
+        </Box>
+      )}
       {children}
     </div>
   );

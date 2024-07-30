@@ -1,8 +1,8 @@
 import { FC, ReactNode } from "react";
 
-import { ExtraCompProps } from "@src/types/extra-comp-props.type";
-import { MarginProps } from "@src/types/margin-props.type";
-import { PaddingProps } from "@src/types/padding-props.type";
+import { ExtraCompProps } from "@src/types/extra-comp.props";
+import { MarginProps } from "@src/types/margin.props";
+import { PaddingProps } from "@src/types/padding.props";
 
 export type PureBoxProps = {
   as?: "div" | "span";
@@ -14,7 +14,7 @@ export type PureBoxProps = {
 };
 
 type BoxProps = { children: ReactNode } & PureBoxProps &
-  Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
+  Partial<Pick<ExtraCompProps, "className" | "testId">>;
 
 export const Box: FC<BoxProps> = ({
   width,

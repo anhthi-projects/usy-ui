@@ -8,8 +8,10 @@
     border: 1px solid var(--usy-color-light-4);
     border-radius: var(--usy-element-border-radius);
     background-color: var(--usy-color-white);
+    outline: none;
 
-    &:not(.has-error):focus {
+    &:not(.has-error):focus,
+    &:not(.has-error):focus-visible {
       border: 1px solid var(--usy-color-primary);
     }
 

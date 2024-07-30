@@ -3,7 +3,7 @@ import { FC } from "react";
 import clsx from "clsx";
 
 import { Button, ButtonType } from "@src/components/Button";
-import { ExtraCompProps } from "@src/types/extra-comp-props.type";
+import { ExtraCompProps } from "@src/types/extra-comp.props";
 
 interface DrawerButtonProps {
   label: string;

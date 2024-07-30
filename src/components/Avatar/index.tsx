@@ -3,7 +3,7 @@ import { FC, useMemo } from "react";
 import clsx from "clsx";
 
 import { usyColors } from "@src/styles";
-import { ExtraCompProps } from "@src/types/extra-comp-props.type";
+import { ExtraCompProps } from "@src/types/extra-comp.props";
 import { getRandomColor } from "@src/utils";
 
 type AvatarProps = {

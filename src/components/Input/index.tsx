@@ -9,7 +9,7 @@ import {
 
 import clsx from "clsx";
 
-import { ExtraCompProps } from "@src/types/extra-comp-props.type";
+import { ExtraCompProps } from "@src/types/extra-comp.props";
 import { getCurrentTime } from "@src/utils/helpers";
 
 import { InputDescription } from "./components/InputDescription";

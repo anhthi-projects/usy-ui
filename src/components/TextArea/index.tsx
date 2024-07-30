@@ -3,7 +3,7 @@ import { ChangeEvent, FocusEvent, forwardRef, useMemo, useState } from "react";
 import clsx from "clsx";
 
 import { usyElements } from "@src/styles";
-import { type ExtraCompProps } from "@src/types/extra-comp-props.type";
+import { type ExtraCompProps } from "@src/types/extra-comp.props";
 import { getCurrentTime } from "@src/utils";
 
 import { PureInputProps } from "../Input";

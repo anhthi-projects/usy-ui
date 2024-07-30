@@ -18,7 +18,7 @@ const meta: Meta<typeof TextArea> = {
 
 export const Types: Story = {
   render: () => (
-    <Flex direction="column" gap="30px">
+    <Flex width="300px" direction="column" gap="30px">
       <TextArea title="About me" placeholder="How is your day?" />
       <TextArea
         title="About me"
