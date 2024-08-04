@@ -1,31 +1,44 @@
 import { FC, ReactNode } from "react";
 
 import { ExtraCompProps } from "@src/types/extra-comp.props";
-import { MarginProps } from "@src/types/margin.props";
-import { PaddingProps } from "@src/types/padding.props";
+import { MarginProps, PaddingProps } from "@src/types/margin-padding.props";
+import { WidthProps, HeightProps } from "@src/types/width-height.props";
 
-export type PureBoxProps = {
+export type CommonBoxFlexProps = {
   as?: "div" | "span";
-  width?: string;
-  height?: string;
-  display?: "block" | "inline-block";
+  widthProps?: WidthProps;
+  heightProps?: HeightProps;
   paddingProps?: PaddingProps;
   marginProps?: MarginProps;
+  children: ReactNode;
 };
 
-type BoxProps = { children: ReactNode } & PureBoxProps &
+export type PureBoxProps = {
+  display?: "block" | "inline-block";
+};
+
+type BoxProps = CommonBoxFlexProps &
+  PureBoxProps &
   Partial<Pick<ExtraCompProps, "className" | "testId">>;
 
 export const Box: FC<BoxProps> = ({
-  width,
-  height,
   display,
+  widthProps,
+  heightProps,
   paddingProps,
   marginProps,
   children,
 }) => {
   return (
-    <div style={{ width, height, display, ...paddingProps, ...marginProps }}>
+    <div
+      style={{
+        display,
+        ...widthProps,
+        ...heightProps,
+        ...paddingProps,
+        ...marginProps,
+      }}
+    >
       {children}
     </div>
   );

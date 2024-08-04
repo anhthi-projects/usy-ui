@@ -1,8 +1,8 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 
 import { ExtraCompProps } from "@src/types/extra-comp.props";
 
-import { PureBoxProps } from "../Box";
+import { CommonBoxFlexProps } from "../Box";
 
 type PureFlexProps = {
   display?: "flex" | "inline-flex";
@@ -15,13 +15,11 @@ type PureFlexProps = {
   gap?: string;
 };
 
-type FlexProps = { children: ReactNode } & PureFlexProps &
-  PureBoxProps &
+type FlexProps = CommonBoxFlexProps &
+  PureFlexProps &
   Partial<Pick<ExtraCompProps, "className" | "testId">>;
 
 export const Flex: FC<FlexProps> = ({
-  width,
-  height,
   as: Tag = "div",
   display = "flex",
   direction,
@@ -31,6 +29,8 @@ export const Flex: FC<FlexProps> = ({
   shrink,
   wrap,
   gap,
+  widthProps,
+  heightProps,
   paddingProps,
   marginProps,
   children,
@@ -40,8 +40,6 @@ export const Flex: FC<FlexProps> = ({
   return (
     <Tag
       style={{
-        width,
-        height,
         display,
         flexDirection: direction,
         flexGrow: grow,
@@ -50,6 +48,8 @@ export const Flex: FC<FlexProps> = ({
         alignItems,
         flexWrap: wrap,
         gap,
+        ...widthProps,
+        ...heightProps,
         ...paddingProps,
         ...marginProps,
       }}

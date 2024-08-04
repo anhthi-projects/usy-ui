@@ -32,11 +32,7 @@
     }
 
     &.success {
-      background-image: linear-gradient(
-        to right,
-        var(--usy-color-green-2),
-        var(--usy-color-dark-5) 30%
-      );
+      background-color: var(--usy-color-green-5);
 
       &::before {
         background-color: var(--usy-color-green-3);
@@ -45,11 +41,7 @@
     }
 
     &.info {
-      background-image: linear-gradient(
-        to right,
-        var(--usy-color-blue-2),
-        var(--usy-color-dark-5) 30%
-      );
+      background-color: var(--usy-color-blue-5);
 
       &::before {
         background-color: var(--usy-color-blue-3);
@@ -58,24 +50,16 @@
     }
 
     &.warning {
-      background-image: linear-gradient(
-        to right,
-        var(--usy-color-yellow-5),
-        var(--usy-color-dark-5) 30%
-      );
+      background-color: var(--usy-color-yellow-5);
 
       &::before {
-        background-color: var(--usy-color-yellow-5);
+        background-color: var(--usy-color-yellow-3);
         box-shadow: 0 0 10px var(--usy-color-yellow-5);
       }
     }
 
     &.error {
-      background-image: linear-gradient(
-        to right,
-        var(--usy-color-red-4),
-        var(--usy-color-dark-5) 30%
-      );
+      background-color: var(--usy-color-red-5);
 
       &::before {
         background-color: var(--usy-color-red-3);

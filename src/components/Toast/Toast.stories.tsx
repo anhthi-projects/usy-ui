@@ -23,7 +23,7 @@ export const Types: Story = {
         onClick={() => {
           toastIns.success({
             title: "Success",
-            content: "Your register has been approval",
+            description: "Your register has been approval",
           });
         }}
       >
@@ -33,7 +33,7 @@ export const Types: Story = {
         onClick={() => {
           toastIns.info({
             title: "Step 2",
-            content: "Wait a second to loading next step",
+            description: "Wait a second to loading next step",
           });
         }}
       >
@@ -43,7 +43,7 @@ export const Types: Story = {
         onClick={() => {
           toastIns.warning({
             title: "Invalid Info",
-            content: "Your info has some invalid fields",
+            description: "Your info has some invalid fields",
           });
         }}
       >
@@ -53,7 +53,7 @@ export const Types: Story = {
         onClick={() => {
           toastIns.error({
             title: "Not Found",
-            content: "The page can not be found",
+            description: "The page can not be found",
           });
         }}
       >

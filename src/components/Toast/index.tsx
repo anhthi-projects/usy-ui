@@ -15,15 +15,19 @@ import {
   WarningCircleFilledIcon,
 } from "../Icon";
 
-type CreateToastProps = {
-  type: "success" | "info" | "warning" | "error";
+type ToastType = "success" | "info" | "warning" | "error";
+type PushToastProps = {
+  type: ToastType;
   title: ReactNode;
-  content: ReactNode;
+  description: ReactNode;
   statusIcon: FunctionComponent<{ className: string }>;
+  timeout?: number;
   onClose?: () => void;
 };
 
-type ToastParams = Pick<CreateToastProps, "title" | "content">;
+type ToastParams =
+  | string
+  | Pick<PushToastProps, "title" | "description" | "timeout">;
 
 interface ToastInstance {
   success: (params: ToastParams) => void;
@@ -34,7 +38,7 @@ interface ToastInstance {
 
 type ToastProps = {
   containerElement?: HTMLElement;
-} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
+} & Partial<Pick<ExtraCompProps, "className" | "testId">>;
 
 export let toastIns: ToastInstance;
 
@@ -59,12 +63,61 @@ export const Toast: FC<ToastProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMounted]);
 
-  const createToast = ({
+  /**
+   * Notify functions
+   */
+
+  const getPushToastRestProps = (params: ToastParams) => {
+    return {
+      title: typeof params === "object" ? params.title : undefined,
+      description: typeof params === "object" ? params.description : params,
+      timeout: typeof params === "object" ? params.timeout : 5000,
+    };
+  };
+
+  const success = (params: ToastParams) => {
+    pushToast({
+      type: "success",
+      statusIcon: CheckCircleFilledIcon,
+      ...getPushToastRestProps(params),
+    });
+  };
+
+  const info = (params: ToastParams) => {
+    pushToast({
+      type: "info",
+      statusIcon: InfoCircleFilledIcon,
+      ...getPushToastRestProps(params),
+    });
+  };
+
+  const warning = (params: ToastParams) => {
+    pushToast({
+      type: "warning",
+      statusIcon: WarningCircleFilledIcon,
+      ...getPushToastRestProps(params),
+    });
+  };
+
+  const error = (params: ToastParams) => {
+    pushToast({
+      type: "error",
+      statusIcon: WarningCircleFilledIcon,
+      ...getPushToastRestProps(params),
+    });
+  };
+
+  /**
+   * Render
+   */
+
+  const pushToast = ({
     type,
     title,
-    content,
+    description,
     statusIcon: StatusIcon,
-  }: CreateToastProps) => {
+    timeout,
+  }: PushToastProps) => {
     const toastId = `toast-${getCurrentTime()}`;
     const toastContainer = document.createElement("div");
 
@@ -75,8 +128,8 @@ export const Toast: FC<ToastProps> = ({
       <>
         <StatusIcon className="status-icon" />
         <div className="content">
-          <h4 className="title">{title}</h4>
-          <div className="description">{content}</div>
+          {title && <h4 className="title">{title}</h4>}
+          {description && <div className="description">{description}</div>}
         </div>
         <CloseIcon className="close-icon" />
       </>
@@ -94,47 +147,7 @@ export const Toast: FC<ToastProps> = ({
     )[0] as HTMLElement;
 
     closeIcon.onclick = closeToast;
-    toastList[toastId] = setTimeout(closeToast, 5000);
-  };
-
-  /**
-   * Notify functions
-   */
-
-  const success = ({ title, content }: ToastParams) => {
-    createToast({
-      type: "success",
-      title,
-      content,
-      statusIcon: CheckCircleFilledIcon,
-    });
-  };
-
-  const info = ({ title, content }: ToastParams) => {
-    createToast({
-      type: "info",
-      title,
-      content,
-      statusIcon: InfoCircleFilledIcon,
-    });
-  };
-
-  const warning = ({ title, content }: ToastParams) => {
-    createToast({
-      type: "warning",
-      title,
-      content,
-      statusIcon: WarningCircleFilledIcon,
-    });
-  };
-
-  const error = ({ title, content }: ToastParams) => {
-    createToast({
-      type: "error",
-      title,
-      content,
-      statusIcon: WarningCircleFilledIcon,
-    });
+    toastList[toastId] = setTimeout(closeToast, timeout || 5000);
   };
 
   const renderToast = () => {
