@@ -1,16 +1,16 @@
-import { ChangeEvent, FocusEvent, forwardRef, useMemo, useState } from "react";
+import { ChangeEvent, FocusEvent, forwardRef, useState } from "react";
 
 import clsx from "clsx";
 
 import { EyeClosedIcon, EyeIcon } from "@src/components/Icon";
+import { useFieldName } from "@src/hooks/useFieldName";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
-import { getCurrentTime } from "@src/utils/helpers";
 
 import { PureInputProps } from "..";
+import { FieldTitle } from "../../FieldTitle";
 import { InputDescription } from "../components/InputDescription";
 import { InputIconLeft } from "../components/InputIconLeft";
 import { InputIconRight } from "../components/InputIconRight";
-import { InputTitle } from "../components/InputTitle";
 
 type PickedInputProps = Pick<
   PureInputProps,
@@ -52,9 +52,7 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
     const [hidePassword, setHidePassword] = useState(true);
     const [innerValue, setInnerValue] = useState(value);
 
-    const nameMemo = useMemo(() => {
-      return name || `password-${getCurrentTime()}`;
-    }, [name]);
+    const { nameMemo } = useFieldName(name, "password");
 
     const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
       setInnerValue(e.target.value);
@@ -89,12 +87,14 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
 
     return (
       <div className={clsx("usy-input-container", className)}>
-        <InputTitle
-          name={nameMemo}
-          hasAsterisk={hasAsterisk}
-          title={title}
-          testId={testId}
-        />
+        {title && (
+          <FieldTitle
+            name={nameMemo}
+            hasAsterisk={hasAsterisk}
+            title={title}
+            testId={`${testId}-title`}
+          />
+        )}
         <div
           className={clsx("input-container", {
             "has-error": hasError,

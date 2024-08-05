@@ -2,25 +2,32 @@ import { ChangeEvent, FC, useRef, useState } from "react";
 
 import clsx from "clsx";
 
+import { useFieldName } from "@src/hooks/useFieldName";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
 import { WidthProps } from "@src/types/width-height.props";
 
+import { FieldTitle, PureFieldTitleProps } from "../FieldTitle";
 import { CloseCircleFilledIcon } from "../Icon";
 
 type PureTagsProps = {
+  title?: string;
   tags?: string[];
   placeholder?: string;
   widthProps?: WidthProps;
-  onAdd?: (tag: string) => void;
-  onRemove?: (tag: string) => void;
+  onAdd?: (tags: string[], tag: string) => void;
+  onRemove?: (tags: string[], tag: string) => void;
 };
 
 type TagsProps = PureTagsProps &
+  PureFieldTitleProps &
   Partial<Pick<ExtraCompProps, "className" | "testId">>;
 
 export const Tags: FC<TagsProps> = ({
+  name,
+  title,
   tags: initTags,
   placeholder = "New tag...",
+  hasAsterisk,
   widthProps,
   onAdd,
   onRemove,
@@ -30,53 +37,66 @@ export const Tags: FC<TagsProps> = ({
   const [tags, setTags] = useState(initTags || []);
   const [inputTag, setInputTag] = useState("");
   const inputTagRef = useRef<HTMLInputElement>(null);
+  const { nameMemo } = useFieldName(name, "tags");
 
   const handleInputTagChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     setInputTag(target.value);
   };
 
   const addTag = () => {
-    if (inputTag) {
-      onAdd?.(inputTag);
-      setTags([...tags, inputTag]);
-      setInputTag("");
+    if (inputTag && !tags.includes(inputTag)) {
+      const updatedTags = [...tags, inputTag];
+      onAdd?.(updatedTags, inputTag);
+      setTags(updatedTags);
       inputTagRef.current?.focus();
     }
+
+    setInputTag("");
   };
 
   const removeTag = (selectedTag: string) => {
     const updatedTags = [...tags].filter((tagItem) => tagItem !== selectedTag);
-    onRemove?.(selectedTag);
+    onRemove?.(updatedTags, selectedTag);
     setTags(updatedTags);
   };
 
   return (
-    <div
-      className={clsx("usy-tags-container", className)}
-      style={{ ...widthProps }}
-      data-testid={testId}
-    >
-      {tags.map((tagItem) => {
-        return (
-          <span
-            key={tagItem}
-            className="tag-item"
-            data-testid={`${testId}-tag-item`}
-          >
-            {tagItem}
-            <CloseCircleFilledIcon onClick={() => removeTag(tagItem)} />
-          </span>
-        );
-      })}
-      <input
-        value={inputTag}
-        placeholder={placeholder}
-        onChange={handleInputTagChange}
-        onBlur={addTag}
-        ref={inputTagRef}
-        className="tag-input"
-        data-testid={`${testId}-tag-input`}
-      />
+    <div className={clsx("usy-tags-container", className)}>
+      {title && (
+        <FieldTitle
+          name={nameMemo}
+          title={title}
+          hasAsterisk={hasAsterisk}
+          testId={`${testId}-title`}
+        />
+      )}
+      <div
+        className={clsx("tags-container", className)}
+        style={{ ...widthProps }}
+        data-testid={testId}
+      >
+        {tags.map((tagItem) => {
+          return (
+            <span
+              key={tagItem}
+              className="tag-item"
+              data-testid={`${testId}-tag-item`}
+            >
+              {tagItem}
+              <CloseCircleFilledIcon onClick={() => removeTag(tagItem)} />
+            </span>
+          );
+        })}
+        <input
+          value={inputTag}
+          placeholder={placeholder}
+          onChange={handleInputTagChange}
+          onBlur={addTag}
+          ref={inputTagRef}
+          className="tag-input"
+          data-testid={`${testId}-tag-input`}
+        />
+      </div>
     </div>
   );
 };

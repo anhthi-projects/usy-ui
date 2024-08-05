@@ -3,37 +3,34 @@ import {
   FocusEvent,
   ReactNode,
   forwardRef,
-  useMemo,
   useState,
 } from "react";
 
 import clsx from "clsx";
 
+import { useFieldName } from "@src/hooks/useFieldName";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
-import { getCurrentTime } from "@src/utils/helpers";
+
+import { FieldTitle, PureFieldTitleProps } from "../FieldTitle";
 
 import { InputDescription } from "./components/InputDescription";
 import { InputIconLeft } from "./components/InputIconLeft";
 import { InputIconRight } from "./components/InputIconRight";
-import { InputTitle } from "./components/InputTitle";
 
 export type PureInputProps = {
-  name?: string;
   value?: string;
-  title?: string;
   type?: "text" | "number";
   maxWidth?: string;
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
   placeholder?: string;
   description?: ReactNode;
-  hasAsterisk?: boolean;
   hasError?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>, value: string) => void;
   onBlur?: (e: FocusEvent<HTMLInputElement>, value: string) => void;
   formatOnChange?: (value: string) => string;
   formatOnBlur?: (value: string) => string;
-};
+} & PureFieldTitleProps;
 
 export type InputProps = PureInputProps &
   Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
@@ -61,9 +58,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   ref
 ) {
   const [innerValue, setInnerValue] = useState(value);
-  const nameMemo = useMemo(() => {
-    return name || `input-${getCurrentTime()}`;
-  }, [name]);
+  const { nameMemo } = useFieldName(name, "input");
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     const formattedValue = formatOnChange(e.target.value);
@@ -100,12 +95,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
 
   return (
     <div className={clsx("usy-input-container", className)}>
-      <InputTitle
-        name={nameMemo}
-        hasAsterisk={hasAsterisk}
-        title={title}
-        testId={testId}
-      />
+      {title && (
+        <FieldTitle
+          name={nameMemo}
+          hasAsterisk={hasAsterisk}
+          title={title}
+          testId={`${testId}-title`}
+        />
+      )}
       <div
         className={clsx("input-container", {
           "has-error": hasError,

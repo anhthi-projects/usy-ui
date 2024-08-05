@@ -1,14 +1,14 @@
-import { ChangeEvent, FocusEvent, forwardRef, useMemo, useState } from "react";
+import { ChangeEvent, FocusEvent, forwardRef, useState } from "react";
 
 import clsx from "clsx";
 
+import { useFieldName } from "@src/hooks/useFieldName";
 import { usyElements } from "@src/styles";
 import { type ExtraCompProps } from "@src/types/extra-comp.props";
-import { getCurrentTime } from "@src/utils";
 
+import { FieldTitle } from "../FieldTitle";
 import { PureInputProps } from "../Input";
 import { InputDescription } from "../Input/components/InputDescription";
-import { InputTitle } from "../Input/components/InputTitle";
 
 type PickedInputProps = Pick<
   PureInputProps,
@@ -54,9 +54,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     ref
   ) {
     const [innerValue, setInnerValue] = useState(value);
-    const nameMemo = useMemo(() => {
-      return name || `input-${getCurrentTime()}`;
-    }, [name]);
+    const { nameMemo } = useFieldName(name, "textarea");
 
     const handleOnChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
       setInnerValue(e.target.value);
@@ -93,12 +91,14 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
     return (
       <div className={clsx("usy-textarea-container", className)}>
-        <InputTitle
-          name={nameMemo}
-          hasAsterisk={hasAsterisk}
-          title={title}
-          testId={testId}
-        />
+        {title && (
+          <FieldTitle
+            name={nameMemo}
+            hasAsterisk={hasAsterisk}
+            title={title}
+            testId={`${testId}-title`}
+          />
+        )}
         {renderTextArea()}
         <InputDescription description={description} testId={testId} />
       </div>
