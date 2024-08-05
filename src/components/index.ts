@@ -11,6 +11,7 @@ export { Box } from "./Layout/Box";
 export { Flex } from "./Layout/Flex";
 export { Modal } from "./Modal";
 export { Panel } from "./Panel";
+export { Tags } from "./Tags";
 export { TextArea } from "./TextArea";
 export { setUsyTheme } from "./Theme";
 export { Toast, toastIns } from "./Toast";
