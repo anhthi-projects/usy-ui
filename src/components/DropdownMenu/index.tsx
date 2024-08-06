@@ -53,7 +53,6 @@ const DropdownMenu: FC<DropdownMenuProps> = ({
       }
 
       if (child.type === MenuOverlay && isOpen) {
-        console.log("menuOverlay", child);
         enhancedChildren.push(
           cloneElement(child, {
             key: "menu-overlay",

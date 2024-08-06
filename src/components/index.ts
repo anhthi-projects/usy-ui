@@ -4,6 +4,13 @@ export { Badge } from "./Badge";
 export { Button } from "./Button";
 export { Checkbox } from "./Checkbox";
 export { Drawer, DrawerHeader, DrawerContent, DrawerFooter } from "./Drawer";
+export {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuOverlay,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from "./DropdownMenu";
 export { ImageGallery } from "./ImageGallery";
 export { Input } from "./Input";
 export { Password } from "./Input/Password";
