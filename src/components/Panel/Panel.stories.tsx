@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeProviderDecorator } from "../../../.storybook/decorators";
 import { Box } from "../Layout/Box";
 
-import { Panel } from "./index";
+import { Panel, PanelTitle } from "./index";
 
 const meta: Meta<typeof Panel> = {
   component: Panel,
@@ -18,8 +18,8 @@ const meta: Meta<typeof Panel> = {
 
 export const Types: Story = {
   render: () => (
-    <Box width="700px">
-      <Panel title="User Profile">
+    <Box widthProps={{ width: "700px" }}>
+      <Panel title={<PanelTitle title="User Profile" size="extra-large" />}>
         {`Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and

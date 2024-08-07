@@ -15,7 +15,6 @@ type MenuItemProps = MenuItem &
 export const MenuItem: FC<MenuItemProps> = ({ className, testId, ...item }) => {
   return (
     <li
-      key={item.id}
       onClick={item.onClick}
       aria-hidden="true"
       className={clsx("usy-dropdown-menu-item-container", className)}

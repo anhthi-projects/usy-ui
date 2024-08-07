@@ -61,7 +61,7 @@ export const Tags: FC<TagsProps> = ({
   };
 
   return (
-    <div className={clsx("usy-tags-container", className)}>
+    <div className={clsx("usy-tags-container", className)} data-testid={testId}>
       {title && (
         <FieldTitle
           name={nameMemo}
@@ -73,7 +73,6 @@ export const Tags: FC<TagsProps> = ({
       <div
         className={clsx("tags-container", className)}
         style={{ ...widthProps }}
-        data-testid={testId}
       >
         {tags.map((tagItem) => {
           return (

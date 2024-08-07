@@ -11,7 +11,7 @@ import { CaretDownIcon } from "../Icon";
 
 export type SelectItem = {
   label: ReactNode;
-  value: string;
+  value: string | number;
 };
 
 type PureSelectProps = {

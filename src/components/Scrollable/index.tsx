@@ -7,44 +7,43 @@ import { ExtraCompProps } from "@src/types/extra-comp.props";
 import { MarginProps, PaddingProps } from "@src/types/margin-padding.props";
 import { HeightProps, WidthProps } from "@src/types/width-height.props";
 
-export { PanelTitle } from "./PanelTitle";
-
-type PurePanelProps = {
-  title?: ReactNode;
-  widthProps?: WidthProps;
+type PureScrollableProps = {
+  widthProps: WidthProps;
   heightProps?: HeightProps;
   paddingProps?: PaddingProps;
   marginProps?: MarginProps;
-  borderRadius?: string;
-  children: ReactNode;
+  overflowX?: "hidden" | "auto" | "scroll";
+  overflowY?: "hidden" | "auto" | "scroll";
+  children?: ReactNode;
 };
-type PanelProps = PurePanelProps &
+
+type ScrollableProps = PureScrollableProps &
   Partial<Pick<ExtraCompProps, "className" | "testId">>;
 
-export const Panel: FC<PanelProps> = ({
-  title,
+export const Scrollable: FC<ScrollableProps> = ({
   widthProps,
   heightProps,
   paddingProps,
   marginProps,
-  borderRadius = usySpacing.px6,
+  overflowX = "hidden",
+  overflowY = "auto",
   children,
   className,
   testId,
 }) => {
   return (
     <div
-      className={clsx("usy-panel-container", className)}
+      className={clsx("usy-scrollable-container", className)}
       style={{
         ...widthProps,
         ...heightProps,
-        ...(paddingProps || { padding: usySpacing.px24 }),
+        ...(paddingProps || { paddingRight: usySpacing.px10 }),
         ...marginProps,
-        borderRadius,
+        overflowX: overflowX,
+        overflowY: overflowY,
       }}
       data-testid={testId}
     >
-      {title}
       {children}
     </div>
   );
