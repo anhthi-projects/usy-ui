@@ -9,10 +9,10 @@ import { ExtraCompProps } from "@src/types/extra-comp.props";
 import { getCurrentTime } from "@src/utils/helpers";
 
 import {
-  CheckCircleFilledIcon,
+  CheckCircleIcon,
   CloseIcon,
-  InfoCircleFilledIcon,
-  WarningCircleFilledIcon,
+  InfoCircleIcon,
+  ExclamationCircleIcon,
 } from "../Icon";
 
 type ToastType = "success" | "info" | "warning" | "error";
@@ -78,7 +78,7 @@ export const Toast: FC<ToastProps> = ({
   const success = (params: ToastParams) => {
     pushToast({
       type: "success",
-      statusIcon: CheckCircleFilledIcon,
+      statusIcon: CheckCircleIcon,
       ...getPushToastRestProps(params),
     });
   };
@@ -86,7 +86,7 @@ export const Toast: FC<ToastProps> = ({
   const info = (params: ToastParams) => {
     pushToast({
       type: "info",
-      statusIcon: InfoCircleFilledIcon,
+      statusIcon: InfoCircleIcon,
       ...getPushToastRestProps(params),
     });
   };
@@ -94,7 +94,7 @@ export const Toast: FC<ToastProps> = ({
   const warning = (params: ToastParams) => {
     pushToast({
       type: "warning",
-      statusIcon: WarningCircleFilledIcon,
+      statusIcon: ExclamationCircleIcon,
       ...getPushToastRestProps(params),
     });
   };
@@ -102,7 +102,7 @@ export const Toast: FC<ToastProps> = ({
   const error = (params: ToastParams) => {
     pushToast({
       type: "error",
-      statusIcon: WarningCircleFilledIcon,
+      statusIcon: ExclamationCircleIcon,
       ...getPushToastRestProps(params),
     });
   };

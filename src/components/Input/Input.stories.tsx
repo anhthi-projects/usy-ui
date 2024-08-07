@@ -3,7 +3,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ThemeProviderDecorator } from "../../../.storybook/decorators";
-import { EmailIcon, InfoCircleOutlineIcon } from "../Icon";
+import { EnvelopeIcon, InfoCircleIcon } from "../Icon";
 import { Flex } from "../Layout/Flex";
 
 import { Input } from "./index";
@@ -23,12 +23,12 @@ export const Types: Story = {
       <Input
         title="Email"
         placeholder="Enter your email"
-        iconLeft={<EmailIcon width="18px" height="18px" />}
+        iconLeft={<EnvelopeIcon width="18px" height="18px" />}
         hasAsterisk
       />
       <Input
         placeholder="Enter your email"
-        iconRight={<InfoCircleOutlineIcon width="18px" height="18px" />}
+        iconRight={<InfoCircleIcon width="18px" height="18px" />}
       />
       <Input
         placeholder="Enter your email"

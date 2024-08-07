@@ -13,18 +13,19 @@ const SvgCaretDown = ({
     xmlns="http://www.w3.org/2000/svg"
     width="20px"
     height="20px"
-    fill="currentColor"
+    fill="none"
     viewBox="0 0 24 24"
     aria-labelledby={titleId}
     {...props}
   >
     {title ? <title id={titleId}>{title}</title> : null}
-    <g data-name="Layer 2">
-      <path
-        d="M12 16a1 1 0 0 1-.64-.23l-6-5a1 1 0 1 1 1.28-1.54L12 13.71l5.36-4.32a1 1 0 0 1 1.41.15 1 1 0 0 1-.14 1.46l-6 4.83A1 1 0 0 1 12 16"
-        data-name="arrow-ios-downward"
-      />
-    </g>
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M7.119 8h9.762a1 1 0 0 1 .772 1.636l-4.881 5.927a1 1 0 0 1-1.544 0l-4.88-5.927A1 1 0 0 1 7.118 8Z"
+    />
   </svg>
 );
 export default SvgCaretDown;

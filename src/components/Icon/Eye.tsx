@@ -14,8 +14,6 @@ const SvgEye = ({
     width="20px"
     height="20px"
     fill="none"
-    aria-hidden="true"
-    className="eye_svg__w-6 eye_svg__h-6 eye_svg__text-gray-800 eye_svg__dark:text-white"
     viewBox="0 0 24 24"
     aria-labelledby={titleId}
     {...props}

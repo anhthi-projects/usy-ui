@@ -14,8 +14,6 @@ const SvgClose = ({
     width="20px"
     height="20px"
     fill="none"
-    aria-hidden="true"
-    className="close_svg__w-6 close_svg__h-6 close_svg__text-gray-800 close_svg__dark:text-white"
     viewBox="0 0 24 24"
     aria-labelledby={titleId}
     {...props}

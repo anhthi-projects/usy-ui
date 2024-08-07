@@ -2,7 +2,7 @@ import React from "react";
 
 import { render, screen } from "@testing-library/react";
 
-import { EmailIcon, InfoCircleFilledIcon } from "../../Icon";
+import { EnvelopeIcon, InfoCircleIcon } from "../../Icon";
 import { Input } from "../index";
 
 const mockOnChange = jest.fn();
@@ -16,8 +16,8 @@ describe("Input component", () => {
           title="Email"
           placeholder="Enter your email"
           description="This field is empty"
-          iconLeft={<EmailIcon width="18px" height="18px" />}
-          iconRight={<InfoCircleFilledIcon width="18px" height="18px" />}
+          iconLeft={<EnvelopeIcon width="18px" height="18px" />}
+          iconRight={<InfoCircleIcon width="18px" height="18px" />}
           onChange={mockOnChange}
           onBlur={mockOnBlur}
           testId="email"

@@ -8,7 +8,7 @@ import { MarginProps, PaddingProps } from "@src/types/margin-padding.props";
 import { HeightProps, WidthProps } from "@src/types/width-height.props";
 
 type PureScrollableProps = {
-  widthProps: WidthProps;
+  widthProps?: WidthProps;
   heightProps?: HeightProps;
   paddingProps?: PaddingProps;
   marginProps?: MarginProps;
@@ -35,7 +35,7 @@ export const Scrollable: FC<ScrollableProps> = ({
     <div
       className={clsx("usy-scrollable-container", className)}
       style={{
-        ...widthProps,
+        ...(widthProps || { width: "100%" }),
         ...heightProps,
         ...(paddingProps || { paddingRight: usySpacing.px10 }),
         ...marginProps,

@@ -13,18 +13,19 @@ const SvgCaretLeft = ({
     xmlns="http://www.w3.org/2000/svg"
     width="20px"
     height="20px"
-    fill="currentColor"
+    fill="none"
     viewBox="0 0 24 24"
     aria-labelledby={titleId}
     {...props}
   >
     {title ? <title id={titleId}>{title}</title> : null}
-    <g data-name="Layer 2">
-      <path
-        d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64"
-        data-name="arrow-ios-back"
-      />
-    </g>
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M16 16.881V7.119a1 1 0 0 0-1.636-.772l-5.927 4.881a1 1 0 0 0 0 1.544l5.927 4.88a1 1 0 0 0 1.636-.77Z"
+    />
   </svg>
 );
 export default SvgCaretLeft;

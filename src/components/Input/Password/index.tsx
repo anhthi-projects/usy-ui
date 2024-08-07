@@ -2,7 +2,7 @@ import { ChangeEvent, FocusEvent, forwardRef, useState } from "react";
 
 import clsx from "clsx";
 
-import { EyeClosedIcon, EyeIcon } from "@src/components/Icon";
+import { EyeSlashIcon, EyeIcon } from "@src/components/Icon";
 import { useFieldName } from "@src/hooks/useFieldName";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
 
@@ -112,7 +112,7 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
                   style={{ cursor: "pointer" }}
                 />
               ) : (
-                <EyeClosedIcon
+                <EyeSlashIcon
                   onClick={() => setHidePassword(true)}
                   style={{ cursor: "pointer" }}
                 />
