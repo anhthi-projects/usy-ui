@@ -7,7 +7,7 @@ import { useOutsideClick } from "@src/hooks/useOutsideClick";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
 
 import { FieldTitle, PureFieldTitleProps } from "../FieldTitle";
-import { CaretDownIcon } from "../Icon";
+import { AngleDownIcon } from "../Icon";
 
 export type SelectItem = {
   label: ReactNode;
@@ -69,7 +69,7 @@ export const Select: FC<SelectProps> = ({
         ref={triggerRef}
       >
         {selectedItem.label}
-        <CaretDownIcon />
+        <AngleDownIcon />
       </div>
     );
   };

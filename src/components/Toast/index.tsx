@@ -13,6 +13,7 @@ import {
   CloseIcon,
   InfoCircleIcon,
   ExclamationCircleIcon,
+  BanIcon,
 } from "../Icon";
 
 type ToastType = "success" | "info" | "warning" | "error";
@@ -102,7 +103,7 @@ export const Toast: FC<ToastProps> = ({
   const error = (params: ToastParams) => {
     pushToast({
       type: "error",
-      statusIcon: ExclamationCircleIcon,
+      statusIcon: BanIcon,
       ...getPushToastRestProps(params),
     });
   };
@@ -147,7 +148,7 @@ export const Toast: FC<ToastProps> = ({
     )[0] as HTMLElement;
 
     closeIcon.onclick = closeToast;
-    toastList[toastId] = setTimeout(closeToast, timeout || 5000);
+    toastList[toastId] = setTimeout(closeToast, timeout || 500000);
   };
 
   const renderToast = () => {

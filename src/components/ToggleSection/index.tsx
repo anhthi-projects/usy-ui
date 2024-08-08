@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 import { ExtraCompProps } from "@src/types/extra-comp.props";
 
-import { CaretDownIcon } from "../Icon";
+import { AngleDownIcon } from "../Icon";
 
 export type ToggleSectionProps = {
   title: ReactNode;
@@ -51,7 +51,7 @@ export const ToggleSection: FC<ToggleSectionProps> = ({
         <label className="title" data-testid={`${testId}-header-title`}>
           {title}
         </label>
-        <CaretDownIcon
+        <AngleDownIcon
           onClick={handleToggle}
           className={clsx("arrow-icon", {
             "is-expanded": isExpand,

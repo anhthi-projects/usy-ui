@@ -7,7 +7,7 @@ import { ExtraCompProps } from "@src/types/extra-comp.props";
 import { WidthProps } from "@src/types/width-height.props";
 
 import { FieldTitle, PureFieldTitleProps } from "../FieldTitle";
-import { CloseCircleIcon } from "../Icon";
+import { CloseCircleSolidIcon } from "../Icon";
 
 type PureTagsProps = {
   title?: string;
@@ -82,7 +82,7 @@ export const Tags: FC<TagsProps> = ({
               data-testid={`${testId}-tag-item`}
             >
               {tagItem}
-              <CloseCircleIcon onClick={() => removeTag(tagItem)} />
+              <CloseCircleSolidIcon onClick={() => removeTag(tagItem)} />
             </span>
           );
         })}

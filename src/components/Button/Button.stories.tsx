@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ThemeProviderDecorator } from "../../../.storybook/decorators";
 import { RunningTimerIcon } from "../Icon";
+import { Flex } from "../Layout/Flex";
 
 import { Button } from "./index";
 
@@ -18,7 +19,7 @@ const meta: Meta<typeof Button> = {
 
 export const Types: Story = {
   render: () => (
-    <>
+    <Flex gap="20px">
       <Button variant="primary">Primary</Button>
       <Button variant="outline">Outline</Button>
       <Button variant="normal">Normal</Button>
@@ -40,25 +41,25 @@ export const Types: Story = {
       >
         Right Icon
       </Button>
-    </>
+    </Flex>
   ),
 };
 
 export const Sizes: Story = {
   render: () => (
-    <>
-      <Button variant="normal" size="large">
-        large
+    <Flex gap="20px" alignItems="center">
+      <Button variant="normal" size="small">
+        small
       </Button>
       &nbsp; &nbsp; &nbsp;
       <Button variant="normal" size="medium">
         medium
       </Button>
       &nbsp; &nbsp; &nbsp;
-      <Button variant="normal" size="small">
-        small
+      <Button variant="normal" size="large">
+        large
       </Button>
-    </>
+    </Flex>
   ),
 };
 

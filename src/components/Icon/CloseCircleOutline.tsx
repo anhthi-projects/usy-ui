@@ -4,7 +4,7 @@ interface SVGRProps {
   title?: string;
   titleId?: string;
 }
-const SvgCloseCircle = ({
+const SvgCloseCircleOutline = ({
   title,
   titleId,
   ...props
@@ -28,4 +28,4 @@ const SvgCloseCircle = ({
     />
   </svg>
 );
-export default SvgCloseCircle;
+export default SvgCloseCircleOutline;

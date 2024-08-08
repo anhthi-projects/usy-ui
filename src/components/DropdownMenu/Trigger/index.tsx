@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 
 import clsx from "clsx";
 
-import { CaretDownIcon } from "@src/components/Icon";
+import { AngleDownIcon } from "@src/components/Icon";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
 
 type PureTriggerProps = {
@@ -31,7 +31,7 @@ export const Trigger: FC<TriggerProps> = ({
       data-testid={testId}
     >
       {children}
-      <CaretDownIcon />
+      <AngleDownIcon />
     </div>
   );
 };
