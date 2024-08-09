@@ -53,6 +53,13 @@
     color: var(--usy-color-dark-7);
   }
 
+  &.variant-invisible {
+    background-color: transparent;
+    border: none;
+    filter: none;
+    color: var(--usy-color-dark-7);
+  }
+
   &.disabled {
     opacity: 0.6;
     cursor: not-allowed;
@@ -67,12 +74,12 @@
    */
 
   .left-icon {
-    margin-right: var(--usy-spacing-8px);
+    margin-right: var(--usy-spacing-6px);
     font-size: 0;
   }
 
   .right-icon {
-    margin-left: var(--usy-spacing-8px);
+    margin-left: var(--usy-spacing-6px);
     font-size: 0;
   }
 

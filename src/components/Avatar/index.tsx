@@ -1,10 +1,10 @@
-import { FC, useMemo } from "react";
+import { FC } from "react";
 
 import clsx from "clsx";
 
+import { useRandomColor } from "@src/hooks/useRandomColor";
 import { usyColors } from "@src/styles";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
-import { getRandomColor } from "@src/utils";
 
 type AvatarProps = {
   url: string;
@@ -25,10 +25,9 @@ export const Avatar: FC<AvatarProps> = ({
   className,
   testId,
 }) => {
+  const { color: bgColor } = useRandomColor();
   const sizeClassName = `size-${size}`;
   const variantClassName = `variant-${variant}`;
-
-  const bgColor = useMemo(() => getRandomColor(), []);
 
   return (
     <div

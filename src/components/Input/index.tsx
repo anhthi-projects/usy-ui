@@ -3,6 +3,7 @@ import {
   FocusEvent,
   ReactNode,
   forwardRef,
+  useEffect,
   useState,
 } from "react";
 
@@ -57,18 +58,22 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   },
   ref
 ) {
-  const [innerValue, setInnerValue] = useState(value);
+  const [inputValue, setInputValue] = useState(value);
   const { nameMemo } = useFieldName(name, "input");
+
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     const formattedValue = formatOnChange(e.target.value);
-    setInnerValue(formattedValue);
+    setInputValue(formattedValue);
     onChange?.(e, formattedValue);
   };
 
   const handleOnBlur = (e: FocusEvent<HTMLInputElement>) => {
     const formattedValue = formatOnBlur(e.target.value);
-    setInnerValue(formattedValue);
+    setInputValue(formattedValue);
     onBlur?.(e, formattedValue);
   };
 
@@ -82,7 +87,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         ref={ref}
         id={nameMemo}
         name={nameMemo}
-        value={innerValue}
+        value={inputValue}
         type={type}
         placeholder={placeholder}
         onChange={handleOnChange}

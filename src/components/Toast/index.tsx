@@ -5,8 +5,8 @@ import { createPortal } from "react-dom";
 import { renderToStaticMarkup } from "react-dom/server";
 
 import { useMounted } from "@src/hooks/useMounted";
+import { useTimeId } from "@src/hooks/useTimeId";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
-import { getCurrentTime } from "@src/utils/helpers";
 
 import {
   CheckCircleIcon,
@@ -51,6 +51,7 @@ export const Toast: FC<ToastProps> = ({
   const toastList: Record<string, number | undefined> = {};
   const toastQueueRef = createRef<HTMLDivElement>();
   const { isMounted } = useMounted();
+  const { id: toastId } = useTimeId("toast");
 
   useEffect(() => {
     if (!toastIns && isMounted) {
@@ -119,7 +120,6 @@ export const Toast: FC<ToastProps> = ({
     statusIcon: StatusIcon,
     timeout,
   }: PushToastProps) => {
-    const toastId = `toast-${getCurrentTime()}`;
     const toastContainer = document.createElement("div");
 
     toastContainer.id = toastId;
@@ -148,7 +148,7 @@ export const Toast: FC<ToastProps> = ({
     )[0] as HTMLElement;
 
     closeIcon.onclick = closeToast;
-    toastList[toastId] = setTimeout(closeToast, timeout || 500000);
+    toastList[toastId] = setTimeout(closeToast, timeout || 5000);
   };
 
   const renderToast = () => {

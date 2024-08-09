@@ -1,7 +1,10 @@
 export const getRandomColor = () =>
   "#" + Math.floor(Math.random() * 16777215).toString(16);
 
-export const getCurrentTime = () => new Date().getTime().toString();
+export const getUniqueTime = () => {
+  const now = new Date();
+  return `${now.getDate()}${now.getHours()}${now.getMinutes()}`;
+};
 
 /**
  * Replace Params

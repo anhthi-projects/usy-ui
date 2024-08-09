@@ -1,4 +1,10 @@
-import { ChangeEvent, FocusEvent, forwardRef, useState } from "react";
+import {
+  ChangeEvent,
+  FocusEvent,
+  forwardRef,
+  useEffect,
+  useState,
+} from "react";
 
 import clsx from "clsx";
 
@@ -53,16 +59,20 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     },
     ref
   ) {
-    const [innerValue, setInnerValue] = useState(value);
+    const [inputValue, setInputValue] = useState(value);
     const { nameMemo } = useFieldName(name, "textarea");
 
+    useEffect(() => {
+      setInputValue(value);
+    }, [value]);
+
     const handleOnChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-      setInnerValue(e.target.value);
+      setInputValue(e.target.value);
       onChange?.(e, e.target.value);
     };
 
     const handleOnBlur = (e: FocusEvent<HTMLTextAreaElement>) => {
-      setInnerValue(e.target.value);
+      setInputValue(e.target.value);
       onBlur?.(e, e.target.value);
     };
 
@@ -76,7 +86,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           ref={ref}
           id={nameMemo}
           name={nameMemo}
-          value={innerValue}
+          value={inputValue}
           data-testid={testId}
           placeholder={placeholder}
           onChange={handleOnChange}

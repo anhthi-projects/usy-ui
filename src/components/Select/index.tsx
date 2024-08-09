@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState } from "react";
+import { forwardRef, ReactNode, useState } from "react";
 
 import clsx from "clsx";
 
@@ -9,9 +9,10 @@ import { ExtraCompProps } from "@src/types/extra-comp.props";
 import { FieldTitle, PureFieldTitleProps } from "../FieldTitle";
 import { AngleDownIcon } from "../Icon";
 
-export type SelectItem = {
+export type SelectItem<T = any> = {
+  id: string | number;
   label: ReactNode;
-  value: string | number;
+  value: T;
 };
 
 type PureSelectProps = {
@@ -25,7 +26,7 @@ type SelectProps = PureSelectProps &
   PureFieldTitleProps &
   Partial<Pick<ExtraCompProps, "className" | "testId">>;
 
-export const Select: FC<SelectProps> = ({
+export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select({
   name,
   items = [],
   isOpen: initOpen,
@@ -35,7 +36,7 @@ export const Select: FC<SelectProps> = ({
   onChange,
   className,
   testId,
-}) => {
+}) {
   const [isOpen, setIsOpen] = useState(initOpen || false);
   const [selectedItem, setSelectedItem] = useState<SelectItem>(
     value || items[0]
@@ -85,7 +86,7 @@ export const Select: FC<SelectProps> = ({
           {items.map((item) => {
             return (
               <li
-                key={item.value}
+                key={item.id}
                 onClick={() => handleChange(item)}
                 aria-hidden="true"
                 className="item-container"
@@ -116,4 +117,4 @@ export const Select: FC<SelectProps> = ({
       {renderMenuOverlay()}
     </div>
   );
-};
+});

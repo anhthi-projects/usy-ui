@@ -7,7 +7,7 @@ import { ExtraCompProps } from "@src/types/extra-comp.props";
 import SvgLoadingCircle from "../Icon/LoadingCircle";
 
 export type ButtonType = "button" | "submit";
-export type ButtonVariant = "primary" | "outline" | "normal";
+export type ButtonVariant = "primary" | "outline" | "normal" | "invisible";
 export type ButtonSize = "small" | "medium" | "large";
 
 export type ButtonProps = {

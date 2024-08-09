@@ -1,4 +1,10 @@
-import { ChangeEvent, FocusEvent, forwardRef, useState } from "react";
+import {
+  ChangeEvent,
+  FocusEvent,
+  forwardRef,
+  useEffect,
+  useState,
+} from "react";
 
 import clsx from "clsx";
 
@@ -50,17 +56,20 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
     ref
   ) {
     const [hidePassword, setHidePassword] = useState(true);
-    const [innerValue, setInnerValue] = useState(value);
-
+    const [inputValue, setInputValue] = useState(value);
     const { nameMemo } = useFieldName(name, "password");
 
+    useEffect(() => {
+      setInputValue(value);
+    }, [value]);
+
     const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-      setInnerValue(e.target.value);
+      setInputValue(e.target.value);
       onChange?.(e, e.target.value);
     };
 
     const handleOnBlur = (e: FocusEvent<HTMLInputElement>) => {
-      setInnerValue(e.target.value);
+      setInputValue(e.target.value);
       onBlur?.(e, e.target.value);
     };
 
@@ -75,7 +84,7 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
           id={nameMemo}
           name={nameMemo}
           type={hidePassword ? "password" : "text"}
-          value={innerValue}
+          value={inputValue}
           placeholder={placeholder}
           onChange={handleOnChange}
           onBlur={handleOnBlur}
