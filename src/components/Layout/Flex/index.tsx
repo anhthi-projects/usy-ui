@@ -1,7 +1,6 @@
 import { FC } from "react";
 
-import { ExtraCompProps } from "@src/types/extra-comp.props";
-
+import { ExtraCompProps } from "../../../types/extra-comp.props";
 import { CommonBoxFlexProps } from "../Box";
 
 type PureFlexProps = {
@@ -15,9 +14,7 @@ type PureFlexProps = {
   gap?: string;
 };
 
-type FlexProps = CommonBoxFlexProps &
-  PureFlexProps &
-  Partial<Pick<ExtraCompProps, "className" | "testId">>;
+type FlexProps = CommonBoxFlexProps & PureFlexProps & ExtraCompProps;
 
 export const Flex: FC<FlexProps> = ({
   as: Tag = "div",

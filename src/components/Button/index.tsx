@@ -2,8 +2,7 @@ import { ReactNode, forwardRef } from "react";
 
 import clsx from "clsx";
 
-import { ExtraCompProps } from "@src/types/extra-comp.props";
-
+import { ExtraCompProps } from "../../types/extra-comp.props";
 import SvgLoadingCircle from "../Icon/LoadingCircle";
 
 export type ButtonType = "button" | "submit";
@@ -22,7 +21,7 @@ export type ButtonProps = {
   isBlock?: boolean;
   children: ReactNode;
   onClick?: () => void;
-} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
+} & ExtraCompProps;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(

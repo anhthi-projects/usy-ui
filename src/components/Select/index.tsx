@@ -2,10 +2,10 @@ import { forwardRef, ReactNode, useState } from "react";
 
 import clsx from "clsx";
 
-import { useFieldName } from "@src/hooks/useFieldName";
+import { useNameMemo } from "@src/hooks/useNameMemo";
 import { useOutsideClick } from "@src/hooks/useOutsideClick";
-import { ExtraCompProps } from "@src/types/extra-comp.props";
 
+import { ExtraCompProps } from "../../types/extra-comp.props";
 import { FieldTitle, PureFieldTitleProps } from "../_internal/FieldTitle";
 import { AngleDownIcon } from "../Icon";
 
@@ -22,9 +22,7 @@ type PureSelectProps = {
   onChange?: (item: SelectItem) => void;
 };
 
-type SelectProps = PureSelectProps &
-  PureFieldTitleProps &
-  Partial<Pick<ExtraCompProps, "className" | "testId">>;
+type SelectProps = PureSelectProps & PureFieldTitleProps & ExtraCompProps;
 
 export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
   {
@@ -45,7 +43,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
     value || items[0]
   );
 
-  const { nameMemo } = useFieldName(name, "select");
+  const { nameMemo } = useNameMemo(name, "select");
 
   const handleOutsideClick = () => {
     setIsOpen(false);

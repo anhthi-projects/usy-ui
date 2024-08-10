@@ -3,15 +3,15 @@ import { FC, ReactNode } from "react";
 import clsx from "clsx";
 
 import { AngleDownIcon } from "@src/components/Icon";
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+
+import { ExtraCompProps } from "../../../types/extra-comp.props";
 
 type PureTriggerProps = {
   hasBorder?: boolean;
   children: ReactNode;
 };
 
-type TriggerProps = PureTriggerProps &
-  Partial<Pick<ExtraCompProps, "className" | "testId">>;
+type TriggerProps = PureTriggerProps & ExtraCompProps;
 
 export const Trigger: FC<TriggerProps> = ({
   children,

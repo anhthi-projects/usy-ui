@@ -4,8 +4,8 @@ import clsx from "clsx";
 import { createPortal } from "react-dom";
 
 import { useMounted } from "@src/hooks/useMounted";
-import { ExtraCompProps } from "@src/types/extra-comp.props";
 
+import { ExtraCompProps } from "../../types/extra-comp.props";
 import { CloseIcon } from "../Icon";
 
 type ModalProps = {

@@ -2,10 +2,10 @@ import { ChangeEvent, FC, useRef, useState } from "react";
 
 import clsx from "clsx";
 
-import { useFieldName } from "@src/hooks/useFieldName";
-import { ExtraCompProps } from "@src/types/extra-comp.props";
-import { WidthProps } from "@src/types/width-height.props";
+import { useNameMemo } from "@src/hooks/useNameMemo";
 
+import { ExtraCompProps } from "../../types/extra-comp.props";
+import { WidthProps } from "../../types/width-height.props";
 import { FieldTitle, PureFieldTitleProps } from "../_internal/FieldTitle";
 import { CloseCircleSolidIcon } from "../Icon";
 
@@ -18,9 +18,7 @@ type PureTagsProps = {
   onRemove?: (tags: string[], tag: string) => void;
 };
 
-type TagsProps = PureTagsProps &
-  PureFieldTitleProps &
-  Partial<Pick<ExtraCompProps, "className" | "testId">>;
+type TagsProps = PureTagsProps & PureFieldTitleProps & ExtraCompProps;
 
 export const Tags: FC<TagsProps> = ({
   name,
@@ -37,7 +35,7 @@ export const Tags: FC<TagsProps> = ({
   const [tags, setTags] = useState(initTags || []);
   const [inputTag, setInputTag] = useState("");
   const inputTagRef = useRef<HTMLInputElement>(null);
-  const { nameMemo } = useFieldName(name, "tags");
+  const { nameMemo } = useNameMemo(name, "tags");
 
   const handleInputTagChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     setInputTag(target.value);

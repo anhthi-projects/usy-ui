@@ -2,7 +2,7 @@ import { CSSProperties, FC, ReactNode, useMemo } from "react";
 
 import clsx from "clsx";
 
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+import { ExtraCompProps } from "../../types/extra-comp.props";
 
 import { getColor, getTypeCss } from "./Badge.utils";
 
@@ -20,7 +20,7 @@ type BadgeProps = {
   size?: BadgeSize;
   color?: BadgeColor;
   children: ReactNode;
-} & Partial<Pick<ExtraCompProps, "className" | "testId">>;
+} & ExtraCompProps;
 
 export const Badge: FC<BadgeProps> = ({
   type = "outline",

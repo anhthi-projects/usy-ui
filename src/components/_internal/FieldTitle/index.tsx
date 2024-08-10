@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import clsx from "clsx";
 
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+import { ExtraCompProps } from "../../../types/extra-comp.props";
 
 export type PureFieldTitleProps = {
   name?: string;
@@ -10,8 +10,7 @@ export type PureFieldTitleProps = {
   hasAsterisk?: boolean;
 };
 
-type FieldTitleProps = PureFieldTitleProps &
-  Partial<Pick<ExtraCompProps, "className" | "testId">>;
+type FieldTitleProps = PureFieldTitleProps & ExtraCompProps;
 
 export const FieldTitle: FC<FieldTitleProps> = ({
   name,

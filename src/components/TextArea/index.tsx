@@ -8,10 +8,10 @@ import {
 
 import clsx from "clsx";
 
-import { useFieldName } from "@src/hooks/useFieldName";
+import { useNameMemo } from "@src/hooks/useNameMemo";
 import { usyElements } from "@src/styles";
-import { type ExtraCompProps } from "@src/types/extra-comp.props";
 
+import { type ExtraCompProps } from "../../types/extra-comp.props";
 import { FieldTitle } from "../_internal/FieldTitle";
 import { PureInputProps } from "../Input";
 import { InputDescription } from "../Input/components/InputDescription";
@@ -60,7 +60,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     ref
   ) {
     const [inputValue, setInputValue] = useState(value);
-    const { nameMemo } = useFieldName(name, "textarea");
+    const { nameMemo } = useNameMemo(name, "textarea");
 
     useEffect(() => {
       setInputValue(value);

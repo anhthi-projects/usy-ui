@@ -2,11 +2,11 @@ import { FC, ReactNode } from "react";
 
 import clsx from "clsx";
 
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+import { ExtraCompProps } from "../../../types/extra-comp.props";
 
 type DrawerContentProps = {
   children: ReactNode;
-} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
+} & ExtraCompProps;
 
 export const DrawerContent: FC<DrawerContentProps> = ({
   children,

@@ -5,9 +5,9 @@ import { createPortal } from "react-dom";
 import { renderToStaticMarkup } from "react-dom/server";
 
 import { useMounted } from "@src/hooks/useMounted";
-import { ExtraCompProps } from "@src/types/extra-comp.props";
 import { getUniqueTime } from "@src/utils";
 
+import { ExtraCompProps } from "../../types/extra-comp.props";
 import {
   CheckCircleIcon,
   CloseIcon,
@@ -39,7 +39,7 @@ interface ToastInstance {
 
 type ToastProps = {
   containerElement?: HTMLElement;
-} & Partial<Pick<ExtraCompProps, "className" | "testId">>;
+} & ExtraCompProps;
 
 export let toastIns: ToastInstance;
 

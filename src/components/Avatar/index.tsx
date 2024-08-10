@@ -4,7 +4,8 @@ import clsx from "clsx";
 
 import { useRandomColor } from "@src/hooks/useRandomColor";
 import { usyColors } from "@src/styles";
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+
+import { ExtraCompProps } from "../../types/extra-comp.props";
 
 type AvatarProps = {
   url: string;
@@ -13,7 +14,7 @@ type AvatarProps = {
   variant?: "circle" | "rounded";
   size?: "extra-small" | "small" | "medium" | "large" | "extra-large";
   onClick?: () => void;
-} & Partial<Pick<ExtraCompProps, "className" | "testId">>;
+} & ExtraCompProps;
 
 export const Avatar: FC<AvatarProps> = ({
   url,

@@ -4,7 +4,8 @@ import clsx from "clsx";
 import { createPortal } from "react-dom";
 
 import { useMounted } from "@src/hooks/useMounted";
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+
+import { ExtraCompProps } from "../../types/extra-comp.props";
 
 export { DrawerHeader } from "./Header";
 export { DrawerContent } from "./Content";
@@ -19,7 +20,7 @@ type DrawerProps = {
   footer?: ReactNode;
   containerElement?: HTMLElement;
   zIndex?: number;
-} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
+} & ExtraCompProps;
 
 export const Drawer: FC<DrawerProps> = ({
   isOpen,

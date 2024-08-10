@@ -2,8 +2,7 @@ import { FC, ReactNode, useState } from "react";
 
 import clsx from "clsx";
 
-import { ExtraCompProps } from "@src/types/extra-comp.props";
-
+import { ExtraCompProps } from "../../types/extra-comp.props";
 import { AngleDownIcon } from "../Icon";
 
 export type ToggleSectionProps = {

@@ -2,13 +2,13 @@ import { ReactNode, forwardRef, useState } from "react";
 
 import clsx from "clsx";
 
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+import { ExtraCompProps } from "../../types/extra-comp.props";
 
 type CheckboxProps = {
   label: ReactNode;
   isChecked?: boolean;
   onChange?: (checked: boolean) => void;
-} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
+} & ExtraCompProps;
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   function Checkbox(

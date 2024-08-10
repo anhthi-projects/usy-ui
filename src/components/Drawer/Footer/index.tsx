@@ -3,7 +3,8 @@ import { FC } from "react";
 import clsx from "clsx";
 
 import { Button, ButtonType } from "@src/components/Button";
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+
+import { ExtraCompProps } from "../../../types/extra-comp.props";
 
 interface DrawerButtonProps {
   label: string;
@@ -14,7 +15,7 @@ interface DrawerButtonProps {
 type DrawerFooterProps = {
   alignContent?: "left" | "center" | "right";
   buttons: DrawerButtonProps[];
-} & Partial<Pick<ExtraCompProps, "ref" | "className" | "testId">>;
+} & ExtraCompProps;
 
 export const DrawerFooter: FC<DrawerFooterProps> = ({
   alignContent = "right",

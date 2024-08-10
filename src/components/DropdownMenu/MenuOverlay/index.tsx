@@ -3,15 +3,15 @@ import { Children, cloneElement, forwardRef, ReactElement } from "react";
 import clsx from "clsx";
 
 import { usyZIndex } from "@src/styles";
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+
+import { ExtraCompProps } from "../../../types/extra-comp.props";
 
 type PureMenuOverlayProps = {
   zIndex?: number;
   children: ReactElement[];
 };
 
-type MenuOverlayProps = PureMenuOverlayProps &
-  Partial<Pick<ExtraCompProps, "className" | "testId">>;
+type MenuOverlayProps = PureMenuOverlayProps & ExtraCompProps;
 
 export const MenuOverlay = forwardRef<HTMLDivElement, MenuOverlayProps>(
   function MenuOverlay(

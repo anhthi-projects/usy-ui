@@ -9,9 +9,9 @@ import {
 
 import clsx from "clsx";
 
-import { useFieldName } from "@src/hooks/useFieldName";
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+import { useNameMemo } from "@src/hooks/useNameMemo";
 
+import { ExtraCompProps } from "../../types/extra-comp.props";
 import { FieldTitle, PureFieldTitleProps } from "../_internal/FieldTitle";
 
 import { InputDescription } from "./components/InputDescription";
@@ -59,7 +59,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   ref
 ) {
   const [inputValue, setInputValue] = useState(value);
-  const { nameMemo } = useFieldName(name, "input");
+  const { nameMemo } = useNameMemo(name, "input");
 
   useEffect(() => {
     setInputValue(value);

@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 
 import clsx from "clsx";
 
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+import { ExtraCompProps } from "../../types/extra-comp.props";
 
 type TypographyTag =
   | "small"
@@ -41,7 +41,7 @@ type TypographyProps = {
   align?: TypographyAlign;
   noMargin?: boolean;
   children: ReactNode;
-} & Partial<Pick<ExtraCompProps, "className" | "testId">>;
+} & ExtraCompProps;
 
 export const Typography: FC<TypographyProps> = ({
   tag: Tag = "p",

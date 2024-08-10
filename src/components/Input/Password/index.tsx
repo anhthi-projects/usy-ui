@@ -9,10 +9,10 @@ import {
 import clsx from "clsx";
 
 import { EyeSlashIcon, EyeIcon } from "@src/components/Icon";
-import { useFieldName } from "@src/hooks/useFieldName";
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+import { useNameMemo } from "@src/hooks/useNameMemo";
 
 import { PureInputProps } from "..";
+import { ExtraCompProps } from "../../../types/extra-comp.props";
 import { FieldTitle } from "../../_internal/FieldTitle";
 import { InputDescription } from "../components/InputDescription";
 import { InputIconLeft } from "../components/InputIconLeft";
@@ -33,8 +33,7 @@ type PickedInputProps = Pick<
   | "onBlur"
 >;
 
-type PasswordProps = PickedInputProps &
-  Partial<Pick<ExtraCompProps, "className" | "testId">>;
+type PasswordProps = PickedInputProps & ExtraCompProps;
 
 export const Password = forwardRef<HTMLInputElement, PasswordProps>(
   function Password(
@@ -57,7 +56,7 @@ export const Password = forwardRef<HTMLInputElement, PasswordProps>(
   ) {
     const [hidePassword, setHidePassword] = useState(true);
     const [inputValue, setInputValue] = useState(value);
-    const { nameMemo } = useFieldName(name, "password");
+    const { nameMemo } = useNameMemo(name, "password");
 
     useEffect(() => {
       setInputValue(value);

@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import clsx from "clsx";
 
-import { ExtraCompProps } from "@src/types/extra-comp.props";
+import { ExtraCompProps } from "../../types/extra-comp.props";
 
 type Image = {
   url: string;
@@ -12,7 +12,7 @@ type Image = {
 
 type ImageGalleryProps = {
   images: Image[];
-} & Partial<Pick<ExtraCompProps, "className" | "testId">>;
+} & ExtraCompProps;
 
 export const ImageGallery: FC<ImageGalleryProps> = ({
   images,
