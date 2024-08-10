@@ -6,7 +6,7 @@ import { useFieldName } from "@src/hooks/useFieldName";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
 import { WidthProps } from "@src/types/width-height.props";
 
-import { FieldTitle, PureFieldTitleProps } from "../FieldTitle";
+import { FieldTitle, PureFieldTitleProps } from "../_internal/FieldTitle";
 import { CloseCircleSolidIcon } from "../Icon";
 
 type PureTagsProps = {

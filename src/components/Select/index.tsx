@@ -6,7 +6,7 @@ import { useFieldName } from "@src/hooks/useFieldName";
 import { useOutsideClick } from "@src/hooks/useOutsideClick";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
 
-import { FieldTitle, PureFieldTitleProps } from "../FieldTitle";
+import { FieldTitle, PureFieldTitleProps } from "../_internal/FieldTitle";
 import { AngleDownIcon } from "../Icon";
 
 export type SelectItem<T = any> = {
@@ -26,17 +26,20 @@ type SelectProps = PureSelectProps &
   PureFieldTitleProps &
   Partial<Pick<ExtraCompProps, "className" | "testId">>;
 
-export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select({
-  name,
-  items = [],
-  isOpen: initOpen,
-  title,
-  value,
-  hasAsterisk,
-  onChange,
-  className,
-  testId,
-}) {
+export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select(
+  {
+    name,
+    items = [],
+    isOpen: initOpen,
+    title,
+    value,
+    hasAsterisk,
+    onChange,
+    className,
+    testId,
+  },
+  ref
+) {
   const [isOpen, setIsOpen] = useState(initOpen || false);
   const [selectedItem, setSelectedItem] = useState<SelectItem>(
     value || items[0]
@@ -104,6 +107,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(function Select({
     <div
       className={clsx("usy-select-container", className)}
       data-testid={testId}
+      ref={ref}
     >
       {title && (
         <FieldTitle

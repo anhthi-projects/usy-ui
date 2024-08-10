@@ -12,7 +12,7 @@ import clsx from "clsx";
 import { useFieldName } from "@src/hooks/useFieldName";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
 
-import { FieldTitle, PureFieldTitleProps } from "../FieldTitle";
+import { FieldTitle, PureFieldTitleProps } from "../_internal/FieldTitle";
 
 import { InputDescription } from "./components/InputDescription";
 import { InputIconLeft } from "./components/InputIconLeft";

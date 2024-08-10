@@ -12,7 +12,7 @@ import { useFieldName } from "@src/hooks/useFieldName";
 import { usyElements } from "@src/styles";
 import { type ExtraCompProps } from "@src/types/extra-comp.props";
 
-import { FieldTitle } from "../FieldTitle";
+import { FieldTitle } from "../_internal/FieldTitle";
 import { PureInputProps } from "../Input";
 import { InputDescription } from "../Input/components/InputDescription";
 

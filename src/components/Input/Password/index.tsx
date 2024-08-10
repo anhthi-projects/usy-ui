@@ -13,7 +13,7 @@ import { useFieldName } from "@src/hooks/useFieldName";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
 
 import { PureInputProps } from "..";
-import { FieldTitle } from "../../FieldTitle";
+import { FieldTitle } from "../../_internal/FieldTitle";
 import { InputDescription } from "../components/InputDescription";
 import { InputIconLeft } from "../components/InputIconLeft";
 import { InputIconRight } from "../components/InputIconRight";

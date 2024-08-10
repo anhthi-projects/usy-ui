@@ -5,8 +5,8 @@ import { createPortal } from "react-dom";
 import { renderToStaticMarkup } from "react-dom/server";
 
 import { useMounted } from "@src/hooks/useMounted";
-import { useTimeId } from "@src/hooks/useTimeId";
 import { ExtraCompProps } from "@src/types/extra-comp.props";
+import { getUniqueTime } from "@src/utils";
 
 import {
   CheckCircleIcon,
@@ -51,7 +51,6 @@ export const Toast: FC<ToastProps> = ({
   const toastList: Record<string, number | undefined> = {};
   const toastQueueRef = createRef<HTMLDivElement>();
   const { isMounted } = useMounted();
-  const { id: toastId } = useTimeId("toast");
 
   useEffect(() => {
     if (!toastIns && isMounted) {
@@ -122,6 +121,7 @@ export const Toast: FC<ToastProps> = ({
   }: PushToastProps) => {
     const toastContainer = document.createElement("div");
 
+    const toastId = `toast-${getUniqueTime()}`;
     toastContainer.id = toastId;
     toastContainer.className = `toast-container ${type}`;
     testId && toastContainer.setAttribute("data-testid", testId);

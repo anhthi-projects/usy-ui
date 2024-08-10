@@ -16,7 +16,6 @@
   . Toast, Drawer, Modal will not prevent SEO
   . Change theme in SSR
 
-- Add ref to all components
 - Fix Storybook viewport
 - Check all UI cases in Storybook
 - Optimize components (useMemo, memo)
